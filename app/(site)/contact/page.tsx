@@ -99,4 +99,4 @@ function Contact () {
     )
 }
 
-export default Contact2;
+export default Contact;
