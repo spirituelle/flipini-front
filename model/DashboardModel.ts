@@ -1,5 +1,5 @@
 import {CardModel} from './CardModel'
-import {MagasinModel} from './MagasinModel'
+import {MagasinModel} from './MagasinDetailsModel'
 
 export interface DashboardModel{
     status:String,

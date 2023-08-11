@@ -1,5 +1,5 @@
 // import { BookImagesModel } from './BookImagesModel';
-// import { MagasinModel } from './MagasinModel';
+// import { MagasinModel } from './MagasinDetailsModel';
 
 export interface BookDetailsModel{
     book_id: number,
