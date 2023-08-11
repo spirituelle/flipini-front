@@ -1,0 +1,219 @@
+
+
+
+// .buttonSidebar {
+//     position: absolute;
+//     height: 100%;
+//     width: 64px;
+//     vertical-align: middle;
+//     top: 0;
+//     background: #fff;
+//     transition: all .2s ease-in-out;
+//     z-index: 8;
+// }
+// .buttonSidebar.left {
+//     left: 0;
+// }
+// .buttonSidebar.right {
+//     right: 0;
+// }
+// .flipini-arrow {
+//     height: 90%;
+//     opacity: .88;
+//     background-repeat: no-repeat;
+//     background-position: 50%;
+//     transition: transform .3s;
+//     font-weight: 100;
+//     font-size: 74px;
+//     line-height: 28px;
+// 	font-family: Open Sans,sans-serif;
+// 	width: 100%;
+// }
+.header-catalog{
+  height: 60px;
+}
+.catalog-page .fullscreen {
+	width: 100%;
+  height: calc(100vh - 60px);
+  .swipers-container{
+    height: calc(100% - 49px);
+    .mySwiper{
+      height: 100%;
+    }
+  }
+}
+.navigation-button{
+  position: absolute;
+    height: 100%;
+    width: 64px;
+    vertical-align: middle;
+    top: 0;
+    background: transparent;
+    transition: all .2s ease-in-out;
+    z-index: 8;
+
+}
+.nav-prev, .nav-next{
+  display: block;
+  height: 90%;
+  opacity: .88;
+  // background-repeat: no-repeat;
+  // background-position: 50%;
+  transition: transform .3s;
+  font-weight: 100;
+  // font-size: 74px;
+  // line-height: 28px;
+  // font-family: Open Sans,sans-serif;
+  // position: absolute;
+  // top: 0px;
+  width: 100%;
+  // height: var(--swiper-navigation-size);
+  // margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color,var(--swiper-theme-color))
+}
+.nav-next:after{
+  content: 'next';
+}
+.nav-prev:after{
+  content: 'prev';
+}
+.nav-prev:after, .nav-next:after {
+  font-family: swiper-icons;
+  font-size: var(--swiper-navigation-size);
+  text-transform: none!important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+  
+}
+.navigation-button-prev{
+  left: 0
+}
+.navigation-button-next{
+  right: 0
+}
+
+.nav-last, .nav-first{
+  height: 10%;
+  font-size: 10px;
+  width: 100%;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    // background: #fff;
+    // background-color: #eee;
+  }
+  .catalog-top-nav{
+    height: 3rem;
+    .catalog-actions{
+      // height: 100%;
+      padding: 0 .7rem;
+      line-height: 50px;
+      transition: all .25s ease-in-out;
+    }
+  }
+  .swipers-container{
+    position: relative;
+    .thumbs-container{
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      // opacity: 1;
+      // background-color: black !important;
+      z-index: 99;
+      transition: visibility 0s, opacity 0.3s linear;
+
+
+    }
+    .backdrop{
+      position: absolute;
+      transition: opacity 0.3s linear;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: .6;
+      z-index: 28;
+    }
+  }
+  
+.swiper-slide{
+    max-width: 100%;
+    max-height:100%;
+    // margin-top: 5px;
+    display: flex !important;
+    justify-content: center;
+}
+.slide, .slide .goToCatalogButton {
+    position: relative;
+}
+.swiper-zoom-container{
+  transition: transform .3s ease-in-out;
+  margin: 0;
+  justify-content: center;
+}
+.swiper-zoom-target{
+  transition: transform .3s ease-in-out;
+  width: 100%;
+}
+.slide {
+    // border: 1px solid #ccc;
+    margin: auto;
+    display: inline-block;
+    vertical-align: middle;
+    // transition: height .25s,width .25s;
+}
+  .swiper-slide img {
+	display: block;
+	// width: 100%;
+	width: 100%;
+	// object-fit: cover;
+  }
+  .slideWrapper{
+	// border: 1px solid #ccc;
+    margin: auto;
+    display: inline-block;
+    vertical-align: middle;
+	transition: height .25s,width .25s;
+	position: relative;
+	position: relative;
+    height: 100%;
+  }
+  .slideWrapper.doublePage {
+    width: 50%;
+    display: inline-block;
+}
+
+.addFavoriteStar.left {
+    left: 5px;
+}
+.addFavoriteStar {
+    position: absolute;
+    z-index: 30;
+    color: #484848;
+    opacity: .5;
+}
+.swiper-image{
+	//   height: auto;
+	// //   width: 300px;
+	//   object-fit: scale-down;
+	  
+    transition: filter .25s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
