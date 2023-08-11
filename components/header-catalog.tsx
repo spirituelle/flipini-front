@@ -26,7 +26,7 @@ function Header () {
         }
     }, [])
     function openMobileMenu () {
-        document.querySelector( 'body' ).classList.add( 'mmenu-active' );
+        document.querySelector( 'body' )?.classList.add( 'mmenu-active' );
     }
     const {systemTheme , theme, setTheme} = useTheme ();
 

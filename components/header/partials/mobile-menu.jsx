@@ -19,7 +19,7 @@ function MobileMenu () {
     }, [pathname] )
 
     function hideMobileMenu () {
-        document.querySelector( 'body' ).classList.remove( 'mmenu-active' );
+        document.querySelector( 'body' )?.classList.remove( 'mmenu-active' );
     }
 
     function onSearchChange ( e ) {
