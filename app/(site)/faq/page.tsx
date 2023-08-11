@@ -27,7 +27,7 @@ function FAQ () {
 
                     <Accordion adClass="accordion-rounded">
                         <Card title="Qu'est-ce que flipini.fr?" adClass="card-box card-sm bg-light">
-                        Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.
+                        Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, lflipini.frélectroménager, le bricolage, la mode et bien d&apos;autres domaines. L&apos;application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.
                         </Card>
 
                         <Card title="Mes données seront-elles utilisées après mon inscription?" adClass="card-box card-sm bg-light">
@@ -47,7 +47,7 @@ function FAQ () {
 
                     <Accordion adClass="accordion-rounded">
                         <Card title="Le catalogue de mon magasin préféré n'est pas en ligne. Comment se fait-il ?" adClass="card-box card-sm bg-light">
-                        C'est bien dommage. Il y a deux raisons possibles pour lesquelles le catalogue n'est pas en ligne : soit que le catalogue de votre magasin préféré n’est pas encore disponible sur notre site, dans ce cas, vous pouvez nous communiquer le nom du magasin via le formulaire de contact. Nous ferons de notre mieux pour qu’il soit en ligne dans l’espace d’une semaine. Soit que le magasin n'ait simplement pas de catalogue ou brochure disponible. Nous ferons de notre mieux pour placer le catalogue dès qu’il sera disponible!
+                        C&apos;est bien dommage. Il y a deux raisons possibles pour lesquelles le catalogue nflipini.frest pas en ligne : soit que le catalogue de votre magasin préféré n’est pas encore disponible sur notre site, dans ce cas, vous pouvez nous communiquer le nom du magasin via le formulaire de contact. Nous ferons de notre mieux pour qu’il soit en ligne dans l’espace d’une semaine. Soit que le magasin n&apos;ait simplement pas de catalogue ou brochure disponible. Nous ferons de notre mieux pour placer le catalogue dès qu’il sera disponible!
                         </Card>
 
                         <Card title="Quand publiez-vous les tout derniers catalogues ?" adClass="card-box card-sm bg-light">

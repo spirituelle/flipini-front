@@ -35,12 +35,12 @@ export default function Error404() {
         <div style={{marginTop: "6rem", position: "relative"}}>
           
           <div className="message-404">
-            <h1>Cette page n'existe pas (encore).</h1>
+            <h1>Cette page n&apos;existe pas (encore).</h1>
             {/* <Link href="/" className="btn btn-outline-primary"><span>Retournez à l'accueil</span><i className="icon-long-arrow-right"></i></Link> */}
 
             <a href="https://flipini.fr" className="btn btn-outline-primary">
 
-                <span>Retournez à l'accueil</span>
+                <span>Retournez à l&apos;accueil</span>
 
                 <span><i className="icon icon-arrow-right"></i></span>
 

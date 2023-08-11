@@ -51,7 +51,7 @@ function Footer () {
                                     <img src="/images/app-icon.png" className="footer-logo" alt="Footer Logo" width="105" height="25" />
                                 </Link>
 
-                                <p>Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit. </p>
+                                <p>Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, lflipini.frélectroménager, le bricolage, la mode et bien d&apos;autres domaines. L&apos;application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit. </p>
 
                                 {/* <div className="widget-about-info">
                                     <div className="flex flex-row">

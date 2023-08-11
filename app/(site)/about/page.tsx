@@ -52,7 +52,7 @@ export default function About2 () {
                         <div className="col-lg-10 offset-lg-1">
                             <div className="about-text text-center mt-3">
                                 <h2 className="title text-center mb-2">Qui sommes nous?</h2>
-                                <p>Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit. </p>
+                                <p>Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l&apos;électroménager, le bricolage, la mode et bien d&apos;autres domaines. L&apos;application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit. </p>
                                 {/* <img src="images/about/about-2/signature.png" alt="signature" className="mx-auto mb-5" width="140" height="46" />
                                 <img src="images/about/about-2/img-1.jpg" alt="temp" className="mx-auto mb-6" width="933" height="390" /> */}
                             </div>
@@ -79,7 +79,7 @@ export default function About2 () {
                                 </span>
                                 <div className="icon-box-content">
                                     <h3 className="icon-box-title">Notre vision</h3>
-                                    <p className="md:px-20">Nous nous efforçons de vous fournir des informations précises et à jour, afin que vous puissiez prendre des décisions éclairées lors de vos achats. Votre satisfaction est notre priorité, alors n'hésitez pas à nous contacter si vous avez des questions, des suggestions ou des commentaires.</p>
+                                    <p className="md:px-20">Nous nous efforçons de vous fournir des informations précises et à jour, afin que vous puissiez prendre des décisions éclairées lors de vos achats. Votre satisfaction est notre priorité, alors n&apos;hésitez pas à nous contacter si vous avez des questions, des suggestions ou des commentaires.</p>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ export default function About2 () {
                                 </span>
                                 <div className="icon-box-content">
                                     <h3 className="icon-box-title">Made With Love</h3>
-                                    <p className="md:px-20">Merci d'utiliser Flipini et profitez pleinement de vos séances de préparation shopping à votre magasin préféré !</p>
+                                    <p className="md:px-20">Merci d&apos;utiliser Flipini et profitez pleinement de vos séances de préparation shopping à votre magasin préféré !</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ export default function About2 () {
                                     <div className="count-wrapper ">
                                         <span className="count" data-from="0" data-to="10" data-speed="3000" data-refresh-interval="50">0</span>+
                                     </div>
-                                    <h3 className="count-title ">Ans d'activité</h3>
+                                    <h3 className="count-title ">Ans d&apos;activité</h3>
                                 </div>
                             </div>
 
