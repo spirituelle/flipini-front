@@ -11,32 +11,32 @@ export default function About2 () {
             for ( let i = 0; i < items.length; i++ ) {
     
                 let item = items[ i ];
-                let amount = parseInt( item.getAttribute( 'data-to' ), 10 ) - parseInt( item.getAttribute( 'data-from' ), 10 );
-                let time = parseInt( item.getAttribute( 'data-speed' ), 10 );
-                let interval = parseInt( item.getAttribute( 'data-refresh-interval' ), 10 );
+                let amount = parseInt( item.getAttribute( 'data-to' )!, 10 ) - parseInt( item.getAttribute( 'data-from' )!, 10 );
+                let time = parseInt( item.getAttribute( 'data-speed' )!, 10 );
+                let interval = parseInt( item.getAttribute( 'data-refresh-interval' )!, 10 );
                 let pt = 0;
-                let height = item.parentElement.parentElement.parentElement.offsetTop;
                 let flag = 0;
     
-                document.addEventListener( "scroll", countToScrollHandler, true );
+                document.addEventListener( "scroll", () => countToScrollHandler(amount, time, interval, pt, flag, item), true );
     
-                function countToScrollHandler () {
-                    if ( pt <= time && height >= window.pageYOffset ) {
-                        if ( 0 === flag ) {
-                            let timerId = setInterval( () => {
-                                if ( pt >= time ) {
-                                    clearInterval( timerId );
-                                }
-    
-                                item.innerHTML = parseInt( ( pt * amount ) / time );
-                                pt = pt + interval;
-                            }, interval );
-                        }
-    
-                        flag = 1;
-                    }
-                }
+              
             }
+        }
+    }
+    function countToScrollHandler (amount: number, time: number, interval: number, pt: number, flag: number, item: Element) {
+        if ( pt <= time  ) {
+            if ( 0 === flag ) {
+                let timerId = setInterval( () => {
+                    if ( pt >= time ) {
+                        clearInterval( timerId );
+                    }
+
+                    item.innerHTML =   (( pt * amount ) / time).toString();
+                    pt = pt + interval;
+                }, interval );
+            }
+
+            flag = 1;
         }
     }
     useEffect( () => {
