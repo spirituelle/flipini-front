@@ -40,7 +40,7 @@ function FAQ () {
                         </Card>
 
                         <Card title="Comment suivre un magasin?" adClass="card-box card-sm bg-light"  >
-                        Vous pouvez ajouter un magasin dans vos favoris en appuyant sur le petit cœur. Ce magasin sera directement ajouté à "Mes magasins".
+                        Vous pouvez ajouter un magasin dans vos favoris en appuyant sur le petit cœur. Ce magasin sera directement ajouté à &quot;Mes magasins&quot;.
                         </Card>
                     </Accordion>
 

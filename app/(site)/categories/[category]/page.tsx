@@ -21,8 +21,8 @@ export default async function CategoryPage({params}: any){
              <Breadcrumb containerClassName=""  />
             <h1> Catalogues de {category.category.name}  </h1>
             <div >
-                {category.subcategories?.map((magasin) => {
-                    return <GeneralCard title={"Catalogues " + magasin.name} showReadMore={true} readMoreLink={`/magasins/${magasin.slug}`} catalogs={magasin.catalogues} />;
+                {category.subcategories?.map((magasin, index) => {
+                    return <GeneralCard key={index} title={"Catalogues " + magasin.name} showReadMore={true} readMoreLink={`/magasins/${magasin.slug}`} catalogs={magasin.catalogues} />;
                 })}
             </div>
         </div>

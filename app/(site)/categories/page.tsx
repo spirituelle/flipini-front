@@ -23,9 +23,9 @@ export default async function CategoriesPage(){
                 {categories?.map((category) => {
                     return <Magasin key={category.category_id} category={category} />;
                 })}
-                {categories?.map((category) => {
+                {categories?.map((category, index) => {
                     return (
-                        <div>
+                        <div key={index}>
                             <GeneralCard title={category.name} readMoreLink={`/categories/${slugify(category.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`} showReadMore={true} catalogs={category.catalogues} />
                             {/* <h3> {category.name} </h3> */}
                             {/* <div> 
