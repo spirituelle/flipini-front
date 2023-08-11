@@ -33,7 +33,7 @@ export default function ProfileTabs(){
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
+      const params = new URLSearchParams(Array.from(searchParams.entries()))
       params.set(name, value)
  
       return params.toString()
