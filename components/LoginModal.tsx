@@ -58,10 +58,10 @@ export default function LoginModal () {
         // login({email: state.email, password: state.password, setErrors})
     }
     return (
-        <div>
+        <div className="mx-3">
             {/* <button className="bg-primary-800 dark:bg-primary-50 hover:bg-primary-600 dark:hover:bg-primary-300 transition-all duration-100 text-white dark:text-primary-800 px-8 py-2 text-2xl md:text-4xl rounded-lg" type="button" onClick={() => setOpen(true)}> Login </button> */}
             <span onClick={() => setOpen(true)} className="icon flex flex-row items-center text-sm cursor-pointer">
-                <UserIcon width={24} />  <p> Se connecter </p>
+                <UserIcon width={24} />  <p className="hidden md:block"> Se connecter </p>
             </span>
         <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
