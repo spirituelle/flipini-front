@@ -1,5 +1,5 @@
 import  Link  from 'next/link';
-import slugify from 'slugify';
+
 import { CategoryModel } from '../../../model/CategoryModel';
 import GeneralCard from "./../../../components/Cards/generale";
 import Breadcrumb from './../../../components/Breadcrumb';
@@ -32,7 +32,7 @@ export default async function CategoriesPage(){
                     if(category.catalogues.length == 0) return null
                     return (
                         <div key={index}>
-                            <GeneralCard title={category.name} readMoreLink={`/categories/${slugify(category.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`} showReadMore={true} catalogs={category.catalogues} />
+                            <GeneralCard title={category.name} readMoreLink={`/categories/${category.slug}`} showReadMore={true} catalogs={category.catalogues} />
                             {/* <h3> {category.name} </h3> */}
                             {/* <div> 
 
@@ -48,7 +48,7 @@ export default async function CategoriesPage(){
 function Magasin({ category }: any) {
     return (
         
-            <Link href={`/categories/${slugify(category.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`}>
+            <Link href={`/categories/${category.slug}`}>
                 <span className="bg-gray-200 text-gray-800 text-sm font-medium mr-2 p-2.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
             {category.name}
             </span>

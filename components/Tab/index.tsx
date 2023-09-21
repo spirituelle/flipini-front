@@ -17,7 +17,7 @@ import {
 import { useContext } from "react";
 import axios from './../../lib/axios'
 import GeneralCard from "./../Cards/generale";
-import slugify from 'slugify';
+
 
   import Profile from './profile'
 export default function ProfileTabs(){
@@ -157,7 +157,7 @@ function MagasinFavoris() {
     <div>
         { favoris?.map((fav, index) => {
           return(
-            <GeneralCard key={index} title={" " + fav.name} showReadMore={true} readMoreLink={`/magasins/${slugify(fav.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`} catalogs={fav.bookList}  />
+            <GeneralCard key={index} title={" " + fav.name} showReadMore={true} readMoreLink={`/magasins/${fav.slug}`} catalogs={fav.bookList}  />
 
           )
         })

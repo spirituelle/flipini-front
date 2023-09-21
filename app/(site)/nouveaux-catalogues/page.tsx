@@ -1,5 +1,5 @@
 import  Link  from 'next/link';
-import slugify from 'slugify';
+
 import { BookDetailsModel } from '../../../model/BookDetailsModel';
 import GeneralCard from "./../../../components/Cards/generale";
 import Breadcrumb from './../../../components/Breadcrumb';

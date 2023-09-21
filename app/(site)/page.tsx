@@ -1,7 +1,6 @@
 // import Image from 'next/image'
 import {DashboardModel} from './../../model/DashboardModel';
 
-import slugify from 'slugify';
 
 import Cards from './../../components/Cards'
 import  Link  from 'next/link';
@@ -38,7 +37,7 @@ export default async function Home() {
         {
           dashboard.top_magasin.map((magasin, index)=>{
             return(
-              <Link className="flex-none py-6 px-3 first:pl-6 last:pr-6" key={index} href={`/magasins/${slugify(magasin.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`}>
+              <Link className="flex-none py-6 px-3 first:pl-6 last:pr-6" key={index} href={`/magasins/${magasin.slug}`}>
                   <div className="flex flex-col items-center justify-center gap-3">
                     <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
                     <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {magasin.name} </strong>
