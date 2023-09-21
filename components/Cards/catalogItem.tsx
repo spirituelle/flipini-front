@@ -5,7 +5,7 @@
 
 import  Link  from 'next/link';
 import Image from 'next/image';
-import slugify from 'slugify';
+
 
 export default function catalogItem ( props: any ) {
     // const router = useRouter();
@@ -14,7 +14,7 @@ export default function catalogItem ( props: any ) {
     if( !catalog || catalog == undefined) return( <> undefined</>)
     return (
         <div className="catalog bg-white dark:bg-slate-900 mx-2 md:mx-0">
-            <Link href={ `/catalogues/${slugify(catalog.title, { lower: true, remove: /[*+~.()'"!:@]/g, }) }` }>
+            <Link href={ `/catalogues/${catalog.title}` }>
             {
                 catalog.new ?
                     <span className="catalog-label label-new">New</span>

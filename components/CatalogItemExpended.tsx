@@ -1,7 +1,7 @@
 
 import  Link  from 'next/link';
 import Image from 'next/image';
-import slugify from 'slugify';
+
 import moment from "moment"
 export default function CatalogItem({catalog}: any){
 

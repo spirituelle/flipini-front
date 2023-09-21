@@ -22,7 +22,7 @@ async function getMagasin( api_token: string){
             );
              user= await userRes.json();
         }
-    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?user_id=${user.id}&country_id=1&page=1&per_page=24`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?user_id=${user.id}&country_id=1&page=1&per_page=24`, { cache: 'no-store'});
     const data = await res.json();
     return data?.data as SubCategoryModel[];
 }

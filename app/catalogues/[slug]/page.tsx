@@ -8,7 +8,7 @@ import Item from './../../../components/image-item.js'
 import CatalogItem from './../../../components/Cards/catalogItem'
 
 async function getCatalogDetail(slug: string){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`, { cache: 'no-store'});
     if(res.status === 200){
         // return res;
         const data = await res.json();

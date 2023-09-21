@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
 }
 async function getDashboard(){
-  const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail`);
+  const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail`,{ cache: 'no-store'});
   if(res.status === 200){
       const data = await res.json();
       return data as DashboardModel;
