@@ -172,7 +172,12 @@ h2{
 }
 
 /* Product */
-.home-page, .catalog-page, .magasin-page, .category-page {
+.home-page, .catalog-page, .magasin-page, .category-page, .profile-page {
+	.magasin-rounded{
+		border: 1.5px solid;
+		border-color: $primary-color;
+
+	}
 	.magasin-frid-item{
 		border-radius: 0.5rem;
 		box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
@@ -654,6 +659,9 @@ h2{
 }
 
 @include mq('md', 'max') {
+	.h1, h1 {
+		font-size: 1.4rem;
+	}
 	.thumbnail{
 		flex: 0 0 33%;
 		

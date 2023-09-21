@@ -10,6 +10,13 @@ import GeneralCard from "./../../../../components/Cards/generale";
 import  Image  from 'next/image';
 import FavoriteIcon from './../../../../components/FavoriteIcon'
 
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+  title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
+  description:
+    "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
+}
+
 async function getMagasin(magasin: string, api_token: string){
     try {
         let user= {id: null};
@@ -23,7 +30,7 @@ async function getMagasin(magasin: string, api_token: string){
             `${process.env.BACKEND_URL}/api/magasin?country_id=1&magasin=${magasin}&user_id=${user.id}`,
             { next: { revalidate: 10 } }
         );
-        console.log(res.status)
+
         if(res.status === 200){
             const data = await res.json();
             return data as MagasinModel;

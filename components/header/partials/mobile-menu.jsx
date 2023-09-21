@@ -298,12 +298,12 @@ function MobileMenu () {
                     </div>
                 {/* </Tabs> */}
 
-                <div className="social-icons">
+                {/* <div className="social-icons">
                     <Link href="#" className="social-icon" title="Facebook"><i className="icon-facebook-f"></i></Link>
                     <Link href="#" className="social-icon" title="Twitter"><i className="icon-twitter"></i></Link>
                     <Link href="#" className="social-icon" title="Instagram"><i className="icon-instagram"></i></Link>
                     <Link href="#" className="social-icon" title="Youtube"><i className="icon-youtube"></i></Link>
-                </div>
+                </div> */}
             </div>
         </div>
     )

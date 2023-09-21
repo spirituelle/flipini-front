@@ -542,6 +542,16 @@
 	padding: 0;
 	border: none;
 
+	&.show {
+		// display: flex;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		.form-control{
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
 	.header-search-wrapper {
 		position: absolute;
 		right: -1.4rem;
@@ -553,8 +563,8 @@
 		border-radius: 20px;
 		width: 100%;
 		min-width: 270px;
-		background-color: #fff;
-		border: .1rem solid #ebebeb;
+		// background-color: #fff;
+		// border: .1rem solid #ebebeb;
 		border-radius: 20px;
 		z-index: 10;
 
@@ -571,7 +581,7 @@
 		}
 
 		&.show {
-	  		display: flex;
+			display: flex;
 		}
 	}
 
@@ -615,7 +625,7 @@
 		font-weight: 400;
 		font-size: 0.75rem;
 		letter-spacing: 0;
-		background-color: #fff;
+		// background-color: #fff;
 		margin: 0;
 	}
 
@@ -685,7 +695,7 @@
 	margin-bottom: 0.2rem;
 
 	.header-search-wrapper {
-		border-radius: 30px;
+		border-radius: 20px;
 	}
 
 	.form-control,
@@ -698,9 +708,8 @@
 		padding-top: 1.2rem;
 		padding-bottom: 1.2rem;
 		padding-right: 2.4rem;
-		border-radius: 30px;
+		border-radius: 20px;
 	}
-
 	select {
 		line-height: 44px;
 		height: 44px;
@@ -762,7 +771,15 @@
 	min-width: 200px;
 	z-index: 99;
 	display: none;
+	min-height: 10rem;
+	padding: 0 20px 20px;
 
+    overflow-y: auto;
+	overflow-x: hidden;
+	max-height: calc(100vh - 3.5rem);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 0 16px 16px 0 rgba(0,0,0,.3);
 	.header-search.show & {
 		display: block;
 	}
@@ -770,6 +787,33 @@
 	.catalog-price {
 		font-size: 12px;
 	}
+	.stripe-title {
+		padding-left: 24px;
+		text-decoration: line-through;
+		position: relative;
+		&:before {
+			z-index: 1;
+			top: 0;
+			bottom: 40%;
+			left: 0;
+			right: 0;
+			position: absolute;
+			content: "";
+			display: inline-block;
+			border-bottom: 1px solid #acacac;
+		}
+		span {
+			padding: 0 5px;
+			color: #acacac;
+			font-size: 12px;
+			line-height: 14px;
+			position: relative;
+			z-index: 5;
+			display: inline-block;
+			background: #fff;
+		}
+	}
+
 }
 
 .autocomplete-suggestions {
@@ -796,8 +840,8 @@
 .autocomplete-suggestion {
 	display: flex;
 	align-items: center;
-	color: #8d8d8d;
-	background-color: #f4f4f4;
+	// color: #8d8d8d;
+	// background-color: #f4f4f4;
 	padding: 10px .5em;
 	line-height: 1.5em;
 	min-height: 0;
@@ -1528,7 +1572,7 @@
 	.header-search-extended {
 		#cat,
 		.form-control {
-			background-color: #f8f8f8;
+			// background-color: #f8f8f8;
 		}
 
 		.form-control {

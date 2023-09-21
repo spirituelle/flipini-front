@@ -2,9 +2,11 @@
 
 import {BookDetailsModel} from './BookDetailsModel';
 
-export interface CardModel{
+export interface FavorisModel{
     id: number,
-    title: string,
+    name: string,
+    icon: string,
+    path: string,
     slug: string,
 
     bookList: BookDetailsModel[],

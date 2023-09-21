@@ -7,6 +7,9 @@ import Cards from './../../components/Cards'
 import  Link  from 'next/link';
 import { Metadata } from 'next'
 export const metadata: Metadata = {
+  icons: {
+    icon: '/icon.png',
+  },
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
   description:
     "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
@@ -37,7 +40,7 @@ export default async function Home() {
             return(
               <Link className="flex-none py-6 px-3 first:pl-6 last:pr-6" key={index} href={`/magasins/${slugify(magasin.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`}>
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full"  />
+                    <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
                     <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {magasin.name} </strong>
                   </div>
               </Link>
@@ -46,6 +49,7 @@ export default async function Home() {
         }
       </div>
       {dashboard.cards?.map((card, index: number) => {
+        if(card.bookList.length == 0) return null
         return(
           <Cards key={index} card={card} />
         )

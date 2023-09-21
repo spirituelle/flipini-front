@@ -11,19 +11,21 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error);
+    console.log(error);
+
   }, [error]);
  
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>Une erreur est survenue lors du rendment de la page </h2>
+      <p> {JSON.stringify(error)} </p>
       <button
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()
         }
       >
-        Try again
+        Cliquez ici pour actualiser la page
       </button>
     </div>
   );

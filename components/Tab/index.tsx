@@ -10,11 +10,14 @@ import {
 
   import { useSearchParams, usePathname, useRouter } from 'next/navigation';
   import { UserModel } from './../../model/UserModel';
+  import { FavorisModel } from './../../model/FavorisModel';
   // import useAuth from './../../hooks/useAuth'
 
   import {AuthUserContext} from './../../hooks/auth.context'
 import { useContext } from "react";
 import axios from './../../lib/axios'
+import GeneralCard from "./../Cards/generale";
+import slugify from 'slugify';
 
   import Profile from './profile'
 export default function ProfileTabs(){
@@ -136,21 +139,30 @@ const data = [
 }
 
 function MagasinFavoris() {
-  const [favoris, setFavoris] = useState();
+  const [favoris, setFavoris] = useState<FavorisModel[]>([] as FavorisModel[]);
   const { state, dispatch } = useContext(AuthUserContext);
 
   useEffect( () => {
     
     axios.get('/api/user-favorite-magasin?country_id=1', { headers: { Authorization: "Bearer " + state.token } }).then(res => {
-      console.log(res)
-      setFavoris(res.data)
+      console.log(res.data.data)
+      setFavoris(res.data.data)
+    }).catch((err) => {
+      // console.log(err)
     })
 }, [] );
 
 
   return(
     <div>
-      
+        { favoris?.map((fav, index) => {
+          return(
+            <GeneralCard key={index} title={" " + fav.name} showReadMore={true} readMoreLink={`/magasins/${slugify(fav.slug, { lower: true, remove: /[*+~.()'"!:@]/g, }) }`} catalogs={fav.bookList}  />
+
+          )
+        })
+
+        }
     </div>
   )
 }
