@@ -4,9 +4,22 @@ import  Image  from 'next/image';
 import {useState} from 'react';
 
 import {SubCategoryModel} from './../../../../model/SubCategoryModel';
-import { getMagasin } from './../actions'
+// import { getMagasin } from './../actions'
 
 import FavoriteIcon from './../../../../components/FavoriteIcon'
+
+async function getMagasin( {api_token, page = 1,search}:{api_token: string, page?: number, search?: string | undefined}){
+    let user= {id: null};
+        if(api_token){
+            const userRes = await fetch(
+                `${process.env.BACKEND_URL}/api/user`, { headers: { Authorization: "Bearer " + api_token} }
+            );
+             user= await userRes.json();
+        }
+    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`, { cache: 'no-store'});
+    const data = await res.json();
+    return data?.data as SubCategoryModel[];
+}
 
 export default function MAgasinsWithMore({initialShop, search, api_token}: {initialShop: SubCategoryModel[], search: string | undefined, api_token: string}){
 
