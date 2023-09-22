@@ -29,7 +29,7 @@ export default async function MagasinPage(){
              <Breadcrumb containerClassName=""  />
             <h1> Tous les magasins </h1>
             <div>
-                <MagasinWithMore initialShop= {magasins} api_token={token} />
+                <MagasinWithMore initialShop= {magasins} api_token={token} search="" />
             </div>
            
         </div>
