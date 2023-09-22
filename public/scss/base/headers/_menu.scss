@@ -1,6 +1,7 @@
 .main-nav {
 	margin-left: 2rem;
 	display: none;
+	max-width: 100%;
 }
 
 /* Menu Structure */
@@ -14,6 +15,16 @@
 .menu {
 	display: flex;
 	align-items: center;
+	&::-webkit-scrollbar {
+		height: 4px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgb(255, 255, 255);
+		border-radius: 4px;
+	}
+	&::-webkit-scrollbar-track-piece {
+		background-color: #333;
+	}
 
 	li {
 		position: relative;
@@ -55,8 +66,8 @@
 		right: 1.5rem;
 		top: -200rem;
 		z-index: 1002;
-		opacity: 0;
-		visibility: hidden;
+		// opacity: 0;
+		// visibility: hidden;
 		transition: opacity .2s;
 
 		&.megamenu-sm {
@@ -68,7 +79,7 @@
 		&.megamenu-md {
 			left: -10rem;
 			right: auto;
-			width: 694px;
+			width: 24rem;
 		}
 
 		> ul,

@@ -5,39 +5,39 @@
 
 import  Link  from 'next/link';
 import Image from 'next/image';
-
+import moment from "moment"
 
 export default function catalogItem ( props: any ) {
     // const router = useRouter();
     const { catalog } = props;
     // console.log(catalog)
     if( !catalog || catalog == undefined) return( <> undefined</>)
+    const calculateTime = () => {
+        if(moment(catalog.date_expiration).diff(moment())  < 0){
+            return `Catalogue éxpirer`
+        }
+        if(moment(catalog.date_of_publication).diff(moment())  >= 0){
+            console.log("bigger") 
+            return `Valable dans ${moment(catalog.date_of_publication).diff(moment(), 'days')} jours`
+        }
+
+        return  `Valable encore ${moment(catalog.date_expiration).diff(moment(), 'days')} jours`
+    }
     return (
         <div className="catalog bg-white dark:bg-slate-900 mx-2 md:mx-0">
             <Link href={ `/catalogues/${catalog.title}` }>
             {
                 catalog.new ?
                     <span className="catalog-label label-new">New</span>
-                    : ""
-            }
-
-            {
-                catalog.sale_price ?
-                    <span className="catalog-label label-sale">Sale</span>
-                    : ""
+                    :null
             }
 
             {
                 catalog.top ?
                     <span className="catalog-label label-top">Top</span>
-                    : ""
+                    : null
             }
 
-            {
-                catalog.stock == 0 ?
-                    <span className="catalog-label label-out">Out of Stock</span>
-                    : ""
-            }
             <div className="catalogue-image">
                  <picture className="catalog-media dark:bg-slate-600">
                 
@@ -55,12 +55,12 @@ export default function catalogItem ( props: any ) {
            
 
             <div className="catalog-body">
-               
-                <h4 className="catalog-title">
+               <p className="mb-2 text-xs"> {`Catalogue ${catalog.subcategory_name}`} </p>
+                <h3 className="catalog-title font-bold">
                      { catalog.subtitle }
-                </h4>
+                </h3>
 
-              
+              <span className="text-xs"> {calculateTime()} </span>
 
             </div>
             </Link>

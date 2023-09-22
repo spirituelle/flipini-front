@@ -32,8 +32,11 @@
 .header-right {
 	display: flex;
 	align-items: center;
+	max-width: 100%;
 }
-
+.header-theme-change{
+	margin-left: auto;
+}
 .header-right {
 	// margin-left: auto;
 	align-self: stretch;
@@ -391,7 +394,7 @@
 	}
 	
 	.catalog-title {
-		font-weight: 400;
+		// font-weight: 400;
 		font-size: 1.3rem;
 		line-height: 1.3;
 		// color: #666;

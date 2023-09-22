@@ -19,12 +19,12 @@ export const metadata = {
   description: 'Tous les catalogues de la semaine dans seule endroit',
 }
 
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="fr">
       <head>

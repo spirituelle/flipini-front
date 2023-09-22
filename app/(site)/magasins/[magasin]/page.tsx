@@ -110,7 +110,7 @@ export default async function MagasinPage({params}: any){
                             {
                                 response.similar_magasin?.map((magasin, index) => {
                                     return(
-                                        <Link className="magasin-frid-item bg-white dark:bg-slate-900" key={index} href={"/magasins/" + magasin.name}> 
+                                        <Link className="magasin-frid-item bg-white dark:bg-slate-900" key={index} href={"/magasins/" + magasin.slug}> 
                                             <div className="magasin-card " >
                                                 <div> 
                                                     <Image 

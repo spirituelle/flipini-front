@@ -196,11 +196,14 @@ h2{
 		}
 	}
 
-	.catalog,
-	.catalog:hover {
-		box-shadow: 1px 3px 5px rgba(204,114,236, .1);
+	.catalog{
+		// box-shadow: 1px 3px 5px rgba(204,114,236, .1);
+		box-shadow: rgba($primary-color, 0.4) 0px 0px 4px 2px;
+    transition: all 200ms ease 0s;
 	}
-
+	.catalog:hover{
+		box-shadow: rgba($primary-color, 0.4) 0px 0px 8px 4px;
+	}
 	.catalog {
 		// height: 100%;
 		padding: 0rem;
@@ -222,7 +225,7 @@ h2{
 	}
 
 	.catalog-body {
-		padding: 7px 10px 8px;
+		padding: 7px 6px 8px;
 		background-color: transparent;
 	}
 

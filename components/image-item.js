@@ -119,8 +119,8 @@ export default function ImageElement({images, catalog}){
     useEffect(() => {
         if(width > 0){
             if(width <= 768){
-
-                let es = _mobileSlider();
+                // TODO
+                let es = _mobileSlider(); // return object thumbs and element to show
                 setElementsToshow(es);
         
                }else{
@@ -315,7 +315,7 @@ export default function ImageElement({images, catalog}){
         }
     }, [swiperRef]);
     let indexes = elementToShow.length
-
+    console.log(thumbs)
     return(
         <FullScreen onChange={(s) =>setStateFullscreen(s)} handle={handle}>
             <nav className="z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">

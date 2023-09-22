@@ -108,9 +108,9 @@ function HeaderSearch () {
             <a href="#" className="search-toggle"><i className="icon-search"></i></a>
 
             <form action="#" method="get" onSubmit={ onSubmitSearchForm } onClick={ showSearchForm }>
-                <div className={" header-search-wrapper search-wrapper-wide" }>
+                <div className={" header-search-wrapper search-wrapper-wide " }>
                     <label htmlFor="q" className="sr-only" value={ searchTerm } required>Rechercher</label>
-                    <input type="text" onChange={ onSearchChange } value={ searchTerm } autoComplete="off" className= "form-control dark:bg-gray-800 bg-white" name="q" placeholder="Rechercher ici ..." required />
+                    <input type="text" onChange={ onSearchChange } value={ searchTerm } autoComplete="off" className= "form-control bg-neutral-100 dark:bg-gray-800 " name="q" placeholder="Rechercher ici ..." required />
                     {/* <div className="select-custom" onChange={ ( e ) => onCatSelect( e ) }>
                         <select id="cat" name="cat">
                             <option value={ null }>All Departments</option>
@@ -132,7 +132,7 @@ function HeaderSearch () {
                     </div> */}
                     {/* <button className="btn btn-primary" type="submit"> <MagnifyingGlassIcon className="w-10 h-10 text-white " /> </button> */}
                 </div>
-                <div className="live-search-list dark:bg-gray-800 bg-white" onClick={ goProductPage }>
+                <div className="live-search-list dark:bg-gray-800 bg-neutral-100" onClick={ goProductPage }>
                 {/* {searchTerm.length < 2 && <div  className="stripe-title"><span >Recherches populaires</span></div>}
                         <div className="search-name" > lidl </div> */}
                     {

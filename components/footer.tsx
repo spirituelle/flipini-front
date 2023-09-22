@@ -81,6 +81,18 @@ function Footer () {
                                             <li><Link href="/about">À propos flipini</Link></li>
                                             <li><Link href="/faq">Questions fréquemment posées</Link></li>
                                             <li><Link href="/contact">Contactez-nous</Link></li>
+                                             {/* <li className={ "" }>
+                                                <Link href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
+                                        </li> */}
+                                        <li className={ "" }>
+                                                <Link href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
+                                        </li>
+                                        <li className={ "" }>
+                                                <Link href="/magasins" className="sf-with-ul" scroll={ false }>Magasins</Link>           
+                                        </li>
+                                        <li className={ "" }>
+                                                <Link href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
+                                        </li>
                                         </ul>
                                     </div>
                                 </div>

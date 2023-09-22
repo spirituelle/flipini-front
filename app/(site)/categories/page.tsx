@@ -25,9 +25,12 @@ export default async function CategoriesPage(){
             <Breadcrumb containerClassName=""  />
             <h1> Tous les categories </h1>
             <div >
-                {categories?.map((category) => {
-                    return <Magasin key={category.category_id} category={category} />;
-                })}
+                <div className="flex overflow-x-scroll">
+                    {categories?.map((category) => {
+                        return <Magasin key={category.category_id} category={category} />;
+                    })}
+                </div>
+               
                 {categories?.map((category, index) => {
                     if(category.catalogues.length == 0) return null
                     return (

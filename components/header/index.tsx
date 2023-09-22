@@ -16,10 +16,11 @@ import List from './../../assets/icons/list.svg'
 import SunIcon from './../../assets/icons/sun.svg'
 import MoonIcon from './../../assets/icons/moon.svg'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import {CategoryModel} from './../../model/CategoryModel';
 
 import {useState, useEffect, useCallback} from 'react'
 import { UserModel } from './../../model/UserModel';
-function Header () {
+function Header ({categories}: {categories: CategoryModel[]}) {
 
     const { state, dispatch } = useContext(AuthUserContext);
 
@@ -29,7 +30,7 @@ function Header () {
     const searchParams = useSearchParams();
     const pathname = usePathname()
     const router = useRouter()
-  
+    console.log(pathname);
 
     
     const createQueryString = useCallback(
@@ -45,6 +46,7 @@ function Header () {
       
     useEffect(() => {
         setRendred(true)
+        // setTheme('dark')
         return () => {
             
         }
@@ -63,13 +65,13 @@ function Header () {
 
         if(currentTheme ==="dark"){
           return (
-            <SunIcon className="w-10 h-10 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+            <SunIcon className="w-8 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
           )
         }
 
         else {
           return (
-            <MoonIcon className="w-10 h-10 text-white " role="button" onClick={() => setTheme('dark')} />
+            <MoonIcon className="w-8 text-black " role="button" onClick={() => setTheme('dark')} />
           )
         }
      };
@@ -137,6 +139,10 @@ function Header () {
                         <HeaderSearch />
 
                         <div className="header-dropdown-link"> { renderButton() }  </div>
+                        
+                    </div>
+                    <div className="header-theme-change overflow-hidden">
+                            {renderThemeChanger()}
                     </div>
                 </div>
             </div>
@@ -151,8 +157,38 @@ function Header () {
 
                             <div className="header-center">
                                 <nav className="main-nav">
-                                    <ul className="menu ">
+                                    <ul className="menu  flex overflow-x-scroll">
                                         <li className={ "" }>
+                                            <Link href="/" className="sf-with-ul" scroll={ false }>Accueil</Link>           
+                                        </li>
+
+                                        {
+                                            categories?.map((categorie, index) => {
+                                               return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
+                                                    <Link href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" scroll={ false }> {categorie.name} </Link>   
+                                                    {/* <div className="megamenu megamenu-md">
+                                                        <div className="flex">
+                                                            <div className="flex flex-col">
+                                                                    <ul>
+                                                                        {
+                                                                            categorie.subcategories.map((subcat, index) => {
+                                                                                return(
+                                                                                    <li className={ ( pathname.indexOf( `/magasins/${subcat.slug}` ) > -1 ) ? "active" : '' }><Link href={`/magasins/${subcat.slug}`} scroll={ false }>{subcat.name}</Link></li>
+
+                                                                                )
+                                                                            })
+                                                                        }
+                                                                    </ul>
+                                                            </div>
+
+                                                          
+                                                        </div>
+                                                    </div>         */}
+                                                 </li>)
+                                            })
+                                        }
+
+                                        {/* <li className={ "" }>
                                                 <Link href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
                                         </li>
                                         <li className={ "" }>
@@ -163,14 +199,12 @@ function Header () {
                                         </li>
                                         <li className={ "" }>
                                                 <Link href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </nav>
                             </div>
 
-                            <div className="header-right overflow-hidden">
-                            {renderThemeChanger()}
-                            </div>
+                           
                         </div>
                     </div>
                    
