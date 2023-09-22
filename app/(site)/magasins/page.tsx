@@ -38,7 +38,7 @@ export default async function MagasinPage(){
     const magasins = await getMagasin({api_token: token, page: 1});
 
     return(
-        <div className="magasin magasin-page container" >
+        <div className="magasin magasin-page container mb-6" >
              <Breadcrumb containerClassName=""  />
             <h1> Tous les magasins </h1>
             <div>

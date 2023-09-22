@@ -10,6 +10,11 @@ import {SubCategoryModel} from './../../../../model/SubCategoryModel';
 
 import FavoriteIcon from './../../../../components/FavoriteIcon'
 
+type Meta = {
+    current_page: number,
+    last_page: number,
+  }
+  
 async function getMagasin( {api_token, page = 1,search}:{api_token: string, page?: number, search?: string | undefined}){
     let user= {id: null};
         if(api_token){
@@ -38,7 +43,7 @@ async function getMagasin( {api_token, page = 1,search}:{api_token: string, page
         }
         const res = await axios.get(`/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`  )
         console.log(res)
-        return res.data.data as SubCategoryModel[];
+        return { data: res.data.data as SubCategoryModel[], meta: res.data.meta as Meta};
     // const res = await fetch(`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`, { cache: 'no-store'});
     // const data = await res.json();
     // return data?.data as SubCategoryModel[];
@@ -48,6 +53,7 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
 
     const [magasins, setMagasins] = useState(initialShop)
     const [page, setPage] = useState(1)
+    const [finished, setFiniched] = useState(false)
     const [ref, inView] = useInView()
 
 
@@ -60,9 +66,10 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
         const next = page + 1
         const magasins = await getMagasin({ search, page: next, api_token })
         setPage(next)
+        setFiniched(magasins.meta.last_page == magasins.meta.current_page);
         setMagasins((prev) => [
             ...(prev?.length ? prev : []),
-            ...magasins
+            ...magasins.data
           ])
     } 
     return(
@@ -94,7 +101,7 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
             </div> */}
 
              {/* loading spinner */}
-            <div
+          {!finished &&  <div
                 ref={ref}
                 className='col-span-1 mt-16 flex items-center justify-center sm:col-span-2 md:col-span-3 lg:col-span-4'
             >
@@ -115,7 +122,7 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
                 />
                 </svg>
                 <span className='sr-only'>Loading...</span>
-            </div>
+            </div>}
             
         </div>
     )

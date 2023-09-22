@@ -30,7 +30,7 @@ function Header ({categories}: {categories: CategoryModel[]}) {
     const searchParams = useSearchParams();
     const pathname = usePathname()
     const router = useRouter()
-    console.log(pathname);
+    // console.log(pathname);
 
     
     const createQueryString = useCallback(
