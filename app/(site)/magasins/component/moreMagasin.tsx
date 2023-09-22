@@ -30,7 +30,7 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
             <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 xl:gap-x-8">
                 {magasins?.map((magasin, index) => {                   
                     return (
-                        <Link className="magasin-frid-item bg-white dark:bg-slate-900" href={"/magasins/" + magasin.slug}> 
+                        <Link key={index} className="magasin-frid-item bg-white dark:bg-slate-900" href={"/magasins/" + magasin.slug}> 
                             <div className="magasin-card " >
                                 <div> 
                                     <Image 
