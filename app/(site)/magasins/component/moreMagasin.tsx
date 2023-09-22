@@ -16,7 +16,7 @@ async function getMagasin( {api_token, page = 1,search}:{api_token: string, page
             );
              user= await userRes.json();
         }
-    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`, { cache: 'no-store'});
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`, { cache: 'no-store'});
     const data = await res.json();
     return data?.data as SubCategoryModel[];
 }

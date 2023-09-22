@@ -21,7 +21,7 @@ function Cards ( {card}:{card: CardModel }) {
                             </div>
 
                             <div className="heading-right">
-                                <Link href={ `/tous-catalogues/${card.slug}` } className="title-link">Voir tous <i className="icon-long-arrow-right"></i></Link>
+                                <Link prefetch={false} href={ `/tous-catalogues/${card.slug}` } className="title-link">Voir tous <i className="icon-long-arrow-right"></i></Link>
                             </div>
                         </div>
                         <div className="overflow-y-scroll flex flex-row items-stretch md:grid md:grid-cols-1 md:gap-x-6 md:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">

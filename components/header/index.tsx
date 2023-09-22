@@ -165,7 +165,7 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                                         {
                                             categories?.map((categorie, index) => {
                                                return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
-                                                    <Link href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" scroll={ false }> {categorie.name} </Link>   
+                                                    <Link prefetch={false} href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" scroll={ false }> {categorie.name} </Link>   
                                                     {/* <div className="megamenu megamenu-md">
                                                         <div className="flex">
                                                             <div className="flex flex-col">

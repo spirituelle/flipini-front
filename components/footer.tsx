@@ -47,7 +47,7 @@ function Footer () {
                     <div className="flex flex-row flex-wrap">
                         <div className="basis-7/12">
                             <div className="widget widget-about">
-                                <Link href="/">
+                                <Link prefetch={false} href="/">
                                     <img src="/images/app-icon.png" className="footer-logo" alt="Footer Logo" width="105" height="25" />
                                 </Link>
 
@@ -78,20 +78,20 @@ function Footer () {
                                         <h4 className="widget-title">Information</h4>
 
                                         <ul className="widget-list">
-                                            <li><Link href="/about">À propos flipini</Link></li>
-                                            <li><Link href="/faq">Questions fréquemment posées</Link></li>
-                                            <li><Link href="/contact">Contactez-nous</Link></li>
+                                            <li><Link prefetch={false} href="/about">À propos flipini</Link></li>
+                                            <li><Link prefetch={false} href="/faq">Questions fréquemment posées</Link></li>
+                                            <li><Link prefetch={false} href="/contact">Contactez-nous</Link></li>
                                              {/* <li className={ "" }>
-                                                <Link href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
+                                                <Link prefetch={false} href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
                                         </li> */}
                                         <li className={ "" }>
-                                                <Link href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
+                                                <Link prefetch={false} href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
                                         </li>
                                         <li className={ "" }>
-                                                <Link href="/magasins" className="sf-with-ul" scroll={ false }>Magasins</Link>           
+                                                <Link prefetch={false} href="/magasins" className="sf-with-ul" scroll={ false }>Magasins</Link>           
                                         </li>
                                         <li className={ "" }>
-                                                <Link href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
+                                                <Link prefetch={false} href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
                                         </li>
                                         </ul>
                                     </div>
@@ -102,9 +102,9 @@ function Footer () {
                                         <h4 className="widget-title">Mon compte</h4>
 
                                         <ul className="widget-list">
-                                            <li><Link href="/login">Login</Link></li>
-                                            <li><Link href={"/profil?"+ createQueryString('value', 'favoris')}>Magasin favoris</Link></li>
-                                            <li><Link href={"/profil?"+ createQueryString('value', 'catalogue')}>Catalogues favoris</Link></li>
+                                            <li><Link prefetch={false} href="/login">Login</Link></li>
+                                            <li><Link prefetch={false} href={"/profil?"+ createQueryString('value', 'favoris')}>Magasin favoris</Link></li>
+                                            <li><Link prefetch={false} href={"/profil?"+ createQueryString('value', 'catalogue')}>Catalogues favoris</Link></li>
                                            
                                         </ul>
                                     </div>
@@ -114,8 +114,8 @@ function Footer () {
                                         <h4 className="widget-title">Service Clients</h4>
 
                                         <ul className="widget-list">
-                                            <li><Link href="/terms-and-conditions">Termes et conditions</Link></li>
-                                            <li><Link href="/privacy-policy">politique de confidentialité</Link></li>
+                                            <li><Link prefetch={false} href="/terms-and-conditions">Termes et conditions</Link></li>
+                                            <li><Link prefetch={false} href="/privacy-policy">politique de confidentialité</Link></li>
                                         </ul>
                                     </div>
                                 </div>
