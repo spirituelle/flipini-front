@@ -34,7 +34,7 @@ export default async function CatalogueDetails({params}: any) {
                {/* <Info catalog={ catalogDetails.book_detail } /> */}
 
                <div className="catalog-desc-content">
-                <h3>catalog Information</h3>
+                <h1> {catalogDetails.book_detail.name} </h1>
                 {/* {parse(catalog.description.split('\n'))}  */}
                 {catalogDetails.book_detail.description.split('\n').map((c, index: number) => {
                     if(c == "\r") return <br key={index} />

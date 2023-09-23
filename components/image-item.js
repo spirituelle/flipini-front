@@ -7,6 +7,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Zoom, Navigation, Thumbs, FreeMode } from "swiper";
+import  Link  from 'next/link';
 
 import FullscreenIcon from './../assets/icons/fullscreen.svg'
 import ExitFullscreen from './../assets/icons/exitFullscreen.svg'
@@ -15,7 +16,7 @@ import ZoomIn from './../assets/icons/zoomIn.svg'
 import ZoomOut from './../assets/icons/zoomOut.svg'
 import FirstPage from './../assets/icons/firstpage.svg'
 import LastPage from './../assets/icons/lastpage.svg'
-
+import moment from 'moment'
 
 // Import Swiper styles
 import "swiper/css";
@@ -43,6 +44,7 @@ const loadImage = (setImageDimensions, imageUrl) => {
   };
     
 export default function ImageElement({images, catalog}){
+
     const [imageDimensions, setImageDimensions] = useState({});
     const [sliderDimentions, setSliderDimensions] = useState({});
     const [slideElement, setSliderElement] = useState({});
@@ -54,6 +56,7 @@ export default function ImageElement({images, catalog}){
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [width, setWidth] = useState(0);
     const [elementToShow, setElementsToshow] = useState([]);
+    const [thumbsToShow, setThumbsToShow] = useState([]);
 
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
@@ -121,11 +124,13 @@ export default function ImageElement({images, catalog}){
             if(width <= 768){
                 // TODO
                 let es = _mobileSlider(); // return object thumbs and element to show
-                setElementsToshow(es);
+                setElementsToshow(es.elements);
+                setThumbsToShow(es.thumbs);
         
                }else{
                    let mes = recursiveFunction(0);
-                   setElementsToshow(mes);
+                   setElementsToshow(mes.elements);
+                   setThumbsToShow(mes.thumbs);
         
         
                }
@@ -133,6 +138,37 @@ export default function ImageElement({images, catalog}){
      
     }, [width, slideElement]);
 
+    const handleZoom =(e) => {
+        e.preventDefault();
+        if(swiperRef.zoom.scale >= 4) return swiperRef.zoom.out();
+        swiperRef.zoom.in(swiperRef.zoom.scale*2);
+        // setScale(3)
+        // swiperRef.zoom.scale = 2
+    }
+
+  
+      useEffect(() => {
+  
+        if(swiperRef){
+            var target = document.querySelectorAll('.slide')
+            target.forEach((item) => {
+                item.removeEventListener("mousewheel", () => {})
+                item.addEventListener("mousewheel", (e) =>{
+                    e.preventDefault();
+                    if (e.deltaY < 0) // scrolling up
+                    {
+                        swiperRef.zoom.in(e)
+                    }
+                    else if (e.deltaY > 0) // scrolling down
+                    {
+                        swiperRef.zoom.out()
+                    }
+                })
+            });
+           
+        }
+    }, [swiperRef]);
+    let indexes = elementToShow.length
   
     let elements= [];
     let cloned  =[...images];
@@ -142,7 +178,7 @@ export default function ImageElement({images, catalog}){
 
         if(cloned.length == 0){
             // alert('is mobile')
-             return elements};
+             return {elements, thumbs}};
 
             let firstSlide =cloned.splice(0,1);
             const element =   ( <SwiperSlide  key={firstSlide[0]?.id}>
@@ -185,14 +221,28 @@ export default function ImageElement({images, catalog}){
 
     function recursiveFunction(i){
 
-        if(cloned.length == 0) return elements;
+        if(cloned.length == 0) return {elements, thumbs};
 
         if(i === 0){
             let firstSlide =cloned.splice(0,1);
             const element =   ( <SwiperSlide  key={firstSlide[0]?.id}>
                 <div style={{ ...slideElement}} className="slideWrapper doublePage" >
-                    <div  className="firstPage"> 
-                        <h1> {catalog.name} </h1>
+                    <div  className="firstPage h-full"> 
+                        {/* <h1> {catalog.name} </h1> */}
+                        <div className="flex flex-col h-full items-center justify-center">
+                            <div className="flex">
+                                <div> <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-16 mr-3" alt="magasin Logo" /> </div>
+                                <div className="flex flex-col items-start justify-center ml-3"> 
+                                    <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
+                                    <h3> {catalog.subtitle} </h3> 
+                                    <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
+                                </div>
+                            </div>
+                            <div className="flex mt-3 ">
+                                <Link href={`/magasins/${catalog.subcategory_slug}`} className="btn btn-primary rounded-md px-6">  Visiter la page du magasin </Link>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <div style={{ ...slideElement}}  className="swiper-zoom-container"> 
@@ -280,54 +330,19 @@ export default function ImageElement({images, catalog}){
         return recursiveFunction(i+1)
     }
 
-    const handleZoom =(e) => {
-        e.preventDefault();
-        if(swiperRef.zoom.scale >= 4) return swiperRef.zoom.out();
-        swiperRef.zoom.in(swiperRef.zoom.scale*2);
-        // setScale(3)
-        // swiperRef.zoom.scale = 2
-    }
-
-    const zoomChange = (swiper, scale, imageEl, slideEl) => {
-        // console.log(swiper, scale, imageEl, slideEl);
-        // setCurrentScale(scale);
-        // currentScaleRef.current= scale
-      };
-      useEffect(() => {
-  
-        if(swiperRef){
-            var target = document.querySelectorAll('.slide')
-            target.forEach((item) => {
-                item.removeEventListener("mousewheel", () => {})
-                item.addEventListener("mousewheel", (e) =>{
-                    e.preventDefault();
-                    if (e.deltaY < 0) // scrolling up
-                    {
-                        swiperRef.zoom.in(e)
-                    }
-                    else if (e.deltaY > 0) // scrolling down
-                    {
-                        swiperRef.zoom.out()
-                    }
-                })
-            });
-           
-        }
-    }, [swiperRef]);
-    let indexes = elementToShow.length
-    console.log(thumbs)
     return(
+        
         <FullScreen onChange={(s) =>setStateFullscreen(s)} handle={handle}>
+            {/* <div className="flex flex-row">
+            <div className="catalogue-viewer"> */}
             <nav className="z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <div className="">
                 <div className="flex items-center justify-between catalog-top-nav">
                     <div className="flex items-center justify-start">
                     
-                    <a href={catalog.magasin_path} target="_blank" rel="noreferrer" className="flex ml-2 md:mr-24">
                         <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="FlowBite Logo" />
                         <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {catalog.subcategory_name} </span>
 
-                    </a>
                     </div>
                     <div className="flex items-center">
                         <span className="mr-5 cursor-pointer catalog-actions" onClick={ () => fullscreenState ? handle.exit() : handle.enter()}>
@@ -372,7 +387,6 @@ export default function ImageElement({images, catalog}){
                 }}
                 // scrollbar={true}
                 thumbs={{ swiper: thumbsSwiper }}
-                onZoomChange={zoomChange}
                 zoom={{enabled: true, maxRatio: 4, minRatio: 1}}
                 grabCursor={true}
                 style={{
@@ -404,13 +418,15 @@ export default function ImageElement({images, catalog}){
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="thumbswiper"
                     >
-                        {thumbs}
+                        {thumbsToShow}
                     </Swiper>
                 </div>
             </div>
-          
-
-</FullScreen>
+          {/* </div>
+          <div className="aside-catalog bg-gray-100 dark:bg-slate-800">  </div>
+        </div> */}
+        </FullScreen>
+       
         
     )
 }

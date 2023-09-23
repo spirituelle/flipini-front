@@ -11,7 +11,7 @@ export interface BookDetailsModel{
     date_expiration: Date,
     title: string,
     magasin_icon: string,
-    magasin_path: string,
+    subcategory_slug: string,
     expired: Boolean,
     description: string,
     thumbnail_path: string,

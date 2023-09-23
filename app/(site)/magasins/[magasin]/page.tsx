@@ -62,7 +62,7 @@ export default async function MagasinPage({params}: any){
                     <div className="magasin-top">
                 
                         <div className="magasin-image mr-4">
-                            <Link href={"/click-out/magasin/"+ response.magasin.name}> <img className="" alt={response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${response.magasin.icon}`} /> </Link>
+                            <img className="" alt={response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${response.magasin.icon}`} /> 
                         </div>
                         <div className="magasin-details">
                             

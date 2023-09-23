@@ -42,7 +42,7 @@ async function getMagasin( {api_token, page = 1,search}:{api_token: string, page
             //  user= await userRes.json();
         }
         const res = await axios.get(`/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`  )
-        console.log(res)
+        // console.log(res)
         return { data: res.data.data as SubCategoryModel[], meta: res.data.meta as Meta};
     // const res = await fetch(`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/api/magasin-list?user_id=${user.id}&country_id=1&page=${page}&per_page=24&search=${search}`, { cache: 'no-store'});
     // const data = await res.json();
@@ -54,7 +54,7 @@ export default function MAgasinsWithMore({initialShop, search, api_token}: {init
     const [magasins, setMagasins] = useState(initialShop)
     const [page, setPage] = useState(1)
     const [finished, setFiniched] = useState(false)
-    const [ref, inView] = useInView()
+    const [ref, inView] = useInView({})
 
 
     useEffect(() => {

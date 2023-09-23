@@ -149,7 +149,7 @@ function Header ({categories}: {categories: CategoryModel[]}) {
 
             <StickyHeader>
                 <div className="header-bottom sticky-header" style={ { backgroundColor: '#333' } }>
-                    <div className="container mx-auto">
+                    <div className=" mx-auto">
                         <div className="header-element " >
                             {/* <div className="header-left">
                                 <CategoryMenu />

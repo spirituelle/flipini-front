@@ -42,6 +42,21 @@
     }
   }
 }
+@include mq('md') {
+	.catalog-page{
+    .catalogue-viewer{
+      width: 90%;
+
+    }
+    .aside-catalog{
+      width: 10%;
+      height: calc(100vh - 60px) 
+    }
+  
+  }
+}
+
+
 .navigation-button{
   position: absolute;
     height: 100%;
@@ -183,7 +198,7 @@
   }
   .slideWrapper{
 	// border: 1px solid #ccc;
-    margin: auto;
+    // margin: auto;
     display: inline-block;
     vertical-align: middle;
 	transition: height .25s,width .25s;

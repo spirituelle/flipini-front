@@ -43,11 +43,11 @@
 	text-align: center;
 	padding: .85rem 1.5rem;
 	font-weight: 400;
-	font-size: 0.75rem;
-	line-height: 1.5;
+	font-size: 0.9rem;
+	// line-height: 1.5;
 	letter-spacing: -.01em;
 	min-width: 170px;
-	border-radius: 0;
+	// border-radius: 0;
 	white-space: normal;
 	transition: all 0.3s;
 
@@ -186,7 +186,7 @@
 }
 
 .btn-primary {
-	@include button-variant(#fff, $primary-color, $primary-color, #fff, $secondary-color, $secondary-color);
+	@include button-variant(#000, $primary-color, $primary-color, #fff, $secondary-color, $secondary-color);
 }
 
 .btn-secondary {

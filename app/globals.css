@@ -39,6 +39,12 @@ main {
   min-height: calc(100vh - 120px);
  
 }
+.light .fullscreen-enabled {
+  background: #fff;
+}
+.dark .fullscreen-enabled {
+  background: #000;
+}
 
 
 .thumbswiper {

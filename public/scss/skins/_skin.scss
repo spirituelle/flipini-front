@@ -106,7 +106,7 @@ a:focus {
 
 /* generated with mixins */
 .btn-primary {
-    @include button-variant(#fff, $primary-color, $primary-color, #fff, $secondary-color, $secondary-color);
+    @include button-variant(#000, $primary-color, $primary-color, #fff, $secondary-color, $secondary-color);
 }
 
 .btn-secondary {
