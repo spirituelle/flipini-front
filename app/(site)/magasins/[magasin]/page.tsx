@@ -7,6 +7,8 @@ import { cookies } from 'next/headers'
 
 import CatalogItemExpended from "./../../../../components/CatalogItemExpended";
 import GeneralCard from "./../../../../components/Cards/generale";
+import CatalogItem from './../../../../components/Cards/catalogItem';
+
 import  Image  from 'next/image';
 import FavoriteIcon from './../../../../components/FavoriteIcon'
 
@@ -135,7 +137,34 @@ export default async function MagasinPage({params}: any){
                     </section>
 
                     <section>
-                        <GeneralCard title="Historique des catalogues" readMoreLink={"/"} showReadMore={false} catalogs={response.catalogsExpired} />
+                        {/* <GeneralCard title="Historique des catalogues" readMoreLink={"/"} showReadMore={false} catalogs={response.catalogsExpired} /> */}
+                        <div className=" bg-light pt-5 pb-5 mb-5">
+                            <div className="block">
+                                <div className="block-wrapper">
+                                    <div className="">
+                                        <div className="heading heading-flex">
+                                            <div className="heading-left">
+                                                <h2 className="title"> Historique des catalogues </h2>
+                                            </div>
+                                        </div>
+                                        <div className="overflow-y-scroll flex flex-row items-stretch space-x-3">
+                                            {
+                                                response.catalogsExpired?.length > 0 ?
+                                                response.catalogsExpired.map( ( catalog, index: number ) =>
+                                                        <CatalogItem catalog={ catalog } key={index } />
+                                                        // <p> alo </p>
+                                                    )
+                                                    :
+                                                    new Array( 6 ).fill( 1 ).map( ( item, index ) => (
+                                                        <div className="skel-pro" key={ "Skeleton" + index }></div>
+                                                    ) )
+                                            }
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                 </div>

@@ -170,8 +170,60 @@ h2{
 		}
 	}
 }
+.category-page{
+	.aside{
+		display:none
+	}
+}
+
+@include mq('md') {
+	.category-page{
+		.aside{
+			min-width: 15rem;
+			display: block;
+			.aside-link{
+				position: relative;
+				> a {
+					padding: 0.9rem 3rem 0.9rem 1rem;
+					display: block;
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						left: 0;
+						right: -.5rem;
+						width: unset;
+						bottom: 0;
+						height: .1rem;
+						background-color: $primary-color;
+						transform-origin: right center;
+						transform: scale(0, 1);
+						transition: transform .3s ease;
+					}
+				
+				}
+				&:hover,
+				&:focus,
+				&.active {
+					> a {
+						color: $primary-color;
+						&::before {
+							transform-origin: left center;
+							transform: scale(1, 1);
+						}
+					}
+				}
+				
+				
+			}
+		}
+	}
+	
+}
+
 
 /* Product */
+
 .home-page, .catalog-page, .magasin-page, .category-page, .profile-page {
 	.magasin-rounded{
 		border: 1.5px solid;

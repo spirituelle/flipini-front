@@ -1,7 +1,6 @@
 // import Image from 'next/image'
 import {DashboardModel} from './../../model/DashboardModel';
 
-import FavoriteIcon from './../../components/FavoriteIcon'
 import  Image  from 'next/image';
 
 
@@ -12,9 +11,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
   },
-  title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
+  title:  "Flipini.fr : Catalogues en ligne, Promotions et Offres de la Semaine",
   description:
-    "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
+    "Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ",
 }
 async function getDashboard(){
   const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail`,{ cache: 'no-store'});
@@ -82,7 +81,7 @@ export default async function Home() {
                                     /> 
                                 </div>
                                 <h3> {magasin.name} </h3>
-                                <FavoriteIcon  magasin={magasin} />
+                                {/* <FavoriteIcon  magasin={magasin} /> */}
                                 
                             </div> 
                         </Link>

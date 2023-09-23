@@ -29,7 +29,6 @@ function Cards ( {card}:{card: CardModel }) {
                                 card.bookList.length > 0 ?
                                 card.bookList.map( ( catalog, index: number ) =>
                                         <CatalogItem catalog={ catalog } key={index } />
-                                        // <p> alo </p>
                                     )
                                     :
                                     new Array( 6 ).fill( 1 ).map( ( item, index ) => (

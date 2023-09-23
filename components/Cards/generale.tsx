@@ -25,7 +25,7 @@ function GeneralCard ( {catalogs, title, showReadMore, readMoreLink}:{catalogs: 
                             }
                             
                         </div>
-                        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">
+                        <div className="overflow-y-scroll flex flex-row items-stretch md:grid md:grid-cols-1 md:gap-x-6 md:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">
                             {
                                 catalogs?.length > 0 ?
                                 catalogs.map( ( catalog, index: number ) =>
