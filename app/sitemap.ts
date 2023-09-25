@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
  import {CategoryModel} from './../model/CategoryModel';
  import {SubCategoryModel} from './../model/SubCategoryModel';
  import {BookDetailsModel} from './../model/BookDetailsModel';
-const URL = "https://flipini.fr";
+const URL = "https://flipini.fr/";
 
 type SiteMapType = {
     categories: CategoryModel[],
