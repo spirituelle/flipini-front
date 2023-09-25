@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let fetchedCatalogues = siteMapData.catalogues.map((c, i) => {
         let toReturn:ReturnElement;
         toReturn = {
-            url: URL + c.title,
+            url: URL + "catalogues/"+ c.title,
             lastModified: c.updated_at,
 
         };
@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let fetchedCategories = siteMapData.categories.map((c, i) => {
         let toReturn:ReturnElement;
         toReturn = {
-            url: URL + c.slug,
+            url: URL + "categories/" + c.slug,
             lastModified: new Date(),
 
         };
@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let fetchedMagasins = siteMapData.magasins.map((c, i) => {
         let toReturn:ReturnElement;
         toReturn = {
-            url: URL + c.slug,
+            url: URL + "magasins/" + c.slug,
             lastModified: new Date(),
 
         };
