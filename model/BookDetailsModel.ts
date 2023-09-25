@@ -17,4 +17,5 @@ export interface BookDetailsModel{
     thumbnail_path: string,
     is_wishlist: Boolean,
     page_count: number,
+    updated_at: string,
 }

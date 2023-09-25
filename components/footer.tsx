@@ -1,35 +1,13 @@
 'use client'
-// import {  useRouter } from 'next/navigation';
+
 import  Link  from 'next/link';
-// import React, { useState, useEffect } from 'react';
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import {useState, useEffect, useCallback} from 'react'
+
+import { useSearchParams } from 'next/navigation';
+import {useCallback} from 'react'
 
 function Footer () {
     const searchParams = useSearchParams();
-    const pathname = usePathname()
-    const router = useRouter()
-  
-    // const router = useRouter( );
-    // const [ isBottomSticky, setIsBottomSticky ] = useState( false );
-    // const [ containerClass, setContainerClass ] = useState( 'container' );
 
-    // useEffect( () => {
-    //     handleBottomSticky();
-    //     setContainerClass( router.asPath.includes( 'fullwidth' ) ? 'container-fluid' : 'container' );
-    // }, [ router.asPath ] );
-
-    // useEffect( () => {
-    //     window.addEventListener( 'resize', handleBottomSticky, { passive: true } );
-    //     return () => {
-    //         window.removeEventListener( 'resize', handleBottomSticky );
-    //     }
-    // }, [] )
-
-    function handleBottomSticky () {
-        // setIsBottomSticky( router.pathname.includes( 'product/default' ) && ( window.innerWidth > 991 ) );
-    }
-        
     const createQueryString = useCallback(
         (name: string, value: string) => {
           const params = new URLSearchParams(Array.from(searchParams.entries()))
@@ -53,21 +31,6 @@ function Footer () {
 
                                 <p>Flipini.fr est votre destination privilégiée pour le shopping en ligne. Parcourez nos catalogues en ligne mis à jour chaque semaine et découvrez les meilleures offres et promotions dans diverses catégories telles que Bricolage, Bio, Jardinerie, Bazar, Sport, Auto, Beauté, Bijouterie, Supermarché, Maison, et Jouets. Chaque catalogue est une invitation à découvrir une multitude de produits à des prix imbattables. Pour une expérience d&apos;achat optimisée, téléchargez l&apos;app mobile Flipini et emportez toutes ces offres dans votre poche. Rejoignez la communauté Flipini et profitez des bonnes affaires à portée de clic ! </p>
 
-                                {/* <div className="widget-about-info">
-                                    <div className="flex flex-row">
-                                        <div className="basis-1/3 sm:basis-1/2">
-                                            <span className="widget-about-title">Got Question? Call us 24/7</span>
-                                            <a href="tel:123456789">+0123 456 789</a>
-                                        </div>
-
-                                        <div className="col-sm-6 col-md-8">
-                                            <span className="widget-about-title">Payment Method</span>
-                                            <figure className="footer-payments">
-                                                <img src="images/payments.png" alt="Payment methods" width="272" height="20" />
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div> */}
                             </div>
                         </div>
 
@@ -81,9 +44,7 @@ function Footer () {
                                             <li><Link prefetch={false} href="/about">À propos flipini</Link></li>
                                             <li><Link prefetch={false} href="/faq">Questions fréquemment posées</Link></li>
                                             <li><Link prefetch={false} href="/contact">Contactez-nous</Link></li>
-                                             {/* <li className={ "" }>
-                                                <Link prefetch={false} href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
-                                        </li> */}
+                                             
                                         <li className={ "" }>
                                                 <Link prefetch={false} href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
                                         </li>
@@ -128,19 +89,6 @@ function Footer () {
             <div className="footer-bottom">
                 <div className="container">
                     <p className="footer-copyright"> © { ( new Date() ).getFullYear() } FLIPINI. Tous les droits sont réservés.</p>
-                    {/* <ul className="footer-menu">
-                        <li><a href="#" onClick={ (e )=> { e.preventDefault(); } }>Terms Of Use</a></li>
-                        <li><a href="#" onClick={ (e) => { e.preventDefault(); } }>Privacy Policy</a></li>
-                    </ul> */}
-
-                    {/* <div className="social-icons social-icons-color">
-                        <span className="social-label">Social Media</span>
-                        <a href="#" className="social-icon social-facebook" title="Facebook" onClick={ e => { e.preventDefault(); } }><i className="icon-facebook-f"></i></a>
-                        <a href="#" className="social-icon social-twitter" title="Twitter" onClick={ e => { e.preventDefault(); } }><i className="icon-twitter"></i></a>
-                        <a href="#" className="social-icon social-instagram" title="Pinterest" onClick={ e => { e.preventDefault(); } }><i className="icon-instagram"></i></a>
-                        <a href="#" className="social-icon social-youtube" title="Youtube" onClick={ e => { e.preventDefault(); } }><i className="icon-youtube"></i></a>
-                        <a href="#" className="social-icon social-pinterest" title="Instagram" onClick={ e => { e.preventDefault(); } }><i className="icon-pinterest-p"></i></a>
-                    </div> */}
                 </div>
             </div>
           

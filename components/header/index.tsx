@@ -19,7 +19,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import {CategoryModel} from './../../model/CategoryModel';
 
 import {useState, useEffect, useCallback} from 'react'
-import { UserModel } from './../../model/UserModel';
+
 function Header ({categories}: {categories: CategoryModel[]}) {
 
     const { state, dispatch } = useContext(AuthUserContext);
@@ -29,8 +29,6 @@ function Header ({categories}: {categories: CategoryModel[]}) {
 
     const searchParams = useSearchParams();
     const pathname = usePathname()
-    const router = useRouter()
-    // console.log(pathname);
 
     
     const createQueryString = useCallback(
@@ -188,18 +186,6 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                                             })
                                         }
 
-                                        {/* <li className={ "" }>
-                                                <Link href="/" className="sf-with-ul" scroll={ false }>Home</Link>           
-                                        </li>
-                                        <li className={ "" }>
-                                                <Link href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
-                                        </li>
-                                        <li className={ "" }>
-                                                <Link href="/magasins" className="sf-with-ul" scroll={ false }>Magasins</Link>           
-                                        </li>
-                                        <li className={ "" }>
-                                                <Link href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
-                                        </li> */}
                                     </ul>
                                 </nav>
                             </div>

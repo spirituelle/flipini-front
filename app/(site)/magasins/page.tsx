@@ -1,8 +1,6 @@
 
-import  Link  from 'next/link';
-// import { useEffect } from 'react';
-import  Image  from 'next/image';
-import FavoriteIcon from './../../../components/FavoriteIcon'
+
+
 import Breadcrumb from './../../../components/Breadcrumb';
 
 import { cookies } from 'next/headers'
