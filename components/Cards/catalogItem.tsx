@@ -17,8 +17,9 @@ export default function catalogItem ( props: any ) {
             return `Catalogue éxpirer`
         }
         if(moment(catalog.date_of_publication).diff(moment())  >= 0){
-            console.log("bigger") 
-            return `Valable dans ${moment(catalog.date_of_publication).diff(moment(), 'days')} jours`
+            let untill = moment(catalog.date_of_publication).diff(moment(), 'days');
+            if(untill == 0) return `Valable dès demain`
+            return `Valable dans ${untill} jours`
         }
 
         return  `Valable encore ${moment(catalog.date_expiration).diff(moment(), 'days')} jours`

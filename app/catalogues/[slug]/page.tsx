@@ -3,12 +3,12 @@ import  Link  from 'next/link';
 
 import {BookDescriptionModel} from './../../../model/BookDescriptionModel';
 
+import GeneralCard from "./../../../components/Cards/generale";
 
 import Item from './../../../components/image-item.js'
-import CatalogItem from './../../../components/Cards/catalogItem'
 
 async function getCatalogDetail(slug: string){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`, { cache: 'no-store'});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`);
     if(res.status === 200){
         // return res;
         const data = await res.json();
@@ -45,25 +45,11 @@ export default async function CatalogueDetails({params}: any) {
                     )
                 })}
             </div>
-                <div  className="block-wrapper">
-                    <div className="heading heading-flex">
-                                    <div className="heading-left">
-                                        <h2 className="title"> Catalogues simmilaires </h2>
-                                    </div>
-
-                                    <div className="heading-right">
-                                        <Link href="/catalogs" className="title-link">Voir tous <i className="icon-long-arrow-right"></i></Link>
-                                    </div>
-                                </div>
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-x-8">
-                            {
-                            catalogDetails.recommended_book.slice(0,12).map( ( catalog, index ) =>
-                                <CatalogItem catalog={ catalog } key={ index } />
-                            )
-                            }
-                    </div>
-               </div>
            </section>
+           <section>
+                <GeneralCard title={"Catalogues simmilaires"} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={catalogDetails.recommended_book} />;
+
+            </section>
         </div>
     )
   }

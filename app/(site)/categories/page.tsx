@@ -35,7 +35,7 @@ export default async function CategoriesPage(){
                     if(category.catalogues.length == 0) return null
                     return (
                         <div key={index}>
-                            <GeneralCard title={category.name} readMoreLink={`/categories/${category.slug}`} showReadMore={true} catalogs={category.catalogues} />
+                            <GeneralCard title={category.name} onlyScroll={false} readMoreLink={`/categories/${category.slug}`} showReadMore={true} catalogs={category.catalogues} />
                             {/* <h3> {category.name} </h3> */}
                             {/* <div> 
 

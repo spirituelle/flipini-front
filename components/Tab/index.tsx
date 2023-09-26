@@ -157,7 +157,7 @@ function MagasinFavoris() {
     <div>
         { favoris?.map((fav, index) => {
           return(
-            <GeneralCard key={index} title={" " + fav.name} showReadMore={true} readMoreLink={`/magasins/${fav.slug}`} catalogs={fav.bookList}  />
+            <GeneralCard key={index} title={" " + fav.name} showReadMore={true} onlyScroll={false} readMoreLink={`/magasins/${fav.slug}`} catalogs={fav.bookList}  />
 
           )
         })

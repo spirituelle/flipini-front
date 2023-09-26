@@ -2,7 +2,7 @@
 import Breadcrumb from './../../../../components/Breadcrumb';
 import GeneralCard from "./../../../../components/Cards/generale";
 import {CardModel} from './../../../../model/CardModel';
-import { CategoryModel } from '../../../../model/CategoryModel';
+
 import { Metadata } from 'next'
 export const metadata: Metadata = {
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
@@ -24,11 +24,8 @@ export default async function CategoryPage({params}: any){
     return(
         <div className="category category-page container">
              <Breadcrumb containerClassName=""  />
-            {/* <h1> Catalogues de {card.title}  </h1> */}
             <div >
-                {/* {card.bookList?.map((book, index) => { */}
-                     <GeneralCard title={" " + card.title} showReadMore={false} readMoreLink={`/`} catalogs={card.bookList} />;
-                {/* })} */}
+                     <GeneralCard title={" " + card.title} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={card.bookList} />;
             </div>
         </div>
     )

@@ -38,7 +38,7 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
             <div className="categorie-description mb-10">
                 {/* {content[params.category]} */}
 
-                <GeneralCard title={"Catalogue les plus récents"} readMoreLink={""} showReadMore={false} catalogs={catalogs}  />
+                <GeneralCard title={"Catalogue les plus récents"} readMoreLink={""} onlyScroll={false} showReadMore={false} catalogs={catalogs}  />
                 <Content category={params.category} />
             </div>
         </div>

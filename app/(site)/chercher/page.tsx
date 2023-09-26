@@ -52,7 +52,7 @@ export default async function SearchPage(props: Props){
                         )
                     })
                 } */}
-            <GeneralCard title={"Vous avez cherché " + `"${searchTerm}"` } showReadMore={false} readMoreLink={`/`} catalogs={searchResult} />;
+            <GeneralCard title={"Vous avez cherché " + `"${searchTerm}"` } onlyScroll={false} showReadMore={false} readMoreLink={`/`} catalogs={searchResult} />;
                 
             </div>
         </div>

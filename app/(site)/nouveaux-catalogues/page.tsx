@@ -1,4 +1,3 @@
-import  Link  from 'next/link';
 
 import { BookDetailsModel } from '../../../model/BookDetailsModel';
 import GeneralCard from "./../../../components/Cards/generale";
@@ -26,7 +25,7 @@ export default async function NewCatalogPage(){
             <Breadcrumb containerClassName=""  />
             {/* <h1>  </h1> */}
             <div >
-            <GeneralCard title="Nouveaux Catlogues" readMoreLink={"/"} showReadMore={false} catalogs={catalogues} />
+            <GeneralCard title="Nouveaux Catlogues" readMoreLink={"/"} onlyScroll={false} showReadMore={false} catalogs={catalogues} />
             </div>
         </div>
     )

@@ -31,11 +31,7 @@ export default async function CategoriesPage(){
                 {categories?.map((category, index) => {
                     return (
                         <div key={index}>
-                            <GeneralCard title={category.name} readMoreLink={`/categories/${category.slug}`} showReadMore={true} catalogs={category.catalogues} />
-                            {/* <h3> {category.name} </h3> */}
-                            {/* <div> 
-
-                            </div> */}
+                            <GeneralCard title={category.name} readMoreLink={`/categories/${category.slug}`} onlyScroll={false} showReadMore={true} catalogs={category.catalogues} />
                         </div>
                     )
                 })}

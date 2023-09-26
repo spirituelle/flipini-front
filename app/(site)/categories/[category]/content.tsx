@@ -7,7 +7,7 @@ export default function Content ({category} : {category : ObjectKey} )  {
 
 
 export const contentText = {
-    supermarches: <div  className="categorie-description mb-10">
+    supermarches: <div >
         <h2 ><strong>Catalogues Hypermarchés et Supermarchés : Feuilletez en Ligne sur Flipini.fr</strong></h2>
         <p >   Avec l&apos;essor du digital, les moyens traditionnels de faire ses courses ont considérablement changé. Les catalogues papier, autrefois très populaires, ont progressivement fait place à leurs versions numériques. C&apos;est dans ce contexte que le site <a href="https://flipini.fr/" target="_new">Flipini.fr</a> et son application mobile se sont imposés comme la référence pour feuilleter les <strong>catalogues hypermarché en ligne</strong> et les <strong>catalogues supermarché en ligne</strong>. Zoom sur cette catégorie et sur ce qu&apos;elle propose. </p>
 <h3 >Lidl, le leader européen à portée de clic</h3>

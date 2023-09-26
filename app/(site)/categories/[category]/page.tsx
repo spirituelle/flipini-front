@@ -3,6 +3,7 @@ import Breadcrumb from './../../../../components/Breadcrumb';
 
 import {SubCategoryModel} from './../../../../model/SubCategoryModel';
 import { CategoryModel } from '../../../../model/CategoryModel';
+import { BookDetailsModel } from '../../../../model/BookDetailsModel';
 
 import Content, {contentText} from './content';
 import GeneralCard from "./../../../../components/Cards/generale";
@@ -46,19 +47,21 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
             <Breadcrumb containerClassName=""  />
             <div className="flex justify-between">
                 <h1> Catalogues de {category.category.name}  </h1>
-                <Link href={`/categories/${params.category}/plus-recent`} className="btn"> les plus récents </Link>
+                {/* <Link href={`/categories/${params.category}/plus-recent`} className="btn"> les plus récents </Link> */}
             </div>
-          
-            <div >
+            <section>
+                <GeneralCard title={"Catalogue les plus récents"} readMoreLink={""} onlyScroll={true} showReadMore={false} catalogs={category.catalogs}  />
+            </section>
+            <section >
                 {category.subcategories?.map((magasin, index) => {
                     if(magasin.catalogues.length ==0) return null
-                    return <GeneralCard key={index} title={"Catalogues " + magasin.name} showReadMore={true} readMoreLink={`/magasins/${magasin.slug}`} catalogs={magasin.catalogues} />;
+                    return <GeneralCard key={index} onlyScroll={false} title={"Catalogues " + magasin.name} showReadMore={true} readMoreLink={`/magasins/${magasin.slug}`} catalogs={magasin.catalogues} />;
                 })}
-            </div>
-            <div className="categorie-description mb-10">
+            </section>
+            <section className="categorie-description mb-10">
                 {/* {content[params.category]} */}
                 <Content category={params.category} />
-            </div>
+            </section>
         </div>
 
 
@@ -68,6 +71,7 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
 
 
  interface CategoryPageModel{
+    catalogs: BookDetailsModel[],
     subcategories: SubCategoryModel[],
     category: CategoryModel,
     // category_id: number,
