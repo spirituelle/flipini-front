@@ -43,7 +43,7 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
                 </ul>
             </div>
         
-        <div className=" ">
+        <div className="container">
             <Breadcrumb containerClassName=""  />
             <div className="flex justify-between">
                 <h1> Catalogues de {category.category.name}  </h1>
