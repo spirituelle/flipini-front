@@ -13,7 +13,11 @@
     .skel-pro-single .skel-catalog-gallery,
     .skel-pro-single .entry-summary1,
     .skel-pro-single .entry-summary2,
-    .skel-pro-single .entry-summary3 {
+    .skel-pro-single .entry-summary3,
+    .skel-magasins-gallery .skel-magasin-item .skel-magasin-item-rounded,
+    .skel-cards-gallery .skel-card-item .skel-card-catalog-item,
+    .skel-cards-gallery .skel-card-item .skel-card-item-title,
+    .skel-magasins-gallery .skel-magasin-item .skel-magasin-item-line {
         position: relative;
         overflow: hidden;
         width: 100%;
@@ -79,11 +83,88 @@
             background-position: left 0,calc(26% * 100 / (100 - 20)) calc(50% - 80px + 25px / 2),calc(26% * 100 / (100 - 25)) calc(50% - 80px + 20px / 2 + 30px),calc(26% * 100 / (100 - 48)) calc(50% - 80px + 80px / 2 + 80px),calc(76% * 100 / (100 - 10)) calc(50% - 82px + 15px / 2),calc(76% * 100 / (100 - 15)) calc(50% - 82px + 15px / 2 + 30px),calc(78% * 100 / (100 - 20)) calc(50% - 82px + 30px / 2 + 80px),calc(76% * 100 / (100 - 24)) calc(50% - 82px + 40px / 2 + 125px);
         }
     }
+    .skel-magasins-gallery{
+        height: 140px;
+        .skel-magasin-item{
+            width: 88px;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            .skel-magasin-item-rounded{
+                border-radius: 50%;
+                
+                &:before {
+                    // padding-top: 23.5%;
+                    padding-top: 64px;
+                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
+                    background-position: left 0;
+                }
+
+            }
+            .skel-magasin-item-line{
+                margin-top: 5px;
+                &:before {
+                    // padding-top: 23.5%;
+                    padding-top: 16px;
+                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
+                    background-position: left 0;
+                }
+
+            }
+
+        }
+    }
+    .skel-cards-gallery{
+        // height: 140px;
+        .skel-card-item{
+            width: 100%;
+            height: 25rem;
+            // padding-top: 1.5rem;
+            // padding-bottom: 1.5rem;
+            // padding-left: 0.75rem;
+            // padding-right: 0.75rem;
+            .skel-card-catalog-items{
+                margin-top: 2.5rem;
+                height: 19.5rem;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                .skel-card-catalog-item{
+                    width: 15%;
+                     &:before {
+                        // padding-top: 23.5%;
+                        padding-top: 19.5rem;
+                        // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
+                        background-position: left 0;
+                    }
+                }
+                
+               
+                
+
+            }
+            .skel-card-item-title{
+                // margin-top: 5px;
+                width: 300px;
+                &:before {
+                    // padding-top: 23.5%;
+                    padding-top: 16px;
+                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
+                    background-position: left 0;
+                }
+
+            }
+
+        }
+    }
 
     .skel-pro-single .skel-catalog-gallery,
     &.horizontal .skel-pro-single .skel-catalog-gallery {
         &:before {
-            padding-top: 125.3%;
+            // padding-top: 125.3%;
     min-height: 480px;
     background-size: 100% 80%, 23.5% 18.5%, 23.5% 18.5%, 23.5% 18.5%, 23.5% 18.5%;
     background-position: left 0, 0 100%, calc(25% * 100 / (100 - 25)) 100%, calc(50% * 100 / (100 - 25)) 100%, calc(75% * 100 / (100 - 25)) 100%;
@@ -130,8 +211,9 @@
 
         &.gallery {
             .skel-catalog-gallery:before {
-                min-height: 0;
-                padding-top: 33%;
+                // min-height: 0;
+                // padding-top: 33%;
+                min-height: 480px;
                 background-size: 33% 100%, 33% 100%, 33% 100%;
                 background-position: left 0,calc(34% * 100 / (100 - 33)) 0,calc(68% * 100 / (100 - 33)) 0;
             }
@@ -164,7 +246,7 @@
 
             .skel-catalog-gallery:before {
                 min-height: 550px;
-                padding-top: 270%;
+                // padding-top: 270%;
                 background-size: 100% 32.5%, 100% 32.5%, 100% 32.5%;
                 background-position: left 0,left calc(34% * 100 / (100 - 32)),left calc(68% * 100 / (100 - 32));
             }
@@ -177,7 +259,8 @@
         }
 
         &.masonry_sticky .skel-catalog-gallery:before {
-            padding-top: 200%;
+            // padding-top: 200%;
+            min-height: 480px;
             background-size: 100% 50%, 49% 23%, 49% 18%, 49% 30%, 49% 25%;
             background-position: right 0,0 calc(51% * 100 / (100 - 23)),right calc(51% * 100 / (100 - 18)),0 calc(75% * 100 / (100 - 30)),right calc(70% * 100 / (100 - 25));
         }
@@ -395,7 +478,7 @@
 }
 
 .quickView-content.horizontal .skeleton-body .skel-pro-single .skel-catalog-gallery::before {
-    padding-top: 120%;
+    // padding-top: 120%;
     min-height: 480px;
     background-size: 100% 78%, 18% 16%, 18% 16%, 18% 16%, 18% 16%;
     background-position: left 0,0 95%,calc(20% * 100 / (100 - 18)) 95%,calc(40% * 100 / (100 - 18)) 95%,calc(60% * 100 / (100 - 18)) 95%;
@@ -435,9 +518,9 @@
 
 @media (min-width: 1025px) {
     .skeleton-body .skel-pro-single .skel-catalog-gallery:before {
-        padding-top:80%;
+        // padding-top:80%;
         min-height: 480px;
-        background-size: 18% 21%, 18% 21%, 18% 21%, 18% 21%, 80% 100%;
+        background-size: 25% 8%, 18% 40%, 18% 21%, 18% 21%, 80% 90%;
         background-position: left 0,left calc(23% * 100 / (100 - 21)),left calc(46% * 100 / (100 - 21)),left calc(69% * 100 / (100 - 21)),calc(20% * 100 / (100 - 80)) 0;
     }
 }
@@ -450,7 +533,7 @@
     }
 
     .skeleton-body .skel-pro-single.gallery .skel-catalog-gallery:before {
-        padding-top:48%;
+        // padding-top:48%;
         background-size: 48% 100%, 48% 100%;
         background-position: left 0,calc(52% * 100 / (100 - 48)) 0;
     }
@@ -458,7 +541,8 @@
 
 @media (max-width: 575px) {
     .skeleton-body .skel-pro-single.gallery .skel-catalog-gallery:before {
-        padding-top:100%;
+        // padding-top:100%;
+        min-height: 480px;
         background-size: 100% 100%;
         background-position: left 0
     }

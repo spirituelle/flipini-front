@@ -5,50 +5,36 @@ import  Link  from 'next/link';
 
 import LoginModal from './../LoginModal';
 import HeaderSearch from './partials/header-search';
-import {AuthUserContext} from './../../hooks/auth.context'
-import { useContext } from "react";
 
 import StickyHeader from './sticky-header';
 import {useTheme} from "next-themes";
 import  UserIcon  from './../../assets/icons/user.svg'
 import Heart from './../../assets/icons/heart.svg'
-import List from './../../assets/icons/list.svg'
+// import List from './../../assets/icons/list.svg'
 import SunIcon from './../../assets/icons/sun.svg'
 import MoonIcon from './../../assets/icons/moon.svg'
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import {  usePathname } from 'next/navigation';
 import {CategoryModel} from './../../model/CategoryModel';
+import {UserModel} from './../../model/UserModel';
 
-import {useState, useEffect, useCallback} from 'react'
 
-function Header ({categories}: {categories: CategoryModel[]}) {
+function Header ({categories, user}: {categories: CategoryModel[], user: UserModel}) {
 
-    const { state, dispatch } = useContext(AuthUserContext);
+    // const { state } = useContext(AuthUserContext);
 
-    const [rendred, setRendred] = useState(false)
-    const [wishlist, setWishlist] = useState([])
+    // const [rendred, setRendred] = useState(false)
+    // const [wishlist, setWishlist] = useState([])
 
-    const searchParams = useSearchParams();
     const pathname = usePathname()
 
-    
-    const createQueryString = useCallback(
-        (name: string, value: string) => {
-          const params = new URLSearchParams(Array.from(searchParams.entries()))
-          params.set(name, value)
-     
-          return params.toString()
-        },
-        [searchParams]
-      )
- 
       
-    useEffect(() => {
-        setRendred(true)
-        // setTheme('dark')
-        return () => {
+    // useEffect(() => {
+    //     setRendred(true)
+    //     // setTheme('dark')
+    //     return () => {
             
-        }
-    }, [])
+    //     }
+    // }, [])
   
     function openMobileMenu () {
         if(document != null){
@@ -73,10 +59,9 @@ function Header ({categories}: {categories: CategoryModel[]}) {
           )
         }
      };
-    //  console.log(state.token)
+
      const renderButton= () => {
-        if(!rendred) return null
-       if(state.token){
+       if(user.username){
         return ( 
             <div className="header-right">
                 <div className="account">
@@ -88,11 +73,11 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                             <UserIcon width={20} />
                         </span>
 
-                        <p>{state.user?.username}</p>
+                        <p>{user?.username}</p>
                     </Link>
                 </div>
                 <div className="wishlist">
-                    <Link href={"/profil?"+ createQueryString('value', 'favoris')} title="Wishlist">
+                    <Link href={`/profil?value=favoris`} title="Wishlist">
                         <div className="icon">
                             <Heart width= {20} />
                             {/* <span className="wishlist-count badge">{ wishlist.length }</span> */}
@@ -100,15 +85,14 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                         {/* <p>Favoris</p> */}
                     </Link>
                 </div>
-                <div className="wishlist">
-                    <Link href={"/profil?"+ createQueryString('value', 'catalogue')} title="Wishlist">
+                {/* <div className="wishlist">
+                    <Link href={"/profil?value=catalogue"} title="Wishlist">
                         <div className="icon">
                             <List width= {20} />
-                            {/* <span className="wishlist-count badge">{ wishlist.length }</span> */}
+                            <span className="wishlist-count badge">{ wishlist.length }</span>
                         </div>
-                        {/* <p> enregistrer </p> */}
                     </Link>
-                </div>
+                </div> */}
             </div>
         )
        }else{
@@ -136,7 +120,7 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                     <div className="header-right">
                         <HeaderSearch />
 
-                        <div className="header-dropdown-link"> { renderButton() }  </div>
+                        <div className="header-dropdown-link">{ renderButton()} </div>
                         
                     </div>
                     <div className="header-theme-change overflow-hidden">

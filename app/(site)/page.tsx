@@ -2,6 +2,9 @@
 import {DashboardModel} from './../../model/DashboardModel';
 
 import  Image  from 'next/image';
+import { Suspense} from 'react'
+import MagasinRowSkeleton from './../../components/magasinsRowSkeleton'
+import CardSkeleton from './../../components/cardsSkeleton'
 
 
 import Cards from './../../components/Cards'
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
     "Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ",
 }
 async function getDashboard(){
-  const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail`,{ cache: 'no-store'});
+  const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site`,{ cache: 'no-store'});
   if(res.status === 200){
       const data = await res.json();
       return data as DashboardModel;
@@ -33,9 +36,11 @@ export default async function Home() {
   // if (dashboard == null) return( <> Error </>);
 
   return (
+    // <Suspense fallback={<div> Loading ... </div>}>
     <div className="home-page">
+       
       <div className="overflow-x-scroll flex">
-
+        <Suspense fallback={<MagasinRowSkeleton />}>
         {
           dashboard.top_magasin.map((magasin, index)=>{
             return(
@@ -48,14 +53,17 @@ export default async function Home() {
             )
           })
         }
+        </Suspense>
       </div>
       <section>
+      <Suspense fallback={<CardSkeleton />}>
       {dashboard.cards?.map((card, index: number) => {
         if(card.bookList.length == 0) return null
         return(
           <Cards key={index} card={card} />
         )
       })}
+      </Suspense >
       </section>
       <section className="container mb-5">
         <div className="heading heading-flex">
@@ -66,6 +74,7 @@ export default async function Home() {
             
         </div>
         <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 xl:gap-x-8">
+        <Suspense fallback={<div> Loading ... </div>}>
             {
                 dashboard.top_magasin?.map((magasin, index) => {
                     return(
@@ -90,6 +99,7 @@ export default async function Home() {
                     
                 })
             }
+            </Suspense >
         </div>
         </section>
         <section className="container mb-10">
@@ -131,5 +141,6 @@ Que vous recherchiez des produits du quotidien, des articles spécifiques ou des
 
 
     </div>
+    //  </Suspense>
   )
 }

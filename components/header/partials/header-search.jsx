@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState, useCallback } from 'react';
 import {  useSearchParams, useRouter } from 'next/navigation';
 // import { useLazyQuery } from '@apollo/react-hooks';

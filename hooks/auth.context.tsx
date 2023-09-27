@@ -2,7 +2,7 @@
 
 import React, { Dispatch,createContext, useReducer, useEffect} from 'react';
 import { UserModel } from './../model/UserModel';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import axios from './../lib/axios'
 
 import { setCookie, getCookie, deleteCookie, CookieValueTypes } from "cookies-next";
@@ -20,19 +20,19 @@ type ActionType = {
 };
 const initialState: StateType = {
     user: {}as UserModel ,
-    isLoading: false,
+    isLoading: true,
     token: getCookie('api_token'),
 };
 
 const reducer =  (state: StateType, action: ActionType) => {
   switch  (action.type) {
     case "LOGIN":      
-      return { ...state, user: action.user, token: action.user.api_token };
+      return { ...state, user: action.user, token: action.user.api_token, loading: false };
     case "LOGOUT":
       deleteCookie('api_token');
-      return { ...state, token: "", user: {} as UserModel };
+      return { ...state, token: "", user: {} as UserModel,  loading: false };
     case "REGISTER":
-      return { ...state, token: "register" };
+      return { ...state, token: "register",  loading: false };
     default:
       return state;
   }

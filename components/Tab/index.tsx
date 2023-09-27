@@ -143,14 +143,14 @@ function MagasinFavoris() {
   const { state, dispatch } = useContext(AuthUserContext);
 
   useEffect( () => {
-    
+    console.log("favoris")
     axios.get('/api/user-favorite-magasin?country_id=1', { headers: { Authorization: "Bearer " + state.token } }).then(res => {
       console.log(res.data.data)
       setFavoris(res.data.data)
     }).catch((err) => {
-      // console.log(err)
+      console.log(err)
     })
-}, [] );
+  }, [] );
 
 
   return(
