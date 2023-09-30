@@ -2,23 +2,25 @@
 
 
 import  Link  from 'next/link';
-
+import Image from 'next/image'
 import LoginModal from './../LoginModal';
 import HeaderSearch from './partials/header-search';
 
 import StickyHeader from './sticky-header';
 import {useTheme} from "next-themes";
-import  UserIcon  from './../../assets/icons/user.svg'
-import Heart from './../../assets/icons/heart.svg'
+// import  UserIcon  from './../../assets/icons/user.svg'
+// import Heart from './../../assets/icons/heart.svg'
 // import List from './../../assets/icons/list.svg'
 import SunIcon from './../../assets/icons/sun.svg'
 import MoonIcon from './../../assets/icons/moon.svg'
 import {  usePathname } from 'next/navigation';
 import {CategoryModel} from './../../model/CategoryModel';
-import {UserModel} from './../../model/UserModel';
+type Categories = {
+    slug: string,
+    name:string
+}
 
-
-function Header ({categories, user}: {categories: CategoryModel[], user: UserModel}) {
+function Header ({categories}: {categories: Categories[]}) {
 
     // const { state } = useContext(AuthUserContext);
 
@@ -61,43 +63,43 @@ function Header ({categories, user}: {categories: CategoryModel[], user: UserMod
      };
 
      const renderButton= () => {
-       if(user.username){
-        return ( 
-            <div className="header-right">
-                <div className="account">
-                    <Link href="/profil"
-                        title="My account"
-                        className="flex-row flex-nowrap items-center"
-                    >
-                        <span className="icon">
-                            <UserIcon width={20} />
-                        </span>
+    //    if(user.username){
+        return <LoginModal /> 
+        //     <div className="header-right">
+        //         <div className="account">
+        //             <Link href="/profil"
+        //                 title="My account"
+        //                 className="flex-row flex-nowrap items-center"
+        //             >
+        //                 <span className="icon">
+        //                     <UserIcon width={20} />
+        //                 </span>
 
-                        <p>{user?.username}</p>
-                    </Link>
-                </div>
-                <div className="wishlist">
-                    <Link href={`/profil?value=favoris`} title="Wishlist">
-                        <div className="icon">
-                            <Heart width= {20} />
-                            {/* <span className="wishlist-count badge">{ wishlist.length }</span> */}
-                        </div>
-                        {/* <p>Favoris</p> */}
-                    </Link>
-                </div>
-                {/* <div className="wishlist">
-                    <Link href={"/profil?value=catalogue"} title="Wishlist">
-                        <div className="icon">
-                            <List width= {20} />
-                            <span className="wishlist-count badge">{ wishlist.length }</span>
-                        </div>
-                    </Link>
-                </div> */}
-            </div>
-        )
-       }else{
-        return  <LoginModal />
-       }
+        //                 <p>{user?.username}</p>
+        //             </Link>
+        //         </div>
+        //         <div className="wishlist">
+        //             <Link href={`/profil?value=favoris`} title="Wishlist">
+        //                 <div className="icon">
+        //                     <Heart width= {20} />
+        //                     {/* <span className="wishlist-count badge">{ wishlist.length }</span> */}
+        //                 </div>
+        //                 {/* <p>Favoris</p> */}
+        //             </Link>
+        //         </div>
+        //         {/* <div className="wishlist">
+        //             <Link href={"/profil?value=catalogue"} title="Wishlist">
+        //                 <div className="icon">
+        //                     <List width= {20} />
+        //                     <span className="wishlist-count badge">{ wishlist.length }</span>
+        //                 </div>
+        //             </Link>
+        //         </div> */}
+        //     </div>
+        // )
+    //    }else{
+        // return  <LoginModal />
+    //    }
      };
     return (
         <header className="header header-12">
@@ -115,12 +117,12 @@ function Header ({categories, user}: {categories: CategoryModel[], user: UserMod
                        
                     </div>
                     <div className="header-center">  <Link href="/" className="logo">
-                            <img src="/images/app-icon.png" alt="Flipini Logo" className="bg-transparent" width="105" height="25" />
+                            <Image  src="/images/app-icon.png" alt="Flipini Logo" className="bg-transparent" width={105} height={25} />
                         </Link> </div>
                     <div className="header-right">
                         <HeaderSearch />
 
-                        <div className="header-dropdown-link">{ renderButton()} </div>
+                        {/* <div className="header-dropdown-link">{ renderButton()} </div> */}
                         
                     </div>
                     <div className="header-theme-change overflow-hidden">

@@ -42,10 +42,13 @@ h2{
 .swiper-1 .swiper-dots, .swiper-2 .swiper-dots {
 	margin-top: 2rem;
 }
-
+.catalogs-card{
+	border-radius: 2rem;
+	box-shadow: rgba($secondary-color-dark, 0.4) 0px 0px 4px 2px;
+}
 .block-wrapper  {
-	padding-bottom: 12rem;
-	margin-bottom: -12rem;
+	// padding-bottom: 12rem;
+	// margin-bottom: -12rem;
 
 	&:after {
 		content: '';
@@ -53,7 +56,76 @@ h2{
 		clear: both;
 	}
 }
+.page-loader-spinner {
+    position: fixed;
+    top: 0;
+    bottom: 0%;
+    left: 0;
+    right: 0%;
+    background-color: white;
+    color: #222;
+    z-index: 300;
+    display: block;
+    text-align: center;
+    width: 100%;
 
+    .page-loader-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .book-loading {
+          margin-top: 20px;
+          path {
+            fill: #5497C5;
+            transition: fill 0.3s;
+          }
+          
+          &:first-child {
+            path {
+              animation: fillItem 1s;
+            } 
+          }
+          &:nth-child(2) {
+            path {
+              animation: fillItem 1s 1s;
+            }
+          }
+          &:nth-child(3) {
+            path {
+              animation: fillItem 1s 2s;
+            }
+          }
+          &:nth-child(4) {
+            path {
+              animation: fillItem 1s 3s;
+            }
+          }
+          &:nth-child(5) {
+            path {
+              animation: fillItem 1s 4s;
+            }
+          }
+        }
+      
+      .is-active {
+        path {
+          fill: #D3504F;
+        }
+      }
+    }
+}
+
+// animations
+@keyframes fillItem {
+  1%, 99% {
+    fill: red;
+  }
+  100% {
+    fill: white;
+  }
+}
 @include mq('xxl') {
 
 	.header-12 {
@@ -252,14 +324,6 @@ h2{
 		}
 	}
 
-	.catalog{
-		// box-shadow: 1px 3px 5px rgba(204,114,236, .1);
-		box-shadow: rgba($primary-color, 0.4) 0px 0px 4px 2px;
-    transition: all 200ms ease 0s;
-	}
-	.catalog:hover{
-		box-shadow: rgba($primary-color, 0.4) 0px 0px 8px 4px;
-	}
 	.catalog {
 		// height: 100%;
 		padding: 0rem;
@@ -268,6 +332,12 @@ h2{
 		border: .1rem solid $primary-color;
 		overflow: visible;
 		min-width: 12rem;
+		max-width: 14rem;
+		box-shadow: rgba($primary-color, 0.4) 0px 0px 4px 2px;
+		transition: all 200ms ease 0s;
+		&:hover{
+			box-shadow: rgba($primary-color, 0.4) 0px 0px 8px 4px;
+		}
 	}
 
 	.catalog-media {

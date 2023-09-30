@@ -25,7 +25,7 @@ export default function catalogItem ( props: any ) {
         return  `Valable encore ${moment(catalog.date_expiration).diff(moment(), 'days')} jours`
     }
     return (
-        <div className="catalog bg-white dark:bg-slate-900 mx-2 md:mx-0">
+        <div className="catalog bg-white dark:bg-slate-900 mx-2 md:mx-0 flex-none">
             <Link prefetch={false} href={ `/catalogues/${catalog.title}` }>
             {
                 catalog.new ?

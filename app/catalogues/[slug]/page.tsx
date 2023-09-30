@@ -1,14 +1,21 @@
 
-import  Link  from 'next/link';
 
 import {BookDescriptionModel} from './../../../model/BookDescriptionModel';
+import {BookDetailsModel} from './../../../model/BookDetailsModel';
 
 import GeneralCard from "./../../../components/Cards/generale";
 
 import Item from './../../../components/image-item.js'
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=1`);
+   const catalogues = await res.json() ;
+    return catalogues;
+}
+  
 async function getCatalogDetail(slug: string){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`,{ next: { tags: ['home', 'catalogue'] }});
     if(res.status === 200){
         // return res;
         const data = await res.json();

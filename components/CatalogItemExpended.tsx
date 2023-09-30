@@ -23,7 +23,6 @@ export default function CatalogItem({catalog}: any){
            
             </picture>
             </div>
-                {/* <img className="rounded-t-lg" src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.thumbnail_path}`} alt="" /> */}
             </Link>
             <div className="catalog-info m-3">
                 <div>

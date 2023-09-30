@@ -114,6 +114,7 @@
             background-position: left 0,calc(26% * 100 / (100 - 20)) calc(50% - 80px + 25px / 2),calc(26% * 100 / (100 - 25)) calc(50% - 80px + 20px / 2 + 30px),calc(26% * 100 / (100 - 48)) calc(50% - 80px + 80px / 2 + 80px),calc(76% * 100 / (100 - 10)) calc(50% - 82px + 15px / 2),calc(76% * 100 / (100 - 15)) calc(50% - 82px + 15px / 2 + 30px),calc(78% * 100 / (100 - 20)) calc(50% - 82px + 30px / 2 + 80px),calc(76% * 100 / (100 - 24)) calc(50% - 82px + 40px / 2 + 125px);
         }
     }
+    // my skeleton
     .skel-magasins-gallery{
         height: 140px;
         .skel-magasin-item{
@@ -126,19 +127,14 @@
                 border-radius: 50%;
                 
                 &:before {
-                    // padding-top: 23.5%;
                     padding-top: 64px;
-                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
                     background-position: left 0;
                 }
-
             }
             .skel-magasin-item-line{
                 margin-top: 5px;
                 &:before {
-                    // padding-top: 23.5%;
                     padding-top: 16px;
-                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
                     background-position: left 0;
                 }
 
@@ -147,14 +143,9 @@
         }
     }
     .skel-cards-gallery{
-        // height: 140px;
         .skel-card-item{
             width: 100%;
             height: 25rem;
-            // padding-top: 1.5rem;
-            // padding-bottom: 1.5rem;
-            // padding-left: 0.75rem;
-            // padding-right: 0.75rem;
             .skel-card-catalog-items{
                 margin-top: 2.5rem;
                 height: 19.5rem;
@@ -166,9 +157,7 @@
                 .skel-card-catalog-item{
                     width: 15%;
                      &:before {
-                        // padding-top: 23.5%;
                         padding-top: 19.5rem;
-                        // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
                         background-position: left 0;
                     }
                 }
@@ -178,12 +167,9 @@
 
             }
             .skel-card-item-title{
-                // margin-top: 5px;
                 width: 300px;
                 &:before {
-                    // padding-top: 23.5%;
                     padding-top: 16px;
-                    // background-size: 100% 58%, 55% 15px, 85% 20px, 55% 15px, 40% 25px;
                     background-position: left 0;
                 }
 

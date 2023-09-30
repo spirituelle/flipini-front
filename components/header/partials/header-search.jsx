@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useCallback } from 'react';
-import {  useSearchParams, useRouter } from 'next/navigation';
+import {  useRouter } from 'next/navigation';
 // import { useLazyQuery } from '@apollo/react-hooks';
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -15,7 +15,7 @@ function HeaderSearch () {
     const [ cat, setCat ] = useState( "" );
     const [ searchTerm, setSearchTerm ] = useState( "" );
     const [ catalogs, setCatalogs ] = useState( [] );
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
     // const [ searchProducts, { data } ] = useLazyQuery( GET_PRODUCTS );
     // const result = data && data.catalogs.data;
     // const [ timer, setTimer ] = useState( null );
@@ -78,18 +78,18 @@ function HeaderSearch () {
             .querySelector( '.header .header-search' )
             .classList.add( 'show' );
     }
-    const createQueryString = useCallback(
-        (name, value) => {
-          const params = new URLSearchParams(Array.from(searchParams.entries()))
-          params.set(name, value)
+    // const createQueryString = useCallback(
+    //     (name, value) => {
+    //       const params = new URLSearchParams(Array.from(searchParams.entries()))
+    //       params.set(name, value)
      
-          return params.toString()
-        },
-        [searchParams]
-      )
+    //       return params.toString()
+    //     },
+    //     [searchParams]
+    //   )
     function onSubmitSearchForm ( e ) {
         e.preventDefault();
-        router.push(  "chercher?" + createQueryString("term", searchTerm))
+        router.push(  "chercher?term=" + searchTerm)
         // router.push( {
         //     pathname: '/shop/sidebar/list',
         //     query: {

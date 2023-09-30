@@ -17,7 +17,7 @@ import ZoomOut from './../assets/icons/zoomOut.svg'
 import FirstPage from './../assets/icons/firstpage.svg'
 import LastPage from './../assets/icons/lastpage.svg'
 import moment from 'moment'
-
+import { default as NextImage } from 'next/image'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -189,7 +189,7 @@ export default function ImageElement({images, catalog}){
                         <div className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${firstSlide[0]?.path}`} />
+                                    <NextImage width={600} height={600} className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -204,7 +204,7 @@ export default function ImageElement({images, catalog}){
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${firstSlide[0]?.path}`} />
+                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -231,7 +231,7 @@ export default function ImageElement({images, catalog}){
                         {/* <h1> {catalog.name} </h1> */}
                         <div className="flex flex-col h-full items-center justify-center">
                             <div className="flex">
-                                <div> <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-16 mr-3" alt="magasin Logo" /> </div>
+                                <div> <NextImage width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-16 mr-3" alt="magasin Logo" /> </div>
                                 <div className="flex flex-col items-start justify-center ml-3"> 
                                     <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
                                     <h3> {catalog.subtitle} </h3> 
@@ -252,7 +252,7 @@ export default function ImageElement({images, catalog}){
                         <div className="slideWrapper doublePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${firstSlide[0]?.path}`} />
+                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -267,7 +267,7 @@ export default function ImageElement({images, catalog}){
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${firstSlide[0]?.path}`} />
+                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -285,14 +285,14 @@ export default function ImageElement({images, catalog}){
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${thisTwo[0].path}`} />
+                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
                             </div>
                         
                     </div>
                     {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${thisTwo[1]?.path}`} />
+                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -308,14 +308,14 @@ export default function ImageElement({images, catalog}){
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${thisTwo[0].path}`} />
+                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
                             </div>
                         
                     </div>
                     {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <img className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${thisTwo[1]?.path}`} />
+                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -340,7 +340,7 @@ export default function ImageElement({images, catalog}){
                 <div className="flex items-center justify-between catalog-top-nav">
                     <div className="flex items-center justify-start">
                     
-                        <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="FlowBite Logo" />
+                        <NextImage width={32} height={32}  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="FlowBite Logo" />
                         <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {catalog.subcategory_name} </span>
 
                     </div>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ",
 }
 async function getDashboard(){
-  const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site`,{ cache: 'no-store'});
+  const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site`,{ next: { tags: ['home'] } });
   if(res.status === 200){
       const data = await res.json();
       return data as DashboardModel;
@@ -46,7 +46,7 @@ export default async function Home() {
             return(
               <Link  className="flex-none py-6 px-3 first:pl-6 last:pr-6" key={index} href={`/magasins/${magasin.slug}`}>
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <img src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
+                    <Image alt={magasin.name} width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
                     <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {magasin.name} </strong>
                   </div>
               </Link>
@@ -55,7 +55,7 @@ export default async function Home() {
         }
         </Suspense>
       </div>
-      <section>
+      <section className="container">
       <Suspense fallback={<CardSkeleton />}>
       {dashboard.cards?.map((card, index: number) => {
         if(card.bookList.length == 0) return null
@@ -65,44 +65,49 @@ export default async function Home() {
       })}
       </Suspense >
       </section>
-      <section className="container mb-5">
-        <div className="heading heading-flex">
-            <div className="heading-left">
-                <h2 className="title">Magasins recommandés</h2>
-            </div>
-          
+      <section className="container mb-5 ">
+        <div className="catalogs-card p-5">
+
+       
+          <div className="heading heading-flex">
+              <div className="heading-left">
+                  <h2 className="title">Magasins recommandés</h2>
+              </div>
             
-        </div>
-        <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 xl:gap-x-8">
-        <Suspense fallback={<div> Loading ... </div>}>
-            {
-                dashboard.top_magasin?.map((magasin, index) => {
-                    return(
-                        <Link className="magasin-frid-item bg-white dark:bg-slate-900" key={index} href={"/magasins/" + magasin.slug}> 
-                            <div className="magasin-card " >
-                                <div> 
-                                    <Image 
-                                    alt={magasin.name}
-                                    src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
-                                    width={72}
-                                    height={72}
-                                    className="magasin-image"
-                                    /> 
-                                </div>
-                                <h3> {magasin.name} </h3>
-                                {/* <FavoriteIcon  magasin={magasin} /> */}
-                                
-                            </div> 
-                        </Link>
-                        
-                    )
-                    
-                })
-            }
-            </Suspense >
+              
+          </div>
+          <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 xl:gap-x-8">
+          <Suspense fallback={<div> Loading ... </div>}>
+              {
+                  dashboard.top_magasin?.map((magasin, index) => {
+                      return(
+                          <Link className="magasin-frid-item bg-white dark:bg-slate-900" key={index} href={"/magasins/" + magasin.slug}> 
+                              <div className="magasin-card " >
+                                  <div> 
+                                      <Image 
+                                      alt={magasin.name}
+                                      src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
+                                      width={72}
+                                      height={72}
+                                      className="magasin-image"
+                                      /> 
+                                  </div>
+                                  <h3> {magasin.name} </h3>
+                                  {/* <FavoriteIcon  magasin={magasin} /> */}
+                                  
+                              </div> 
+                          </Link>
+                          
+                      )
+                      
+                  })
+              }
+              </Suspense >
+          </div>
         </div>
         </section>
         <section className="container mb-10">
+          <div className="catalogs-card p-5">
           <p>         Bienvenue sur Flipini.fr, votre destination privilégiée pour découvrir les catalogues en ligne les plus récents. Plongez dans le catalogue de la semaine, profitez des offres exceptionnelles et découvrez les promotions incontournables des plus grandes enseignes de France. Simplifiez vos achats et restez à la pointe des tendances grâce à Flipini.fr. </p>
 <h2><strong>Flipini.fr : Votre Compagnon de Shopping Multicatégorie en Ligne</strong></h2>
 Bienvenue sur Flipini.fr, la plateforme qui révolutionne votre expérience de shopping en ligne en rassemblant une multitude de catalogues, promotions et prospectus des enseignes les plus prisées de France.
@@ -136,7 +141,7 @@ Découvrez une collection impressionnante de bijoux à travers nos <a className=
 Que vous recherchiez des produits du quotidien, des articles spécifiques ou des cadeaux, Flipini.fr est votre destination de choix pour un shopping en ligne complet et avantageux. Naviguez à travers nos différentes catégories et profitez des meilleures offres du moment. Bon shopping sur Flipini.fr !
 
 <em>Flipini.fr est bien plus qu&apos;un simple site d&apos;achat en ligne. C&apos;est une destination où chaque catégorie vous offre un monde de découvertes. Alors, pourquoi attendre? Commencez votre voyage shopping dès maintenant!</em>
-
+</div>
         </section>
 
 
