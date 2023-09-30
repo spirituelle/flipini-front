@@ -6,14 +6,14 @@ import { Providers } from "./providers";
 // import { cookies } from 'next/headers'
 
 import "./../public/scss/style.scss";
-import {SiteConfigModel} from './../model/SiteConfigModel'
+
 import Footer from './../components/footer'
 import MobileMenu from './../components/header/partials/mobile-menu'
 import OverlayMobileMenu from './../components/Overlay'
 import { AuthWrapper } from './../hooks/auth.context'; 
 import Header from './../components/header'
 
-// import { UserModel } from '../model/UserModel';
+
 const inter = Inter({ subsets: ['latin'] })
 
 
