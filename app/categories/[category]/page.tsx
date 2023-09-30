@@ -8,6 +8,7 @@ import { BookDetailsModel } from './../../../model/BookDetailsModel';
 import Content, {contentText} from './content';
 import GeneralCard from "./../../../components/Cards/generale";
 import  Link  from 'next/link';
+import { notFound } from 'next/navigation'
 
 import { Metadata } from 'next'
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 }
 type ObjectKey = keyof typeof contentText;
 
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/category-list?country_id=1`);
@@ -33,7 +35,7 @@ async function getCategory(category: string){
     const data = await res.json();
 
     if(data)return data as CategoryPageModel;
-    throw new Error
+    notFound()
     
 }
 

@@ -13,12 +13,13 @@ import  Image  from 'next/image';
 // import FavoriteIcon from './../../../components/FavoriteIcon'
 
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 export const metadata: Metadata = {
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
   description:
     "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
 }
-
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?country_id=1`);
@@ -41,7 +42,7 @@ async function getMagasin(magasin: string){
         return data as MagasinModel;
     }
     else{
-        throw new Error
+        notFound()
     }
   
     

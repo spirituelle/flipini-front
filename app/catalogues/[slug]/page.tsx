@@ -6,6 +6,9 @@ import {BookDetailsModel} from './../../../model/BookDetailsModel';
 import GeneralCard from "./../../../components/Cards/generale";
 
 import Item from './../../../components/image-item.js'
+import { notFound } from 'next/navigation'
+
+export const dynamicParams = false;
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
@@ -21,10 +24,9 @@ async function getCatalogDetail(slug: string){
         const data = await res.json();
         // console.log(data);
         return data as BookDescriptionModel;
-    
     }
     else{
-        throw new Error
+        notFound()
     }
     
 }
