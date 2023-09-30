@@ -117,6 +117,13 @@ export default async function RootLayout({
      crossOrigin="anonymous"></script> */}
       {/* <link rel="stylesheet" type="text/css" href="css/fonts-molla.min.css" /> */}
 
+     {
+       process.env.NODE_ENV === "production" && (
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4248324788374908"
+        crossOrigin="anonymous"></script>
+   
+       )
+     }
       </head>
       <body className={inter.className}>
         <AuthWrapper>

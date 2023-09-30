@@ -8,7 +8,7 @@ import axios from './../../../lib/axios'
 import {SubCategoryModel} from './../../../model/SubCategoryModel';
 // import { getMagasin } from './../actions'
 
-import FavoriteIcon from './../../../components/FavoriteIcon'
+// import FavoriteIcon from './../../../components/FavoriteIcon'
 
 type Meta = {
     current_page: number,
@@ -72,7 +72,7 @@ export default function MAgasinsWithMore({initialShop, search}: {initialShop: Su
                                     /> 
                                 </div>
                                 <h3> {magasin.name} </h3>
-                                <FavoriteIcon  magasin={magasin} />
+                                {/* <FavoriteIcon  magasin={magasin} /> */}
                             
                             </div> 
                         </Link>
