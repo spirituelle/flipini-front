@@ -8,11 +8,11 @@ import GeneralCard from "./../../../components/Cards/generale";
 import Item from './../../../components/image-item.js'
 import { notFound } from 'next/navigation'
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=1`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=1`, {cache: "no-cache" });
    const catalogues = await res.json() ;
     return catalogues;
 }
