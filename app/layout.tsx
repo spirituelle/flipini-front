@@ -18,8 +18,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export const metadata = {
-  title: 'Flipini | ',
-  description: 'Tous les catalogues de la semaine dans seule endroit',
+  
+  title: {
+    default: 'Flipini.fr : Catalogues en ligne, Promotions et Offres de la Semaine',
+  },
+  description: 'Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ',
 }
 
 

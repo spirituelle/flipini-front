@@ -8,8 +8,39 @@ import GeneralCard from "./../../../components/Cards/generale";
 import Item from './../../../components/image-item.js'
 import { notFound } from 'next/navigation'
 
+import type { Metadata } from 'next'
+
 export const dynamicParams = true;
 
+type Props = {
+    params: { slug: string }
+    // searchParams: { [key: string]: string | string[] | undefined }
+  }
+
+  export async function generateMetadata(
+    { params }: Props,
+    // parent: ResolvingMetadata
+  ): Promise<Metadata> {   
+    // fetch data
+    const catalog = await getCatalogDetail(params.slug);
+      
+    return {
+        title: catalog.book_detail.name,
+        generator: `${catalog.book_detail.subcategory_name}`,
+        applicationName: "Flipini",
+        description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
+        openGraph: {
+            title: catalog.book_detail.name,
+            type: "website",
+            url: "https://flipini.fr",
+            siteName: "flipini",
+            description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.book_detail.thumbnail_path}`],
+        },
+    }
+  }
+ 
+  
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=1`, {cache: "no-cache" });
@@ -22,6 +53,7 @@ async function getCatalogDetail(slug: string){
     if(res.status === 200){
         // return res;
         const data = await res.json();
+        if(data.status === 404) return notFound();
         // console.log(data);
         return data as BookDescriptionModel;
     }

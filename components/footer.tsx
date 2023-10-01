@@ -76,7 +76,7 @@ function Footer () {
 
                                         <ul className="widget-list">
                                             <li><Link prefetch={false} href="/terms-and-conditions">Termes et conditions</Link></li>
-                                            <li><Link prefetch={false} href="/privacy-policy">politique de confidentialité</Link></li>
+                                            <li><Link prefetch={false} href="/politique-de-confidentialite">politique de confidentialité</Link></li>
                                         </ul>
                                     </div>
                                 </div>

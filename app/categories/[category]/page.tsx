@@ -11,11 +11,34 @@ import  Link  from 'next/link';
 import { notFound } from 'next/navigation'
 
 import { Metadata } from 'next'
-export const metadata: Metadata = {
-  title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
-  description:
-    "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
-}
+type Props = {
+    params: { category: string }
+    // searchParams: { [key: string]: string | string[] | undefined }
+  }
+export async function generateMetadata(
+    { params }: Props,
+    // parent: ResolvingMetadata
+  ): Promise<Metadata> {   
+    // fetch data
+    const category = await getCategory(params.category);
+      
+    return {
+        title:`Catalogues ${category.category.name} en ligne`,
+        generator: `Catalogues ${category.category.name} en ligne`,
+        applicationName: "Flipini",
+        description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+        openGraph: {
+            title: category.category.name,
+            type: "website",
+            url: "https://flipini.fr/categories/" + params.category,
+            siteName: "flipini",
+            description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${category.category.icon}`],
+        },
+    }
+  }
+ 
+
 type ObjectKey = keyof typeof contentText;
 
 export const dynamicParams = false;
@@ -33,7 +56,6 @@ async function getCategory(category: string){
     const res = await fetch(`${process.env.BACKEND_URL}/api/sub-category-list?name=${category}`,{ next: { tags: ['home', 'categories'] }});
 
     const data = await res.json();
-
     if(data)return data as CategoryPageModel;
     notFound()
     

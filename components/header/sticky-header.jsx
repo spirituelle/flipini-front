@@ -34,13 +34,13 @@ function StickyHeader ( props ) {
     function scrollHandler () {
         let stickyContent = ref.current?.children[ 0 ];
         if ( window.pageYOffset > top ) {
-            if ( !stickyContent.classList.contains( 'fixed' ) ) {
-                stickyContent.classList.add( 'fixed' );
+            if ( !stickyContent?.classList.contains( 'fixed' ) ) {
+                stickyContent?.classList.add( 'fixed' );
             }
-        } else if ( stickyContent.classList.contains( 'fixed' ) ) {
-            stickyContent.classList.remove( 'fixed' );
+        } else if ( stickyContent?.classList.contains( 'fixed' ) ) {
+            stickyContent?.classList.remove( 'fixed' );
         } else {
-            setHeight( stickyContent.offsetHeight + 'px' );
+            setHeight( stickyContent?.offsetHeight + 'px' );
         }
     }
 

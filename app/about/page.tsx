@@ -25,7 +25,7 @@ export default function About2 () {
                 let pt = 0;
                 let flag = 0;
     
-                document.addEventListener( "scroll", () => countToScrollHandler(amount, time, interval, pt, flag, item), true );
+                countToScrollHandler(amount, time, interval, pt, flag, item)
     
               
             }
@@ -39,7 +39,7 @@ export default function About2 () {
                         clearInterval( timerId );
                     }
 
-                    item.innerHTML =   (( pt * amount ) / time).toString();
+                    item.innerHTML =   (( pt * amount ) / time).toFixed(2).toString();
                     pt = pt + interval;
                 }, interval );
             }
