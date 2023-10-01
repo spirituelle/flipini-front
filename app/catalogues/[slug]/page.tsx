@@ -32,7 +32,7 @@ type Props = {
         openGraph: {
             title: catalog.book_detail.name,
             type: "website",
-            url: "https://flipini.fr",
+            url: "https://flipini.fr/catalogues/"+ params.slug,
             siteName: "flipini",
             description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.book_detail.thumbnail_path}`],
