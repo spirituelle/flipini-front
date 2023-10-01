@@ -12,6 +12,7 @@ import MobileMenu from './../components/header/partials/mobile-menu'
 import OverlayMobileMenu from './../components/Overlay'
 import { AuthWrapper } from './../hooks/auth.context'; 
 import Header from './../components/header'
+import GoogleAnalytics from './GoogleAnalytics.jsx';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -129,6 +130,11 @@ export default async function RootLayout({
      }
       </head>
       <body className={inter.className}>
+      {
+       process.env.NODE_ENV === "production" && (
+        <GoogleAnalytics />
+       )
+     }
         <AuthWrapper>
           <Providers>
             <Header  categories={siteConfigs}  />
