@@ -35,15 +35,7 @@ type Props = {
             url: "https://flipini.fr/catalogues/"+ params.slug,
             siteName: "flipini",
             description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
-            images: [
-                {
-                    url: `${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.book_image_data[0].path}`,
-                    width: 314,
-                    height: 600,
-                    alt: `Premier page du ${catalog.book_detail.name}`,
-                  },
-                
-            ],
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.book_image_data[0].path}`],
         },
     }
   }
