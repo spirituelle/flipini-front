@@ -189,7 +189,7 @@ export default function ImageElement({images, catalog}){
                         <div className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <NextImage width={600} height={600} className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage alt={`Page du ${catalog.name}`} width={600} height={600} className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -204,7 +204,7 @@ export default function ImageElement({images, catalog}){
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -252,7 +252,7 @@ export default function ImageElement({images, catalog}){
                         <div className="slideWrapper doublePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage   alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -267,7 +267,7 @@ export default function ImageElement({images, catalog}){
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -285,14 +285,14 @@ export default function ImageElement({images, catalog}){
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
                             </div>
                         
                     </div>
                     {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
+                                <NextImage alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -308,14 +308,14 @@ export default function ImageElement({images, catalog}){
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
                             </div>
                         
                     </div>
                     {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <NextImage width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -340,7 +340,7 @@ export default function ImageElement({images, catalog}){
                 <div className="flex items-center justify-between catalog-top-nav">
                     <div className="flex items-center justify-start">
                     
-                        <NextImage width={32} height={32}  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="FlowBite Logo" />
+                        <NextImage width={32} height={32}  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="magasin Logo" />
                         <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {catalog.subcategory_name} </span>
 
                     </div>
