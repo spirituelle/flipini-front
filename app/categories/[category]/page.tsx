@@ -27,10 +27,13 @@ export async function generateMetadata(
         generator: `Catalogues ${category.category.name} en ligne`,
         applicationName: "Flipini",
         description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+        alternates: {
+            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/categories/${params.category}`,
+        },
         openGraph: {
             title: category.category.name,
             type: "website",
-            url: "https://flipini.fr/categories/" + params.category,
+            url:process.env.NEXT_PUBLIC_SITE_URL+ "/categories/" + params.category,
             siteName: "flipini",
             description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${category.category.icon}`],

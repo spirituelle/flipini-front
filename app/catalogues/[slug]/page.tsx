@@ -29,10 +29,13 @@ type Props = {
         generator: `${catalog.book_detail.subcategory_name}`,
         applicationName: "Flipini",
         description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
+        alternates: {
+            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/catalogues/${params.slug}`,
+        },
         openGraph: {
             title: catalog.book_detail.name,
             type: "website",
-            url: "https://flipini.fr/catalogues/"+ params.slug,
+            url:process.env.NEXT_PUBLIC_SITE_URL + "/catalogues/"+ params.slug,
             siteName: "flipini",
             description: `Feuilletez le catalogue ${catalog.book_detail.subcategory_name} « ${catalog.book_detail.subtitle} » contenant ${catalog.book_detail.page_count} pages et découvrez ainsi les promotions de la semaine.` ,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.book_image_data[0].path}`],

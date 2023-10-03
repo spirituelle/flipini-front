@@ -4,10 +4,16 @@ import { CategoryModel } from '../../model/CategoryModel';
 import GeneralCard from "./../../components/Cards/generale";
 import Breadcrumb from './../../components/Breadcrumb';
 import { Metadata } from 'next'
+import  Image  from 'next/image';
+
+
 export const metadata: Metadata = {
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
   description:
     "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
+    alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/categories`,
+    },
 }
 
 async function getCategories(){
@@ -49,14 +55,17 @@ export default async function CategoriesPage(){
 }
 
 function Magasin({ category }: any) {
+    console.log(category.icon)
     return (
         
-            <Link href={`/categories/${category.slug}`}>
-                <span className="bg-gray-200 text-gray-800 text-sm font-medium mr-2 p-2.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
-            {category.name}
+        <Link  className="flex-none py-6 px-3 first:pl-6 last:pr-6" href={`/categories/${category.slug}`}>
+        <div className="flex flex-col items-center justify-center gap-3 p-3 rounded-3xl magasin-rounded">
+            <span className="w-16 h-16 p-2">
+                <Image alt={category.name} width={64} height={64} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${category.icon}`} className=""  />
             </span>
-        </Link>
-        
+            <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {category.name} </strong>
+        </div>
+    </Link>
 
         
       );

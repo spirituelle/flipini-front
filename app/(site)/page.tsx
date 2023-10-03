@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title:  "Flipini.fr : Catalogues en ligne, Promotions et Offres de la Semaine",
   description:
     "Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+    },
 }
 async function getDashboard(){
   const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site`,{ next: { tags: ['home'] } });

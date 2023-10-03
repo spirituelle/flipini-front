@@ -14,11 +14,38 @@ import  Image  from 'next/image';
 
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-export const metadata: Metadata = {
-  title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
-  description:
-    "Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l'électroménager, le bricolage, la mode et bien d'autres domaines. L'application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.",
-}
+
+type Props = {
+    params: { magasin: string }
+    // searchParams: { [key: string]: string | string[] | undefined }
+  }
+export async function generateMetadata(
+    { params }: Props,
+    // parent: ResolvingMetadata
+  ): Promise<Metadata> {   
+    // fetch data
+    const res = await getMagasin(params.magasin);
+      
+    return {
+        title:`Catalogues ${res.magasin.name} en ligne`,
+        generator: `Catalogues ${res.magasin.name} en ligne`,
+        applicationName: "Flipini",
+        description: `Feuilletez les catalogues ${res.magasin.name} et découvrez ainsi les promotions de la semaine.` ,
+        alternates: {
+            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/magasins/${params.magasin}`,
+        },
+        openGraph: {
+            title: res.magasin.name,
+            type: "website",
+            url: process.env.NEXT_PUBLIC_SITE_URL +  "/magasins/" + params.magasin,
+            siteName: "flipini",
+            description: `Feuilletez les catalogues ${res.magasin.name} et découvrez ainsi les promotions de la semaine.` ,
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${res.magasin.icon}`],
+        },
+    }
+  }
+ 
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
