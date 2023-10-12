@@ -10,7 +10,6 @@ import CatalogItemExpended from "./../../../components/CatalogItemExpended";
 import GeneralCard from "./../../../components/Cards/generale";
 
 import  Image  from 'next/image';
-// import FavoriteIcon from './../../../components/FavoriteIcon'
 
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -27,19 +26,19 @@ export async function generateMetadata(
     const res = await getMagasin(params.magasin);
       
     return {
-        title:`Catalogues ${res.magasin.name} en ligne`,
-        generator: `Catalogues ${res.magasin.name} en ligne`,
+        title:`${res.magasin.meta_title}`,
+        generator: `${res.magasin.name}`,
         applicationName: "Flipini",
-        description: `Feuilletez les catalogues ${res.magasin.name} et découvrez ainsi les promotions de la semaine.` ,
+        description: `${res.magasin.meta_description}` ,
         alternates: {
             canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/magasins/${params.magasin}`,
         },
         openGraph: {
-            title: res.magasin.name,
+            title: res.magasin.meta_title,
             type: "website",
             url: process.env.NEXT_PUBLIC_SITE_URL +  "/magasins/" + params.magasin,
             siteName: "flipini",
-            description: `Feuilletez les catalogues ${res.magasin.name} et découvrez ainsi les promotions de la semaine.` ,
+            description: `${res.magasin.meta_description}` ,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${res.magasin.icon}`],
         },
     }
@@ -76,9 +75,6 @@ async function getMagasin(magasin: string){
 }
 
 export default async function MagasinPage({params}: any){
-    // const cookieStore = cookies();
-    // const api_token = cookieStore.get('api_token');
-    // let token = api_token?.value? api_token.value : "";
 
     const response = await getMagasin(params.magasin);
    
@@ -107,12 +103,28 @@ export default async function MagasinPage({params}: any){
                     <div className="store-flayer"> 
                         <section>
                             {
+                                response.catalogs?.length ?
                                 response.catalogs?.map((catalog, index) => {
                                     return(
                                     <CatalogItemExpended key={index} catalog={catalog} />
                                     )
                                     
                                 })
+                                :
+                                <div className="no-catalog">
+                                    <h3 className="title">
+                                        Aucun catalogue en ce moment
+                                    </h3> 
+                                    <div className="no-catalog-message">
+                                       
+                                        <div className="no-catalog-text">
+                                            <p className="update-main-text">
+                                            Revenez dans les prochains jours pour visiter les catalogues de {response.magasin.name}. Notre équipe essaye de mettre à votre position tous les derniers catalogue au fur et à mesure que les magasins les publient.
+                                            </p> 
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         </section>
                     </div>

@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import React, { useEffect, useState, useRef } from "react";
@@ -235,6 +233,7 @@ export default function ImageElement({images, catalog}){
                                 <div className="flex flex-col items-start justify-center ml-3"> 
                                     <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
                                     <h3> {catalog.subtitle} </h3> 
+                                    <p className="text-xs">  {`Publié le ${moment(catalog.created_at).format('D MMMM YYYY')}`} </p>
                                     <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
                                 </div>
                             </div>
@@ -353,7 +352,7 @@ export default function ImageElement({images, catalog}){
                         </span>
                         <span className="mr-5 cursor-pointer catalog-actions" onClick={handleZoom} >
                         {
-                            swiperRef?.zoom.scale > 2 ? 
+                            swiperRef?.zoom?.scale > 2 ? 
                             <ZoomOut  width={20} height={20} />
                             :
                             <ZoomIn  width={20} height={20} />
@@ -386,7 +385,8 @@ export default function ImageElement({images, catalog}){
                     type: "progressbar",
                 }}
                 // scrollbar={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                // thumbs={{ swiper: thumbsSwiper }}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 zoom={{enabled: true, maxRatio: 4, minRatio: 1}}
                 grabCursor={true}
                 style={{

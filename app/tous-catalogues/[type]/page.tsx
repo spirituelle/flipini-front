@@ -28,7 +28,7 @@ export default async function CategoryPage({params}: any){
         <div className="category category-page container">
              <Breadcrumb containerClassName=""  />
             <div >
-                     <GeneralCard title={" " + card.title} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={card.bookList} />;
+                     <GeneralCard title={" " + card.title} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={card.bookList} />
             </div>
         </div>
     )
