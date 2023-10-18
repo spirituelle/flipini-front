@@ -545,7 +545,9 @@ h2{
 	}
 }
 
-
+.about .link{
+	color: $primary-color;
+}
 .home-page {
 	.icon-boxes-container {
 		padding-top: .5rem;
@@ -555,7 +557,7 @@ h2{
 	
 	.icon-box {
 		align-items: flex-start;
-		font-size: 0.75rem;
+		font-size: 1rem;
 
 		.icon-box-icon {
 			margin-top: 2px;

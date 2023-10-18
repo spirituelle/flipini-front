@@ -13,65 +13,95 @@ export const metadata: Metadata = {
 }
 function FAQ () {
     return (
-        <div >
-            {/* <PageHeader title="F.A.Q" subTitle="Pages" />
-
-            <nav className="breadcrumb-nav">
-                <div className="container">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item">
-                            <Link href="/">Home</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <Link href="#">Pages</Link>
-                        </li>
-                        <li className="breadcrumb-item active">FAQ</li>
-                    </ol>
-                </div>
-            </nav> */}
-            <h1> Questions fréquemment posées </h1>
+        <div className="container" >
+    
+            <h1> FAQ Flipini.fr : Vos Questions, Nos Réponses </h1>
+            <p> Bienvenue sur la page FAQ de Flipini.fr, votre source incontournable pour tous vos besoins d&apos;achat. Face à une plateforme aussi complète que la nôtre, il est naturel d&apos;avoir des interrogations. Dans cet article, nous répondons aux questions les plus fréquemment posées par nos utilisateurs, en vous offrant un aperçu détaillé de tout ce que vous pouvez attendre de Flipini.fr. </p>
             <div className="page-content">
-                <div className="container">
+                <div className="">
 
                     <Accordion adClass="accordion-rounded">
-                        <Card title="Qu'est-ce que flipini.fr?" adClass="card-box card-sm bg-light">
-                        Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, lflipini.frélectroménager, le bricolage, la mode et bien d&apos;autres domaines. L&apos;application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit.
+                        <Card title="Qu&apos;est-ce que Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Flipini.fr est une plateforme en ligne qui centralise les meilleures offres, promotions et catalogues en ligne pour une variété de catégories allant des supermarchés, à la beauté, en passant par l&apos;auto, la maison, les bijouteries et bien plus encore. Notre mission est de simplifier votre expérience shopping en mettant à votre disposition un large éventail d&apos;options au même endroit.
                         </Card>
 
-                        <Card title="Mes données seront-elles utilisées après mon inscription?" adClass="card-box card-sm bg-light">
-                            
-                            Oui, vos données sont utilisées mais uniquement pour pouvoir vous recommander des catalogues et des magasins.
+                        <Card title="Comment fonctionne Flipini.fr ?" adClass="card-box card-sm bg-light">
+                            Notre équipe se consacre à parcourir le web à la recherche des meilleures offres et promotions des grands magasins et des marques populaires. Ces offres sont ensuite compilées et catégorisées sur notre site pour une navigation facile et intuitive.
                         </Card>
 
-                        <Card title="Comment puis-je partager un catalogue avec ma famille et mes amis?" adClass="card-box card-sm bg-light">
-                        Actuellement, le catalogue ne peut pas être partagé juste en appuyant sur un bouton, mais le lien peut bien sûr être partagé avec la famille et les amis.
+                        <Card title="Est-ce gratuit d&apos;utiliser Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Oui, l&apos;utilisation de Flipini.fr est totalement gratuite pour les utilisateurs. Notre objectif principal est de vous aider à faire des économies et à trouver les meilleures affaires sans frais supplémentaires.
                         </Card>
 
-                        <Card title="Comment suivre un magasin?" adClass="card-box card-sm bg-light"  >
-                        Vous pouvez ajouter un magasin dans vos favoris en appuyant sur le petit cœur. Ce magasin sera directement ajouté à &quot;Mes magasins&quot;.
+                        <Card title="Puis-je faire des achats directement sur Flipini.fr ?" adClass="card-box card-sm bg-light"  >
+                        Flipini.fr est une plateforme de catalogues en ligne. Nous vous dirigeons vers les meilleures offres, mais les achats sont réalisés directement sur les sites web des magasins ou des marques concernés. Ainsi, vous bénéficiez toujours des conditions d&apos;achat et des garanties offertes par ces enseignes.
                         </Card>
                     </Accordion>
 
 
                     <Accordion adClass="accordion-rounded">
-                        <Card title="Le catalogue de mon magasin préféré n'est pas en ligne. Comment se fait-il ?" adClass="card-box card-sm bg-light">
-                        C&apos;est bien dommage. Il y a deux raisons possibles pour lesquelles le catalogue nflipini.frest pas en ligne : soit que le catalogue de votre magasin préféré n’est pas encore disponible sur notre site, dans ce cas, vous pouvez nous communiquer le nom du magasin via le formulaire de contact. Nous ferons de notre mieux pour qu’il soit en ligne dans l’espace d’une semaine. Soit que le magasin n&apos;ait simplement pas de catalogue ou brochure disponible. Nous ferons de notre mieux pour placer le catalogue dès qu’il sera disponible!
+                        <Card title="Comment sont sélectionnées les offres présentes sur Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Nous collaborons avec une variété de partenaires et de magasins pour vous assurer une sélection de qualité. Chaque offre est soigneusement vérifiée par notre équipe pour garantir son authenticité et sa pertinence.
                         </Card>
 
-                        <Card title="Quand publiez-vous les tout derniers catalogues ?" adClass="card-box card-sm bg-light">
-                        Nous essayons, tous les jours, de publier les tout derniers catalogues sur flipini.fr. Les catalogues de la semaine suivante sont mis en ligne sur notre site internet durant le week-end. Visitez donc, tous les jours, notre site pour découvrir les tout derniers catalogues ou brochures!
+                        <Card title="Comment utiliser l&apos;App Mobile Flipini ?" adClass="card-box card-sm bg-light">
+                        <a  href="https://play.google.com/store/apps/details?id=com.ya2s.flipini&amp;pli=1" className="ck-link_selected link"> l&apos;App Mobile Flipini</a> est conçue pour offrir une expérience d&apos;achat fluide sur mobile. Téléchargez simplement l&apos;application depuis votre store préféré, inscrivez-vous ou connectez-vous, et commencez à parcourir les offres et catalogues à votre guise. Grâce à une interface intuitive, vous pouvez facilement naviguer entre les différentes catégories, marquer vos offres préférées et être alerté des nouvelles promotions.
                         </Card>
 
-                        <Card title="Comment puis-je modifier les informations de mon compte?" adClass="card-box card-sm bg-light">
-                        Une fois connecté, vous verrez votre nom en haut à droite. Positionnez votre souris à ce niveau puis cliquez sur la gestion des comptes, maintenant vous pouvez modifier vos données.
+                        <Card title="Est-ce que Flipini.fr couvre toutes les régions de France ?" adClass="card-box card-sm bg-light">
+                        Oui, Flipini.fr vise à couvrir l&apos;ensemble du territoire français. Cependant, certaines offres ou promotions peuvent être spécifiques à une région ou à un magasin en particulier. Nous recommandons toujours de vérifier les détails de chaque promotion.
+                        </Card>
+                    </Accordion>
+                    <Accordion adClass="accordion-rounded">
+                        <Card title="Comment sont catégorisées les offres sur Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Les offres sont soigneusement classées en plusieurs catégories comme les supermarchés, la beauté, l&apos;automobile, la maison, les bijouteries, et bien d&apos;autres encore. Chaque catégorie est ensuite subdivisée en sous-catégories ou en magasins spécifiques pour faciliter votre recherche.
+                        </Card>
+
+                        <Card title="Que faire si je trouve une erreur ou un problème sur le site ?" adClass="card-box card-sm bg-light">
+                        Nous nous efforçons d&apos;assurer la précision de toutes les informations sur Flipini.fr. Cependant, si vous identifiez une erreur ou rencontrez un problème, n&apos;hésitez pas à nous contacter via notre formulaire de contact. Votre feedback est précieux pour nous.
+                        </Card>
+
+                        <Card title="Est-ce que Flipini.fr propose des offres exclusives ?" adClass="card-box card-sm bg-light">
+                        Oui, Flipini.fr collabore régulièrement avec ses partenaires pour vous proposer des offres exclusives que vous ne trouverez nulle part ailleurs. Ces offres sont clairement indiquées sur notre site et notre application mobile.
+                        </Card>
+                    </Accordion>
+                    <Accordion adClass="accordion-rounded">
+                        <Card title="Puis-je m&apos;abonner pour recevoir les dernières offres et promotions ?" adClass="card-box card-sm bg-light">
+                        Absolument ! Vous pouvez vous inscrire à notre newsletter depuis notre site. Ainsi, vous serez régulièrement informé des dernières promotions, des arrivages récents et des offres spéciales directement dans votre boîte mail.
+                        </Card>
+
+                        <Card title="Comment Flipini.fr garantit-il la confidentialité de mes données ?" adClass="card-box card-sm bg-light">
+                        La sécurité et la confidentialité de vos données sont primordiales pour nous. Nous disposons de mesures de sécurité robustes pour protéger vos informations. De plus, nous ne partageons jamais vos données avec des tiers sans votre consentement explicite. Pour plus de détails, vous pouvez consulter notre politique de confidentialité.
+                        </Card>
+
+                        <Card title="Y a-t-il une limite au nombre d&apos;offres que je peux consulter par jour sur Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Non, il n&apos;y a aucune limite. Vous pouvez parcourir autant d&apos;offres et de catalogues que vous le souhaitez, à tout moment de la journée.
+                        </Card>
+                    </Accordion>
+                    <Accordion adClass="accordion-rounded">
+                        <Card title="Est-il possible de donner mon avis sur une offre ou un catalogue sur Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Oui, nous apprécions toujours les retours de nos utilisateurs. Vous avez la possibilité de laisser des commentaires et d&apos;évaluer les offres sur notre plateforme. Votre avis nous aide à améliorer continuellement notre service.
+                        </Card>
+
+                        <Card title="Flipini.fr est-il disponible dans d&apos;autres pays ou uniquement en France ?" adClass="card-box card-sm bg-light">
+                        Actuellement, Flipini.fr est focalisé sur le marché français. Cependant, nous avons des ambitions d&apos;expansion et envisageons de couvrir d&apos;autres régions à l&apos;avenir.
+                        </Card>
+
+                        <Card title="Puis-je proposer mon magasin ou ma marque pour être présent sur Flipini.fr ?" adClass="card-box card-sm bg-light">
+                        Bien sûr ! Si vous souhaitez collaborer avec nous et présenter vos offres sur Flipini.fr, n&apos;hésitez pas à nous contacter. Nous sommes toujours à la recherche de nouveaux partenariats pour enrichir notre plateforme.
                         </Card>
                     </Accordion>
 
                    
                 </div>
             </div>
-
-            <div className="cta cta-display bg-image pt-4 pb-4" style={ { backgroundImage: `url(images/bg-7.jpeg)` } }>
+            <div className="mb-8">
+                <h2> Conclusion </h2>
+                <p>
+                Flipini.fr est bien plus qu&apos;une simple plateforme d&apos;offres en ligne. C&apos;est votre allié incontournable pour une expérience shopping optimale. Nous espérons que cette FAQ vous a éclairé sur notre fonctionnement et notre vision. Si vous avez d&apos;autres questions, n&apos;hésitez pas à nous contacter directement. Notre équipe est toujours prête à vous assister dans vos démarches shopping.
+                </p>
+            </div>
+            {/* <div className="cta cta-display bg-image pt-4 pb-4" style={ { backgroundImage: `url(images/bg-7.jpeg)` } }>
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-10 col-lg-9 col-xl-7">
@@ -88,7 +118,7 @@ function FAQ () {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

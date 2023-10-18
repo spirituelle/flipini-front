@@ -47,106 +47,109 @@ export default function About2 () {
     }, [] );
 
     return (
-        <div className="main">
+        <div className="about">
 
             <div className="page-content pb-3">
                 <div className="container">
                     <div className="flex flex-row flex-wrap  mt-5">
                         <div className="col-lg-10 offset-lg-1">
-                            <div className="about-text text-center mt-3">
-                                <h2 className="title text-center mb-2">Qui sommes nous?</h2>
-                                <p>Flipini est une application innovante qui vous permet de consulter les catalogues en ligne des enseignes françaises spécialisées dans la grande distribution, l&apos;électroménager, le bricolage, la mode et bien d&apos;autres domaines. L&apos;application met à votre disposition une vaste sélection de catalogues pour vous aider à dénicher les meilleures offres et promotions en un seul endroit. </p>
+                            <div className="about-text mt-3">
+                                <h1 className=" text-6xl mb-2">À Propos de Flipini.fr : Votre Partenaire Shopping de Confiance</h1>
+                                <p>Depuis sa création, Flipini.fr s&apos;est érigé comme la référence incontestée pour tous ceux qui souhaitent faire des achats judicieux. Grâce à un catalogue en ligne sans cesse mis à jour, Flipini.fr s&apos;assure que vous ayez toujours accès aux meilleures offres du marché. Dans cet article, découvrez l&apos;histoire, la mission et la vision qui font de Flipini.fr votre partenaire shopping de confiance. </p>
                               
                             </div>
                         </div>
                     </div>
 
                     <div className="flex flex-row flex-wrap justify-center mt-6">
-                        <div className="basis-full md:basis-1/3">
-                            <div className="icon-box icon-box-sm text-center">
-                                <span className="icon-box-icon">
+                        <div className="basis-full ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
                                     <i className="icon-puzzle-piece"></i>
-                                </span>
+                                </span> */}
                                 <div className="icon-box-content">
-                                    <h3 className="icon-box-title">Notre mission</h3>
-                                    <p className="md:px-20">Bienvenue sur Flipini, votre destination pour découvrir les catalogues hebdomadaires des magasins populaires. Notre mission est de vous tenir informé(e) des dernières offres, des promotions exclusives et des nouvelles tendances shopping.</p>
+                                    <h2 className="icon-box-title">Une Histoire Centrée sur le Consommateur</h2>
+                                    <p className="md:px-4">Depuis le début, Flipini.fr s&apos;est consacré à simplifier la vie du consommateur. À une époque où le nombre d&apos;options d&apos;achat semble infini, nous avons reconnu la nécessité d&apos;un espace où l&apos;on peut facilement comparer et contraster les offres. De cette ambition est né Flipini.fr.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="basis-full md:basis-1/3">
-                            <div className="icon-box icon-box-sm text-center">
-                                <span className="icon-box-icon">
+                        <div className="basis-full ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
                                     <i className="icon-life-ring"></i>
-                                </span>
+                                </span> */}
                                 <div className="icon-box-content">
-                                    <h3 className="icon-box-title">Notre vision</h3>
-                                    <p className="md:px-20">Nous nous efforçons de vous fournir des informations précises et à jour, afin que vous puissiez prendre des décisions éclairées lors de vos achats. Votre satisfaction est notre priorité, alors n&apos;hésitez pas à nous contacter si vous avez des questions, des suggestions ou des commentaires.</p>
+                                    <h2 className="icon-box-title">Une Plateforme Multi-Catégories</h2>
+                                    <p className="md:px-4">Sur Flipini.fr, la variété est reine. Nous comprenons que chaque consommateur a des besoins différents, et c&apos;est pourquoi nous proposons une multitude de catégories, allant de la beauté à l&apos;automobile, en passant par le sport, la maison et les jouets. Que vous soyez à la recherche de produits de beauté haut de gamme ou d&apos;accessoires pour votre voiture, Flipini.fr a ce qu&apos;il vous faut.</p>
+                                    <h3> Supermarchés </h3>
+                                    <p> Parcourez les catalogues des plus grands supermarchés et découvrez des offres imbattables. Que vous prépariez un grand dîner ou que vous cherchiez simplement des produits de tous les jours, nos catalogues supermarchés vous guideront vers les meilleures affaires. </p>
+                                    <h3> maison</h3>
+                                    <p> Votre maison est votre sanctuaire. Sur Flipini.fr, vous trouverez tout ce dont vous avez besoin pour en faire un espace confortable, fonctionnel et esthétique, du mobilier aux articles de décoration. </p>
+                                    <h3> Jouets </h3>
+                                    <p> Les jouets éveillent l&apos;imagination et la créativité. Que vous cherchiez le cadeau parfait pour un enfant ou que vous soyez un collectionneur passionné, nos catalogues jouets vous offriront une multitude d&apos;options à des prix compétitifs. </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="basis-full md:basis-1/3">
-                            <div className="icon-box icon-box-sm text-center">
-                                <span className="icon-box-icon">
+                        <div className="basis-full ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
                                     <i className="icon-heart-o"></i>
-                                </span>
+                                </span> */}
                                 <div className="icon-box-content">
-                                    <h3 className="icon-box-title">Made With Love</h3>
-                                    <p className="md:px-20">Merci d&apos;utiliser Flipini et profitez pleinement de vos séances de préparation shopping à votre magasin préféré !</p>
+                                    <h2 className="icon-box-title">L&apos;App Mobile Flipini : Le Shopping à Portée de Main</h2>
+                                    <p className="md:px-4">La technologie évolue, et Flipini.fr évolue avec elle. Avec <a  href="https://play.google.com/store/apps/details?id=com.ya2s.flipini&amp;pli=1" className="ck-link_selected link"> l&apos;App Mobile Flipini</a>, nous mettons le pouvoir d&apos;une expérience shopping optimale entre vos mains. Parcourez, comparez, et achetez, tout cela à partir de votre smartphone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="basis-full ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
+                                    <i className="icon-heart-o"></i>
+                                </span> */}
+                                <div className="icon-box-content">
+                                    <h2 className="icon-box-title">Une Vision d&apos;Avenir</h2>
+                                    <p className="md:px-4">Flipini.fr ne se repose jamais sur ses lauriers. Notre objectif est de continuer à innover pour offrir à nos utilisateurs une expérience sans pareil. Avec l&apos;ajout constant de nouveaux magasins, de nouvelles catégories, et des fonctionnalités innovantes sur notre plateforme, nous visons à rester à la pointe de la technologie et des tendances du marché.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="basis-full ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
+                                    <i className="icon-heart-o"></i>
+                                </span> */}
+                                <div className="icon-box-content">
+                                    <h2 className="icon-box-title">Pourquoi Choisir Flipini.fr?</h2>
+                                    <p className="md:pl-20">
+                                        <strong> Variété Inégalée : </strong>  Avec un catalogue aussi diversifié, vous êtes sûr de trouver exactement ce que vous cherchez.
+
+                                    </p>
+                                    <p className="md:pl-20">
+                                        <strong> Mises à Jour Constantes : </strong> Nos catalogues en ligne sont régulièrement mis à jour pour refléter les promotions et offres actuelles.
+                                    </p>
+                                    <p className="md:pl-20">
+                                        <strong> Expérience Utilisateur Optimale :  </strong>  Que ce soit sur notre site web ou via notre application mobile, nous veillons à vous offrir une navigation fluide et intuitive.
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className="mb-2"></div>
-
-                <div className="bg-image pt-7 pb-5 pt-md-12 pb-md-9" style={ { backgroundImage: `url(images/backgrounds/bg-4.jpg)` } } >
-                    <div className="container">
-                        <div className="flex flex-row flex-wrap ">
-                            <div className="basis-1/2 md:basis-1/4">
-                                <div className="count-container text-center">
-                                    <div className="count-wrapper ">
-                                        <span className="count" data-from="0" data-to="40" data-speed="3000" data-refresh-interval="50">0</span>k+
-                                    </div>
-                                    <h3 className="count-title ">Client satisfait</h3>
-                                </div>
-                            </div>
-
-                            <div className="basis-1/2 md:basis-1/4">
-                                <div className="count-container text-center">
-                                    <div className="count-wrapper ">
-                                        <span className="count" data-from="0" data-to="10" data-speed="3000" data-refresh-interval="50">0</span>+
-                                    </div>
-                                    <h3 className="count-title ">Ans d&apos;activité</h3>
-                                </div>
-                            </div>
-
-                            <div className="basis-1/2 md:basis-1/4">
-                                <div className="count-container text-center">
-                                    <div className="count-wrapper ">
-                                        <span className="count" data-from="0" data-to="95" data-speed="3000" data-refresh-interval="50">0</span>
-                                    </div>
-                                    <h3 className="count-title ">Partenaires</h3>
-                                </div>
-                            </div>
-
-                            <div className="basis-1/2 md:basis-1/4">
-                                <div className="count-container text-center">
-                                    <div className="count-wrapper ">
-                                        <span className="count" data-from="0" data-to="15" data-speed="3000" data-refresh-interval="50">0</span>
-                                    </div>
-                                    <h3 className="count-title ">Employees</h3>
+                    <div className="conclusion ">
+                            <div className="icon-box icon-box-sm">
+                                {/* <span className="icon-box-icon">
+                                    <i className="icon-heart-o"></i>
+                                </span> */}
+                                <div className="icon-box-content">
+                                    <h2 className="icon-box-title">Conclusion</h2>
+                                    <p className="md:px-4">Dans un monde où le temps est précieux, Flipini.fr se consacre à vous faire économiser à la fois du temps et de l&apos;argent. En centralisant les meilleures offres, promotions, et catalogues en ligne, nous nous assurons que vous ayez toujours une longueur d&apos;avance dans vos décisions d&apos;achat.
+Rejoignez-nous dans cette aventure shopping et découvrez pourquoi tant de personnes font confiance à Flipini.fr pour leurs achats quotidiens.
+</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-            
-
-                
+                </div>  
             </div >
         </div >
     )
