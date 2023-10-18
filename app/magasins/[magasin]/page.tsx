@@ -99,9 +99,9 @@ export default async function MagasinPage({params}: any){
                 </div>
             </div>
             <div className="container mt-4">
-                <div className="magasin-row ">
+                <section className="magasin-row ">
                     <div className="store-flayer"> 
-                        <section>
+                        <div>
                             {
                                 response.catalogs?.length ?
                                 response.catalogs?.map((catalog, index) => {
@@ -126,15 +126,15 @@ export default async function MagasinPage({params}: any){
                                     </div>
                                 </div>
                             }
-                        </section>
+                        </div>
                     </div>
-                </div>
-                <div className="">
-                    <section>
+                </section>
+                <section className="">
+                    <div>
                         <GeneralCard title="Catalogues similaires" onlyScroll={false} showReadMore={false} readMoreLink={"/"}  catalogs={response.recommended_book} />
                            
-                    </section>
-                    <section>
+                    </div>
+                    <div>
                         <div className="heading heading-flex">
                             <div className="heading-left">
                                 <h2 className="title">Magasins similaires</h2>
@@ -168,13 +168,19 @@ export default async function MagasinPage({params}: any){
                                 })
                             }
                         </div>
-                    </section>
+                    </div>
 
-                    <section>
+                    <div>
                         <GeneralCard title="Historique des catalogues" readMoreLink={"/"} showReadMore={false} onlyScroll={true} catalogs={response.catalogsExpired} />
-                    </section>
-
-                </div>
+                    </div>
+                    {
+                        response.magasin.description &&
+                        <div className="mb-5" dangerouslySetInnerHTML={{__html: response.magasin.description}}>
+                           
+                        </div>
+                    }
+                   
+                </section>
             </div>
         </div>
     )
