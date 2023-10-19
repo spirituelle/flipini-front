@@ -175,11 +175,10 @@ export default async function MagasinPage({params}: any){
                     </div>
                     {
                         response.magasin.description &&
-                        <div className="mb-5" dangerouslySetInnerHTML={{__html: response.magasin.description}}>
+                        <div className="mb-5 description" dangerouslySetInnerHTML={{__html: response.magasin.description}}>
                            
                         </div>
                     }
-                   
                 </section>
             </div>
         </div>

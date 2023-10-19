@@ -6,6 +6,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Zoom, Navigation, Thumbs, FreeMode } from "swiper";
 import  Link  from 'next/link';
+import axios from './../lib/axios'
 
 import FullscreenIcon from './../assets/icons/fullscreen.svg'
 import ExitFullscreen from './../assets/icons/exitFullscreen.svg'
@@ -79,12 +80,13 @@ export default function ImageElement({images, catalog}){
 
     }
     useEffect(() => {
+        let sliderObserver = slider?.current;
         window.addEventListener('resize', handleWindowSizeChange);
         setWidth(window.innerWidth);
 
 
       loadImage(setImageDimensions, imageUrl);
-      setSliderDimensions({ width: slider.current.offsetWidth, height: (slider.current.offsetHeight ) });
+      setSliderDimensions({ width: sliderObserver.offsetWidth, height: (sliderObserver.offsetHeight ) });
 
       const resizeObserver = new ResizeObserver((entries) => {
             // You can iterate all of the element entries observed
@@ -95,16 +97,17 @@ export default function ImageElement({images, catalog}){
         });
         
         // 👇 Listen to resize events on the element with `myElement` class
-        resizeObserver.observe(slider.current);
+        resizeObserver.observe(sliderObserver);
 
         
-       
+        // book-viewcount
+        axios.get(`api/book-viewcount?slug=${catalog.title}`);
         return () => {
-            resizeObserver.unobserve(slider.current);
+            resizeObserver.unobserve(sliderObserver);
             window.removeEventListener('resize', handleWindowSizeChange);
         }
      
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     
@@ -133,7 +136,7 @@ export default function ImageElement({images, catalog}){
         
                }
         }
-     
+     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [width, slideElement]);
 
     const handleZoom =(e) => {

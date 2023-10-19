@@ -39,6 +39,7 @@ export default function MAgasinsWithMore({initialShop, search}: {initialShop: Su
         if (inView) {
             loadMore()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [inView])
     async function loadMore(){
         if(!loading && !finished){
