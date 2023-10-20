@@ -24,6 +24,7 @@ function StickyHeader ( props ) {
             window.removeEventListener( 'scroll', scrollHandler );
             window.removeEventListener( 'resize', resizeHandler );
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] )
 
     function initSticky () {

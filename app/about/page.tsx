@@ -44,6 +44,7 @@ export default function About2 () {
     }
     useEffect( () => {
         countTo();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] );
 
     return (

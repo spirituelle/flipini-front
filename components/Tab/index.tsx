@@ -54,6 +54,7 @@ export default function ProfileTabs(){
     return () => {
       
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams.get("value")])
 
 
@@ -150,6 +151,7 @@ function MagasinFavoris() {
     }).catch((err) => {
       console.log(err)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [] );
 
 
@@ -177,6 +179,7 @@ function CatalogueFavoris() {
       console.log(res)
       setFavoris(res.data)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [] );
 
 

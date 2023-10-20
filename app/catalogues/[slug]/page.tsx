@@ -1,7 +1,7 @@
 
 
 import {BookDescriptionModel} from './../../../model/BookDescriptionModel';
-import {BookDetailsModel} from './../../../model/BookDetailsModel';
+// import {BookDetailsModel} from './../../../model/BookDetailsModel';
 
 import GeneralCard from "./../../../components/Cards/generale";
 
@@ -80,14 +80,29 @@ export default async function CatalogueDetails({params}: any) {
                <div className="catalog-desc-content">
                 <h1> {catalogDetails.book_detail.name} </h1>
                 {/* {parse(catalog.description.split('\n'))}  */}
-                {catalogDetails.book_detail.description.split('\n').map((c, index: number) => {
+                {
+                        /<\/?[a-z][\s\S]*>/i.test(catalogDetails.book_detail.description)  ?
+                        <div className="mb-5 description" dangerouslySetInnerHTML={{__html: catalogDetails.book_detail.description}}>
+                           
+                        </div>
+                        :
+                        catalogDetails.book_detail.description.split('\n').map((c, index: number) => {
+                            if(c == "\r") return <br key={index} />
+                            return(
+                                <p key={index}>
+                                    {c}
+                                </p>
+                            )
+                        })
+                    }
+                {/* {catalogDetails.book_detail.description.split('\n').map((c, index: number) => {
                     if(c == "\r") return <br key={index} />
                     return(
                         <p key={index}>
                             {c}
                         </p>
                     )
-                })}
+                })} */}
             </div>
            </section>
            <section>
