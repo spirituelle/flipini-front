@@ -101,7 +101,7 @@ export default function ImageElement({images, catalog}){
 
         
         // book-viewcount
-        // axios.get(`api/book-viewcount?slug=${catalog.title}`);
+        process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}`);
         return () => {
             resizeObserver.unobserve(sliderObserver);
             window.removeEventListener('resize', handleWindowSizeChange);
