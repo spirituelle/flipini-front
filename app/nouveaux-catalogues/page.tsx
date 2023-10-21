@@ -1,8 +1,8 @@
 
 import { BookDetailsModel } from './../../model/BookDetailsModel';
-import GeneralCard from "./../../components/Cards/generale";
 import Breadcrumb from './../../components/Breadcrumb';
 
+import NewestWithMore from './component/newestWithMore'
 import { Metadata } from 'next'
 export const metadata: Metadata = {
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 async function getCatalogues(){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/newest-book`,{ next: { tags: ['home', 'catalogues'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/newest-book?country_id=1&page=1&per_page=24`,{ next: { tags: ['home', 'catalogues'] }});
     const data = await res.json();
     
     // return data;
@@ -27,9 +27,10 @@ export default async function NewCatalogPage(){
         <div className="category category-page container">
             <Breadcrumb containerClassName=""  />
             {/* <h1>  </h1> */}
-            <div >
-            <GeneralCard title="Nouveaux Catlogues" readMoreLink={"/"} onlyScroll={false} showReadMore={false} catalogs={catalogues} />
-            </div>
+            {/* <div > */}
+            <NewestWithMore initialItems={catalogues} search=""  />
+            
+            {/* </div> */}
         </div>
     )
 }

@@ -106,7 +106,7 @@ export default async function CatalogueDetails({params}: any) {
             </div>
            </section>
            <section>
-                <GeneralCard title={"Catalogues simmilaires"} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={catalogDetails.recommended_book} />;
+                <GeneralCard title={"Catalogues simmilaires"} showReadMore={false} onlyScroll={false} readMoreLink={`/`} catalogs={catalogDetails.recommended_book} />
 
             </section>
         </div>
