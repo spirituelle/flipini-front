@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Zoom, Navigation, Thumbs, FreeMode } from "swiper";
 import  Link  from 'next/link';
 import axios from './../lib/axios'
+import { v4 as uuidv4 } from 'uuid';
+import { getCookie, setCookie } from "cookies-next";
 
 import FullscreenIcon from './../assets/icons/fullscreen.svg'
 import ExitFullscreen from './../assets/icons/exitFullscreen.svg'
@@ -99,9 +101,13 @@ export default function ImageElement({images, catalog}){
         // 👇 Listen to resize events on the element with `myElement` class
         resizeObserver.observe(sliderObserver);
 
-        
+        let visitorUUID = getCookie("visitorUUID") // unique vistor uuid
+        if(!visitorUUID){
+            visitorUUID = uuidv4();
+            setCookie("visitorUUID", visitorUUID);
+        }
         // book-viewcount
-        process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}`);
+        process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}&uuid=${visitorUUID}`);
         return () => {
             resizeObserver.unobserve(sliderObserver);
             window.removeEventListener('resize', handleWindowSizeChange);
