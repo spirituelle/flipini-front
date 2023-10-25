@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
  import {CategoryModel} from './../model/CategoryModel';
  import {SubCategoryModel} from './../model/SubCategoryModel';
  import {BookDetailsModel} from './../model/BookDetailsModel';
-const URL = "https://flipini.fr/";
+const URL = "https://monsieurechantillons.com/";
 
 type SiteMapType = {
     categories: CategoryModel[],
@@ -71,49 +71,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: 'https://flipini.fr',
+      url: URL + '/',
       lastModified: new Date(),
     //   changeFrequency: "daily",
     //   priority: 1,
     },
     {
-        url: 'https://flipini.fr/contact',
+        url: URL + '/contact',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/contact',
+        url: URL + '/contact',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/about',
+        url: URL + '/about',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/faq',
+        url: URL+ '/faq',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/magasins',
+        url: URL + '/magasins',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/categories',
+        url: URL + '/categories',
         lastModified: new Date(),
         // changeFrequency: "daily",
         // priority: 0.2,
     },
     {
-        url: 'https://flipini.fr/nouveaux-catalogues',
+        url: URL + '/nouveaux-catalogues',
         lastModified: new Date(),
         // changeFrequency: "daily",
         // priority: 0.2,

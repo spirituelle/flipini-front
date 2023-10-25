@@ -12,7 +12,7 @@ export default function PrivacyPolice() {
         <div className="container privacy py-10" >
             <h1 className="h1"><span className="s1"><strong>POLITIQUE DE CONFIDENTIALITÉ DE FLIPINI.FR</strong></span></h1>
             <p className="p2"><small className="s1">Date de dernière mise à jour : 13 Juin 2023</small></p>
-            <p className="p2"><span className="s1">La présente Politique de Confidentialité régit la manière dont Ya2s-In Digital Marketing OÜ, dont le siège social est situé à Ahtri tn 12 Kesklinna linnaosa, Tallinn, Harju maakond 10151, collecte, utilise, maintient et divulgue les informations collectées auprès des utilisateurs du site <a target="_new" href="https://flipini.fr/"> https://flipini.fr/ </a> </span></p>
+            <p className="p2"><span className="s1">La présente Politique de Confidentialité régit la manière dont Ya2s-In Digital Marketing OÜ, dont le siège social est situé à Ahtri tn 12 Kesklinna linnaosa, Tallinn, Harju maakond 10151, collecte, utilise, maintient et divulgue les informations collectées auprès des utilisateurs du site <a target="_new" href="/"> / </a> </span></p>
             <h2 className="h2"> Utilisation des données personnelles collectées </h2>
             <p className="p1">Ya2s-In Digital Marketing OÜ peut collecter et utiliser les informations personnelles des utilisateurs pour les finalités suivantes :</p>
            

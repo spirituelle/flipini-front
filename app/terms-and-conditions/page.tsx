@@ -41,7 +41,7 @@ export default function PrivacyPolice() {
         <h2>10. Droit applicable et juridiction</h2>
         <p>Les présents Termes et Conditions sont régis par le droit français. Tout litige relatif à l&aposinterprétation, l&aposexécution ou la validité de ces Termes et Conditions sera soumis à la compétence exclusive des tribunaux français.</p>
         <h2>11. Contact</h2>
-        <p>Pour toute question concernant ces Termes et Conditions, ou pour toute remarque ou réclamation, n&aposhésitez pas à nous contacter via la page &quot;<a href="https://flipini.fr/contact">Contact</a>&quot; de notre site.</p>
+        <p>Pour toute question concernant ces Termes et Conditions, ou pour toute remarque ou réclamation, n&aposhésitez pas à nous contacter via la page &quot;<a href="/contact">Contact</a>&quot; de notre site.</p>
         </div>
     )
 }
