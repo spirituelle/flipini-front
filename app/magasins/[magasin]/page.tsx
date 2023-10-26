@@ -13,7 +13,7 @@ import  Image  from 'next/image';
 
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-
+import MultiplexAd from './../../../components/ads/multiplex.js'
 type Props = {
     params: { magasin: string }
     // searchParams: { [key: string]: string | string[] | undefined }
@@ -129,6 +129,7 @@ export default async function MagasinPage({params}: any){
                         </div>
                     </div>
                 </section>
+                <MultiplexAd />
                 <section className="">
                     <div>
                         <GeneralCard title="Catalogues similaires" onlyScroll={false} showReadMore={false} readMoreLink={"/"}  catalogs={response.recommended_book} />
