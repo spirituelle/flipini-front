@@ -58,10 +58,12 @@ export default function ImageElement({images, catalog}){
     const [width, setWidth] = useState(0);
     const [elementToShow, setElementsToshow] = useState([]);
     const [thumbsToShow, setThumbsToShow] = useState([]);
-
+    const [showInterstitialAd, seSshowInterstitialAd] = useState(false);
+    console.log(showInterstitialAd)
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
     }
+    var Adindex = 6;
 
     const isMobile = width <= 768;
 
@@ -81,6 +83,16 @@ export default function ImageElement({images, catalog}){
         setCurrentIndex(i.activeIndex + 1)
 
     }
+    useEffect(() => {
+        if(currentIndex === Adindex){
+            seSshowInterstitialAd(true)
+        }else{
+            // seSshowInterstitialAd(false)
+        }
+    
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentIndex])
+    
     useEffect(() => {
         let sliderObserver = slider?.current;
         window.addEventListener('resize', handleWindowSizeChange);
@@ -108,6 +120,17 @@ export default function ImageElement({images, catalog}){
         }
         // book-viewcount
         process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}&uuid=${visitorUUID}`);
+
+        if(process.env.NODE_ENV === "production"){
+            var ads = document.getElementsByClassName('adsbygoogle').length;
+            for (var i = 0; i < ads; i++) {
+              try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+              } catch (e) {}
+            }
+            
+        }
+       
         return () => {
             resizeObserver.unobserve(sliderObserver);
             window.removeEventListener('resize', handleWindowSizeChange);
@@ -184,8 +207,8 @@ export default function ImageElement({images, catalog}){
     function _mobileSlider(){
 
         if(cloned.length == 0){
-            // alert('is mobile')
-             return {elements, thumbs}};
+             return {elements, thumbs}
+        };
 
             let firstSlide =cloned.splice(0,1);
             const element =   ( <SwiperSlide  key={firstSlide[0]?.id}>
@@ -242,10 +265,15 @@ export default function ImageElement({images, catalog}){
                                 <div className="flex flex-col items-start justify-center ml-3"> 
                                     <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
                                     <h3> {catalog.subtitle} </h3> 
+                                   
                                     <p className="text-xs">  {`Publié le ${moment(catalog.created_at).format('D MMMM YYYY')}`} </p>
                                     <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
                                 </div>
                             </div>
+                           { process.env.NODE_ENV === "production" && <ins class="adsbygoogle"
+                            style="display:inline-block;width:300px;height:250px"
+                            data-ad-client="ca-pub-4248324788374908"
+                            data-ad-slot="1536877753"></ins>}
                             <div className="flex mt-3 ">
                                 <Link href={`/magasins/${catalog.subcategory_slug}`} className="btn btn-primary rounded-md px-6">  Visiter la page du magasin </Link>
                             </div>
@@ -288,6 +316,7 @@ export default function ImageElement({images, catalog}){
         }
         let thisTwo = cloned.splice(0,2);
          const element =   ( <SwiperSlide  key={thisTwo[0]?.id}>
+           
             <div style={{ ...slideElement}} className="swiper-zoom-container"> 
                 <div  className="swiper-zoom-target slide">
                     <div className="slideWrapper doublePage" >
@@ -408,6 +437,9 @@ export default function ImageElement({images, catalog}){
                 >
                 
                         {elementToShow} 
+                        {
+                showInterstitialAd && <AdsComponent seSshowInterstitialAd={seSshowInterstitialAd} /> 
+            }
                         <div className="navigation-button navigation-button-prev" > 
                             <span ref={navigationPrevRef} className="nav-prev"> </span> 
                             <span onClick= { () => swiperRef.slideTo(0)} className="nav-first">  <FirstPage width={24} /> <span> {  currentIndex >= 3 ?  (currentIndex + currentIndex - 2 ) + "/" + ((indexes -1) * 2) :  (currentIndex) + "/" + ((indexes -1) * 2)} </span> </span> 
@@ -437,5 +469,38 @@ export default function ImageElement({images, catalog}){
         </FullScreen>
        
         
+    )
+}
+
+function AdsComponent ({seSshowInterstitialAd}) {
+
+    useEffect(() => {
+      
+        if(process.env.NODE_ENV === "production"){
+            var ads = document.getElementsByClassName('adsbygoogle').length;
+            for (var i = 0; i < ads; i++) {
+              try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+              } catch (e) {}
+            }
+        }
+    }, [])
+    
+    return (
+
+        <div className="desktop-ad-overlay">
+
+            <div className="ad-container">
+                <div className="flex flex-col">
+                <p className="text-white text-xs"> Publicité </p>
+            { process.env.NODE_ENV === "production" && <ins class="adsbygoogle"
+                            style="display:inline-block;width:300px;height:250px"
+                            data-ad-client="ca-pub-4248324788374908"
+                            data-ad-slot="1536877753"></ins>}
+            
+            <button onClick={(e) => seSshowInterstitialAd(false)} className="btn btn-primary"> Passez la publicité </button>
+            </div>
+            </div>
+        </div>
     )
 }

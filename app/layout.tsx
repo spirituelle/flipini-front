@@ -10,7 +10,7 @@ import "./../public/scss/style.scss";
 import Footer from './../components/footer'
 import MobileMenu from './../components/header/partials/mobile-menu'
 import OverlayMobileMenu from './../components/Overlay'
-import { AuthWrapper } from './../hooks/auth.context'; 
+// import { AuthWrapper } from './../hooks/auth.context'; 
 import Header from './../components/header'
 import GoogleAnalytics from './GoogleAnalytics.jsx';
 
@@ -135,7 +135,7 @@ export default async function RootLayout({
         <GoogleAnalytics />
        )
      }
-        <AuthWrapper>
+        {/* <AuthWrapper> */}
           <Providers>
             <Header  categories={siteConfigs}  />
             {children}
@@ -144,7 +144,7 @@ export default async function RootLayout({
           <MobileMenu />
 
           </Providers>
-        </AuthWrapper>
+        {/* </AuthWrapper> */}
       
       </body>
     </html>
