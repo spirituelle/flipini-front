@@ -59,7 +59,7 @@ export default function ImageElement({images, catalog}){
     const [elementToShow, setElementsToshow] = useState([]);
     const [thumbsToShow, setThumbsToShow] = useState([]);
     const [showInterstitialAd, seSshowInterstitialAd] = useState(false);
-    console.log(showInterstitialAd)
+
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
     }
@@ -121,7 +121,7 @@ export default function ImageElement({images, catalog}){
         // book-viewcount
         process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}&uuid=${visitorUUID}`);
 
-        // if(process.env.NODE_ENV === "production"){
+        if(process.env.NODE_ENV === "production"){
             var ads = document.getElementsByClassName('adsbygoogle').length;
             for (var i = 0; i < ads; i++) {
               try {
@@ -129,7 +129,7 @@ export default function ImageElement({images, catalog}){
               } catch (e) {}
             }
             
-        // }
+        }
        
         return () => {
             resizeObserver.unobserve(sliderObserver);
@@ -270,7 +270,7 @@ export default function ImageElement({images, catalog}){
                                     <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
                                 </div>
                             </div>
-                            <ins class="adsbygoogle"
+                            <ins className="adsbygoogle"
                             style={{display:"inline-block",width:"300px",height:"250px"}}
                             data-ad-client="ca-pub-4248324788374908"
                             data-ad-slot="1536877753"></ins>
@@ -368,6 +368,13 @@ export default function ImageElement({images, catalog}){
     }
 
     return(
+        <div>
+            <ins className="adsbygoogle"
+            style={{display:"block", textAlign:"center"}}
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-4248324788374908"
+            data-ad-slot="6665915501"></ins>
         
         <FullScreen onChange={(s) =>setStateFullscreen(s)} handle={handle}>
             {/* <div className="flex flex-row">
@@ -467,7 +474,14 @@ export default function ImageElement({images, catalog}){
           <div className="aside-catalog bg-gray-100 dark:bg-slate-800">  </div>
         </div> */}
         </FullScreen>
+        <ins className="adsbygoogle"
+            style={{display:"block", textAlign:"center"}}
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-4248324788374908"
+            data-ad-slot="6665915501"></ins>
        
+       </div>
         
     )
 }
@@ -493,7 +507,7 @@ function AdsComponent ({seSshowInterstitialAd}) {
             <div className="ad-container">
                 <div className="flex flex-col">
                 <p className="text-white text-xs"> Publicité </p>
-            { process.env.NODE_ENV === "production" && <ins class="adsbygoogle"
+            { process.env.NODE_ENV === "production" && <ins className="adsbygoogle"
                             style={{display:"inline-block",width:"300px",height:"250px"}}
                             data-ad-client="ca-pub-4248324788374908"
                             data-ad-slot="1536877753"></ins>}
