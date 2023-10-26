@@ -121,7 +121,7 @@ export default function ImageElement({images, catalog}){
         // book-viewcount
         process.env.NODE_ENV === "production" && axios.get(`api/book-viewcount?slug=${catalog.title}&uuid=${visitorUUID}`);
 
-        if(process.env.NODE_ENV === "production"){
+        // if(process.env.NODE_ENV === "production"){
             var ads = document.getElementsByClassName('adsbygoogle').length;
             for (var i = 0; i < ads; i++) {
               try {
@@ -129,7 +129,7 @@ export default function ImageElement({images, catalog}){
               } catch (e) {}
             }
             
-        }
+        // }
        
         return () => {
             resizeObserver.unobserve(sliderObserver);
@@ -270,10 +270,10 @@ export default function ImageElement({images, catalog}){
                                     <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
                                 </div>
                             </div>
-                           { process.env.NODE_ENV === "production" && <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:250px"
+                            <ins class="adsbygoogle"
+                            style={{display:"inline-block",width:"300px",height:"250px"}}
                             data-ad-client="ca-pub-4248324788374908"
-                            data-ad-slot="1536877753"></ins>}
+                            data-ad-slot="1536877753"></ins>
                             <div className="flex mt-3 ">
                                 <Link href={`/magasins/${catalog.subcategory_slug}`} className="btn btn-primary rounded-md px-6">  Visiter la page du magasin </Link>
                             </div>
@@ -494,7 +494,7 @@ function AdsComponent ({seSshowInterstitialAd}) {
                 <div className="flex flex-col">
                 <p className="text-white text-xs"> Publicité </p>
             { process.env.NODE_ENV === "production" && <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:250px"
+                            style={{display:"inline-block",width:"300px",height:"250px"}}
                             data-ad-client="ca-pub-4248324788374908"
                             data-ad-slot="1536877753"></ins>}
             
