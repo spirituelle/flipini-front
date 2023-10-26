@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import "./../public/scss/style.scss";
 
 import Footer from './../components/footer'
+import PopupMobileApp from './../components/popupMobileApp'
 import MobileMenu from './../components/header/partials/mobile-menu'
 import OverlayMobileMenu from './../components/Overlay'
 // import { AuthWrapper } from './../hooks/auth.context'; 
@@ -142,7 +143,7 @@ export default async function RootLayout({
             <Footer />
           <OverlayMobileMenu />
           <MobileMenu />
-
+          <PopupMobileApp />
           </Providers>
         {/* </AuthWrapper> */}
       

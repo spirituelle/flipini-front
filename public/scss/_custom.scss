@@ -808,7 +808,70 @@ h2{
 		}
 	}
 }
+.corner-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 5;
+    align-items: center;
+    pointer-events: auto;
+    opacity: .92;
+    // cursor: pointer;
+    background: #fff;
+    align-self: flex-end;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 12px 31px -14px rgba(0,0,0,.75);
+    width: 100%;
+    height: auto;
+    transform: none;
+}
+.corner-popup .corner-popup__container {
+    display: flex;
+}
+.corner-popup__image {
+    width: 25%;
+    max-height: 150px;
+    position: relative;
+    display: flex;
+}
+.corner-popup__content {
+    width: 70%;
+    position: relative;
+    max-height: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.corner-popup__content .buttons {
+    position: relative;
+    bottom: 0;
+}
 // Responsive
+@media (min-width: 520px){
+	.corner-popup--extra-bottom-spacing {
+		bottom: calc(100px + 1rem);
+	}
+	.corner-popup {
+		width: 400px;
+		margin: 0.5em 0;
+		border-radius: 1.25rem;
+		left: auto;
+		bottom: 2rem;
+		right: 2rem;
+	}
+	.corner-popup__image {
+		width: 30%;
+		max-height: 175px;
+	}
+}
+.corner-popup__content .app-button {
+    max-height: 30px;
+    display: inline-block;
+	width: auto;
+}
 @media (max-width: 1280px) {
 	.icon-box-side {
 		.icon-box-title {
