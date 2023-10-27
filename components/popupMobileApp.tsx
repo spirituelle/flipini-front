@@ -12,7 +12,7 @@ import Close from './../assets/icons/close.svg'
 
 export default function LoginModal () {
     // const [status, setStatus] = useState();
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [device, setDevice] = useState<string>();
     const [ofsset, setOffset] = useState<boolean>();
 
