@@ -7,6 +7,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import {isAndroid} from 'react-device-detect';
 import  Image  from 'next/image';
 
+import Close from './../assets/icons/close.svg'
 
 
 export default function LoginModal () {
@@ -37,9 +38,10 @@ export default function LoginModal () {
     return (
        <div className="corner-popup-container">
         {
-            (device === "android") ? 
+            ( open) ? 
             <div className="corner-popup corner-popup--extra-bottom-spacing">
             <div className="corner-popup__container m-3">
+                <span className="cursor-pointer" onClick= {(e) => setOpen(false)}> <Close width={18} /> </span>
                 <div className="corner-popup__image">
 
                 </div>
