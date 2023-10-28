@@ -12,7 +12,7 @@ import Close from './../assets/icons/close.svg'
 
 export default function LoginModal () {
     // const [status, setStatus] = useState();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [device, setDevice] = useState<string>();
     const [ofsset, setOffset] = useState<boolean>();
 
@@ -43,7 +43,7 @@ export default function LoginModal () {
             <div className="corner-popup__container m-3">
                 <span className="cursor-pointer" onClick= {(e) => setOpen(false)}> <Close width={18} /> </span>
                 <div className="corner-popup__image">
-
+                    <Image className="app-button" alt="" width={380} height={114} src={"/images/app-overviw.png"} />
                 </div>
                 <div className="corner-popup__content">
                     <p> Flipini : Catalogues hebdomadaires des magasins, à portée de main, à tout moment. </p>
