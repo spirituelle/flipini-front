@@ -1,11 +1,12 @@
 
-'use client'; 
+// 'use client'; 
 
 // import { useRouter } from 'next/navigation';
 
 import  Link  from 'next/link';
 import Image from 'next/image';
-import moment from "moment"
+import { formatDistance, compareDesc } from 'date-fns'
+import fr from 'date-fns/locale/fr';
 
 export default function catalogItem ( props: any ) {
     // const router = useRouter();
@@ -13,16 +14,11 @@ export default function catalogItem ( props: any ) {
     // console.log(catalog)
     if( !catalog || catalog == undefined) return( <> undefined</>)
     const calculateTime = () => {
-        if(moment(catalog.date_expiration).diff(moment())  < 0){
-            return `Catalogue éxpirer`
+        
+        if(compareDesc(new Date(catalog.date_of_publication), new Date()) == -1){
+            return `Valable dans ${formatDistance(new Date(catalog.date_of_publication), new Date(), {includeSeconds: false, locale: fr})}`
         }
-        if(moment(catalog.date_of_publication).diff(moment())  >= 0){
-            let untill = moment(catalog.date_of_publication).diff(moment(), 'days');
-            if(untill == 0) return `Valable dès demain`
-            return `Valable dans ${untill} jours`
-        }
-
-        return  `Valable encore ${moment(catalog.date_expiration).diff(moment(), 'days')} jours`
+        return  `Valable encore ${formatDistance(new Date(), new Date(catalog.date_expiration+" 23:59:59"), {includeSeconds: false, locale: fr})} `
     }
     return (
         <div className="catalog bg-white dark:bg-slate-900 mx-2 md:mx-0 flex-none">

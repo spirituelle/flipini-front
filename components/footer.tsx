@@ -37,7 +37,6 @@ function Footer () {
                         <div className="basis-5/12">
                             <div className="flex flex-row flex-wrap">
                                 <div className="sm:basis-2/3">
-                                    <div className="widget">
                                         <h3 className="widget-title">Information</h3>
 
                                         <ul className="widget-list">
@@ -55,30 +54,16 @@ function Footer () {
                                                 <Link prefetch={false} href="/categories" className="sf-with-ul" >Categories</Link>           
                                         </li>
                                         </ul>
-                                    </div>
                                 </div>
 
-                                {/* <div className="sm:basis-1/3">
-                                    <div className="widget">
-                                        <h4 className="widget-title">Mon compte</h4>
-
-                                        <ul className="widget-list">
-                                            <li><Link prefetch={false} href="/login">Login</Link></li>
-                                            <li><Link prefetch={false} href={"/profil?value=favoris"}>Magasin favoris</Link></li>
-                                            <li><Link prefetch={false} href={"/profil?value=catalogue"}>Catalogues favoris</Link></li>
-                                           
-                                        </ul>
-                                    </div>
-                                </div> */}
+                             
                                 <div className="sm:basis-1/3">
-                                    <div className="widget">
                                         <h3 className="widget-title">Service Clients</h3>
 
                                         <ul className="widget-list">
                                             <li><Link prefetch={false} href="/terms-and-conditions">Termes et conditions</Link></li>
                                             <li><Link prefetch={false} href="/politique-de-confidentialite">politique de confidentialité</Link></li>
                                         </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>

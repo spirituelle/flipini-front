@@ -17,7 +17,8 @@ import ZoomIn from './../assets/icons/zoomIn.svg'
 import ZoomOut from './../assets/icons/zoomOut.svg'
 import FirstPage from './../assets/icons/firstpage.svg'
 import LastPage from './../assets/icons/lastpage.svg'
-import moment from 'moment'
+import { format } from 'date-fns'
+
 import { default as NextImage } from 'next/image'
 // Import Swiper styles
 import "swiper/css";
@@ -267,8 +268,8 @@ export default function ImageElement({images, catalog}){
                                     <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
                                     <h3> {catalog.subtitle} </h3> 
                                    
-                                    <p className="text-xs">  {`Publié le ${moment(catalog.created_at).format('D MMMM YYYY')}`} </p>
-                                    <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
+                                    <p className="text-xs">  { catalog.created_at ? `Publié le ${format(new Date(catalog.created_at), 'd MM yyyy')}` : ""} </p>
+                                    <p className="text-xs">  {`Valable du ${format(new Date(catalog.date_of_publication), 'dd/MM/yyyy')} au ${format(new Date(catalog.date_expiration), 'dd/MM/yyyy')}`} </p>
                                 </div>
                             </div>
                             <div className="catalog-ad-container" style={{width:"300px",height:"250px"}}>
