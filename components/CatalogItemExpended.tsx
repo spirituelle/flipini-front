@@ -26,7 +26,7 @@ export default function CatalogItem({catalog}: any){
             </Link>
             <div className="catalog-info m-3">
                 <div>
-                    <h3 className="font-bold"> Catalogue {catalog.subcategory_name}</h3>
+                    <h2 className="font-bold"> Catalogue {catalog.subcategory_name}</h2>
                     <small > {moment(catalog.date_of_publication).format("DD/MM/YYYY")} -  {moment(catalog.date_expiration).format("DD/MM/YYYY")} </small>
                     <p className="my-2 font-normal text-gray-700 dark:text-gray-400"> Feuilletez le catalogue {catalog.subcategory_name} « {catalog.subtitle} » contenant {catalog.page_count} pages et découvrez ainsi les promotions de la semaine. </p>
                 </div>

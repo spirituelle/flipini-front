@@ -38,7 +38,7 @@ function Footer () {
                             <div className="flex flex-row flex-wrap">
                                 <div className="sm:basis-2/3">
                                     <div className="widget">
-                                        <h4 className="widget-title">Information</h4>
+                                        <h3 className="widget-title">Information</h3>
 
                                         <ul className="widget-list">
                                             <li><Link prefetch={false} href="/about">À propos flipini</Link></li>
@@ -46,13 +46,13 @@ function Footer () {
                                             <li><Link prefetch={false} href="/contact">Contactez-nous</Link></li>
                                              
                                         <li className={ "" }>
-                                                <Link prefetch={false} href="/nouveaux-catalogues" className="sf-with-ul" scroll={ false }>Nouveaux catalogues</Link>           
+                                                <Link prefetch={false} href="/nouveaux-catalogues" className="sf-with-ul" >Nouveaux catalogues</Link>           
                                         </li>
                                         <li className={ "" }>
-                                                <Link prefetch={false} href="/magasins" className="sf-with-ul" scroll={ false }>Magasins</Link>           
+                                                <Link prefetch={false} href="/magasins" className="sf-with-ul" >Magasins</Link>           
                                         </li>
                                         <li className={ "" }>
-                                                <Link prefetch={false} href="/categories" className="sf-with-ul" scroll={ false }>Categories</Link>           
+                                                <Link prefetch={false} href="/categories" className="sf-with-ul" >Categories</Link>           
                                         </li>
                                         </ul>
                                     </div>
@@ -72,7 +72,7 @@ function Footer () {
                                 </div> */}
                                 <div className="sm:basis-1/3">
                                     <div className="widget">
-                                        <h4 className="widget-title">Service Clients</h4>
+                                        <h3 className="widget-title">Service Clients</h3>
 
                                         <ul className="widget-list">
                                             <li><Link prefetch={false} href="/terms-and-conditions">Termes et conditions</Link></li>

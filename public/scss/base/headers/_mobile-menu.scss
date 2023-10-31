@@ -166,7 +166,7 @@
 		}
 	}
 
-	span:not(.mmenu-btn):not(.tip) {
+	span:not(.tip) {
 		position: relative;
 	}
 
@@ -176,40 +176,7 @@
 	}
 }
 
-.mmenu-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	right: 1rem;
-	top: 50%;
-	z-index: 10;
-	width: 3rem;
-	height: 3rem;
-	font-size: 1.2rem;
-	color: #fff;
-	margin-top: -1.5rem;
-	border-radius: 0;
-	background-color: transparent;
-	cursor:pointer;
-	outline: none;
-	transition: color 0.35s;
 
-	&::after {
-		font-family: "molla";
-		content: '\f110';
-		display: inline-block;
-	}
-
-	&:hover,
-	&:focus {
-		color: $primary-color;
-	}
-
-	.open > a > &::after {
-		content: '\e802';
-	}
-}
 
 .mobile-search {
 	margin: 1rem 0 1.5rem;

@@ -420,11 +420,6 @@
 	font-size: 0.75rem;
 	letter-spacing: 0.1em;
 	line-height: 1;
-	font-family: "molla";
-
-	&:before {
-		content: "\f318" "\f318" "\f318" "\f318" "\f318";
-	}	
 }
 
 .ratings-val {
@@ -523,11 +518,6 @@
 		border-left: .1rem dotted #e5e5e5;
 	}
 
-	&:before {
-		font-family: "molla";
-		margin-right: .9rem;
-	}
-
 	span {
 		color: #666666;
 		font-weight: 400;
@@ -617,10 +607,6 @@
 	border-radius: 50%;
 	color: $primary-color;
 	background-color: #fff;
-
-	&:before {
-		font-family: "molla";
-	}
 
 	span {
 		display: none;

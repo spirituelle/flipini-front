@@ -11,54 +11,11 @@ export const metadata: Metadata = {
 function Contact () {
     return (
         <div className="main">
-            {/* <PageHeader title="Contact us 2" subTitle="Pages" /> */}
-            {/* <nav className="breadcrumb-nav border-0 mb-0">
-                <div className="container">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item">
-                            <Link href="/">Home</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <Link href="#">Pages</Link>
-                        </li>
-                        <li className="breadcrumb-item active">Contact Us 2</li>
-                    </ol>
-                </div>
-            </nav> */}
+       
             <div className="page-content">
 
                 <div className="container">
-                    {/* <div className="row">
-                        <div className="col-md-4">
-                            <div className="contact-box text-center">
-                                <h3>Office</h3>
-                                <address>1 New York Plaza, New York, <br />NY 10004, USA</address>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4">
-                            <div className="contact-box text-center">
-                                <h3>Start a Conversation</h3>
-
-                                <div><a href="mailto:#">info@Molla.com</a></div>
-                                <div><a href="tel:#">+1 987-876-6543</a>, <a href="tel:#">+1 987-976-1234</a></div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4">
-                            <div className="contact-box text-center">
-                                <h3>Social</h3>
-
-                                <div className="social-icons social-icons-color justify-center">
-                                    <Link href="#" className="social-icon social-facebook" title="Facebook"><i className="icon-facebook-f"></i></Link>
-                                    <Link href="#" className="social-icon social-twitter" title="Twitter"><i className="icon-twitter"></i></Link>
-                                    <Link href="#" className="social-icon social-instagram" title="Instagram"><i className="icon-instagram"></i></Link>
-                                    <Link href="#" className="social-icon social-youtube" title="Youtube"><i className="icon-youtube"></i></Link>
-                                    <Link href="#" className="social-icon social-pinterest" title="Pinterest"><i className="icon-pinterest"></i></Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
+                   
 
                     <hr className="mt-3 mb-5 mt-md-1" />
                     <div className="touch-container flex flex-row flex-wrap justify-center">

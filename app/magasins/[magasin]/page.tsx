@@ -86,7 +86,7 @@ export default async function MagasinPage({params}: any){
                     <div className="magasin-top">
                 
                         <div className="magasin-image mr-4">
-                            <Image width={90} height={90} className="" alt={response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${response.magasin.icon}`} /> 
+                            <Image width={90} height={90} className="" alt={"logo du magasin" + response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${response.magasin.icon}`} /> 
                         </div>
                         <div className="magasin-details">
                             
@@ -151,7 +151,7 @@ export default async function MagasinPage({params}: any){
                                             <div className="magasin-card " >
                                                 <div> 
                                                     <Image 
-                                                    alt={magasin.name}
+                                                    alt={"logo du magasin" +magasin.name}
                                                     src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
                                                     width={72}
                                                     height={72}

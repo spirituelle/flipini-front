@@ -36,7 +36,7 @@ a:focus {
 }
 
 .text-primary {
-    color: $primary-color !important;
+    color: $primary-text !important;
 }
 
 .text-secondary {
@@ -79,16 +79,6 @@ a:focus {
     &:hover,
     &:focus {
         background-color: $secondary-color;
-    }
-}
-
-.breadcrumb-item {
-    a {
-
-        &:hover,
-        &:focus {
-            color: $primary-color;
-        }
     }
 }
 
@@ -374,11 +364,6 @@ a:focus {
     }
 }
 
-.testimonial-icon {
-    &:before {
-        color: $primary-color;
-    }
-}
 
 .nav.nav-tabs {
     .nav-link {
@@ -631,11 +616,7 @@ a:focus {
     }
 }
 
-.top-menu {
-    span {
-        color: $primary-color;
-    }
-}
+
 
 .header-menu {
     a {
@@ -845,14 +826,6 @@ a:focus {
                 color: $primary-color;
             }
         }
-    }
-}
-
-.mmenu-btn {
-
-    &:hover,
-    &:focus {
-        color: $primary-color;
     }
 }
 
@@ -1311,24 +1284,8 @@ a:focus {
     }
 }
 
-.catalog-pager-link {
-    &:hover
-    {
-        color: $primary-color;
 
-        span {
-            box-shadow: 0 1px 0 $primary-color;
-        }
-    }
-}
 
-.breadcrumb-nav {
-    .catalog-pager-link:hover, .catalog-pager-link:focus {
-        span {
-            box-shadow: none;
-        }
-    }
-}
 
 .catalog-details {
     .catalog-cat {
@@ -1438,9 +1395,6 @@ a:focus {
         }
     }
 
-    blockquote {
-        border-left-color: $primary-color;
-    }
 }
 
 .entry-tags {
@@ -1471,18 +1425,6 @@ a:focus {
     }
 }
 
-.pager-link {
-    color: $primary-color;
-
-    &:hover,
-    &:focus {
-        color: $primary-color;
-
-        &:after {
-            color: $primary-color;
-        }
-    }
-}
 
 .comment-reply {
     &:hover,

@@ -118,9 +118,7 @@ export default async function RootLayout({
       <head>
       <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-      {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4994931420191066"
-     crossOrigin="anonymous"></script> */}
-      {/* <link rel="stylesheet" type="text/css" href="css/fonts-molla.min.css" /> */}
+    
 
      {
        process.env.NODE_ENV === "production" && (

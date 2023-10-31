@@ -78,11 +78,11 @@ function Header ({categories}: {categories: Categories[]}) {
                                 <nav className="main-nav">
                                     <ul className="menu  flex overflow-x-scroll">
                                         <li className={ "" }>
-                                            <Link href="/" className="sf-with-ul" scroll={ false }>Accueil</Link>           
+                                            <Link href="/" className="sf-with-ul" >Accueil</Link>           
                                         </li>
                                         {categories?.map((categorie, index) => {
                                             return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
-                                                <Link prefetch={false} href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" scroll={ false }> {categorie.name} </Link>   
+                                                <Link prefetch={false} href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" > {categorie.name} </Link>   
                                                 </li>)
                                         }) }
                                     </ul>

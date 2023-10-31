@@ -84,10 +84,11 @@ export default function ImageElement({images, catalog}){
 
     }
     useEffect(() => {
-        if(currentIndex === Adindex){
+        console.log(currentIndex % Adindex == 0)
+        if(currentIndex % Adindex == 0 && currentIndex!= 0 ){
             seSshowInterstitialAd(true)
         }else{
-            // seSshowInterstitialAd(false)
+            seSshowInterstitialAd(false)
         }
     
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -270,10 +271,13 @@ export default function ImageElement({images, catalog}){
                                     <p className="text-xs">  {`Valable du ${moment(catalog.date_of_publication).format('DD/MM/YYYY')} au ${moment(catalog.date_expiration).format('DD/MM/YYYY')}`} </p>
                                 </div>
                             </div>
-                            <ins className="adsbygoogle"
-                            style={{display:"inline-block",width:"300px",height:"250px"}}
-                            data-ad-client="ca-pub-4248324788374908"
-                            data-ad-slot="1536877753"></ins>
+                            <div className="catalog-ad-container" style={{width:"300px",height:"250px"}}>
+                                <ins className="adsbygoogle"
+                                style={{display:"inline-block",width:"300px",height:"250px"}}
+                                data-ad-client="ca-pub-4248324788374908"
+                                data-ad-slot="1536877753"></ins>
+                            </div>
+                           
                             <div className="flex mt-3 ">
                                 <Link href={`/magasins/${catalog.subcategory_slug}`} className="btn btn-primary rounded-md px-6">  Visiter la page du magasin </Link>
                             </div>
@@ -369,12 +373,15 @@ export default function ImageElement({images, catalog}){
 
     return(
         <div>
-            <ins className="adsbygoogle"
-            style={{display:"block", textAlign:"center"}}
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-4248324788374908"
-            data-ad-slot="6665915501"></ins>
+            {/* <div style={{}}> */}
+                <ins className="adsbygoogle"
+                style={{display:"block", textAlign:"center"}}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-client="ca-pub-4248324788374908"
+                data-ad-slot="6665915501"></ins>
+            {/* </div> */}
+          
         
         <FullScreen onChange={(s) =>setStateFullscreen(s)} handle={handle}>
             {/* <div className="flex flex-row">

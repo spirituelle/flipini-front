@@ -243,7 +243,7 @@ h2{
 	}
 }
 .categorie-description a{
-	color: $primary-color;
+	color: $primary-text;
 
 }
 .category-page{
@@ -546,7 +546,7 @@ h2{
 }
 
 .about .link, .description a{
-	color: $primary-color;
+	color: $primary-text;
 }
 .home-page {
 	.icon-boxes-container {
@@ -776,6 +776,17 @@ h2{
 		overflow: hidden;
 	}
 
+}
+@media (min-width: 1280px) {
+	.desktop-ad-overlay{
+		width: 90vw;
+		left: 5vw;
+		
+		
+	
+	}
+
+	
 }
 .privacy{
 
