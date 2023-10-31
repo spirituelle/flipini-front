@@ -51,7 +51,7 @@ export default function ImageElement({images, catalog}){
     const [sliderDimentions, setSliderDimensions] = useState({});
     const [slideElement, setSliderElement] = useState({});
     const [thumbsDimentions, setThumbsDimentions] = useState({});
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(1);
     const [fullscreenState, setStateFullscreen] = useState(false);
     const [thumbsOpen, setThumbsOpen] = useState(false);
     const [swiperRef, setSwiperRef] = useState(null);
@@ -60,6 +60,7 @@ export default function ImageElement({images, catalog}){
     const [elementToShow, setElementsToshow] = useState([]);
     const [thumbsToShow, setThumbsToShow] = useState([]);
     const [showInterstitialAd, seSshowInterstitialAd] = useState(false);
+    const [changed, setChanged] = useState(false);
 
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
@@ -67,6 +68,11 @@ export default function ImageElement({images, catalog}){
     var Adindex = 6;
 
     const isMobile = width <= 768;
+    let indexes = elementToShow.length
+  
+    let elements= [];
+    let cloned  =[...images];
+    let thumbs = [];
 
     const imageUrl = process.env.NEXT_PUBLIC_STORAGE_END_POINT + "/" + images[0].path;
     const slider = useRef(null);
@@ -81,11 +87,15 @@ export default function ImageElement({images, catalog}){
         setThumbsOpen(old => !old)
     }
     const handleSlideChange = (i) => {
-        setCurrentIndex(i.activeIndex + 1)
+        setCurrentIndex(i.activeIndex + 1);
+        setChanged(true);
+        setTimeout(() => {
+            setChanged(false)
+        }, 1000);
 
     }
     useEffect(() => {
-        console.log(currentIndex % Adindex == 0)
+        // console.log(currentIndex % Adindex == 0)
         if(currentIndex % Adindex == 0 && currentIndex!= 0 ){
             seSshowInterstitialAd(true)
         }else{
@@ -155,7 +165,7 @@ export default function ImageElement({images, catalog}){
         if(width > 0){
             if(width <= 768){
                 // TODO
-                let es = _mobileSlider(); // return object thumbs and element to show
+                let es = _mobileSlider(0); // return object thumbs and element to show
                 setElementsToshow(es.elements);
                 setThumbsToShow(es.thumbs);
         
@@ -200,20 +210,11 @@ export default function ImageElement({images, catalog}){
            
         }
     }, [swiperRef]);
-    let indexes = elementToShow.length
-  
-    let elements= [];
-    let cloned  =[...images];
-    let thumbs = [];
+ 
+    function _mobileSlider(mindex){
 
-    function _mobileSlider(){
-
-        if(cloned.length == 0){
-             return {elements, thumbs}
-        };
-
-            let firstSlide =cloned.splice(0,1);
-            const element =   ( <SwiperSlide  key={firstSlide[0]?.id}>
+            // let firstSlide =cloned.splice(0,1);
+            const element =   ( <SwiperSlide  key={images[mindex]?.id}>
                 <div style={{ ...slideElement}}  className="swiper-zoom-container"> 
                 
                     <div className="swiper-zoom-target slide">
@@ -221,7 +222,7 @@ export default function ImageElement({images, catalog}){
                         <div className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <NextImage alt={`Page du ${catalog.name}`} width={600} height={600} className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage alt={`Page du ${catalog.name}`} width={600} height={600} className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[mindex]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -229,14 +230,14 @@ export default function ImageElement({images, catalog}){
                    
                          
             </SwiperSlide>);
-            let thumb =  ( <SwiperSlide  key={firstSlide[0]?.id}>
+            let thumb =  ( <SwiperSlide  key={images[mindex]?.id}>
                                 
                     <div className="image-holder" style={ thumbsDimentions.width ? { height: thumbsDimentions.height, width :( thumbsDimentions.width / 2) }: {}} >
                         
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[mindex]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -244,20 +245,19 @@ export default function ImageElement({images, catalog}){
             </SwiperSlide>)
             elements.push(element);
             thumbs.push(thumb);
-            
-            return _mobileSlider()
-        
-       
+            if(images.length === mindex+1){
+                return {elements, thumbs}
+           };
+            return _mobileSlider(mindex+1)
     }
 
 
-    function recursiveFunction(i){
-
-        if(cloned.length == 0) return {elements, thumbs};
-
-        if(i === 0){
-            let firstSlide =cloned.splice(0,1);
-            const element =   ( <SwiperSlide  key={firstSlide[0]?.id}>
+    function recursiveFunction(windex){
+        let isLast = images.length === windex+1;
+       
+        if(windex === 0){
+            // let firstSlide =cloned.splice(0,1);
+            const element =   ( <SwiperSlide  key={images[windex]?.id}>
                 <div style={{ ...slideElement}} className="slideWrapper doublePage" >
                     <div  className="firstPage h-full"> 
                         {/* <h1> {catalog.name} </h1> */}
@@ -290,10 +290,10 @@ export default function ImageElement({images, catalog}){
                 
                     <div className="swiper-zoom-target slide">
                         
-                        <div className="slideWrapper doublePage" >
+                        <div className="slideWrapper singlePage" style={{width: slideElement.width/2 }} >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                    <NextImage   alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage   alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex]?.path}`} />
                                 </div>
                         </div>
                     </div> 
@@ -301,14 +301,14 @@ export default function ImageElement({images, catalog}){
                    
                          
             </SwiperSlide>);
-            let thumb =  ( <SwiperSlide  key={firstSlide[0]?.id}>
+            let thumb =  ( <SwiperSlide  key={images[windex]?.id}>
                                 
                     <div className="image-holder" style={ thumbsDimentions.width ? { height: thumbsDimentions.height, width :( thumbsDimentions.width / 2) }: {}} >
                         
                         <div style={{width: "100%"}} className="slideWrapper singlePage" >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${firstSlide[0]?.path}`} />
+                                    <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex]?.path}`} />
                                 </div>
                         </div>
                     </div>                    
@@ -317,24 +317,24 @@ export default function ImageElement({images, catalog}){
             elements.push(element);
             thumbs.push(thumb);
             
-            return recursiveFunction(i +1)
+            return recursiveFunction(windex +1)
         }
-        let thisTwo = cloned.splice(0,2);
-         const element =   ( <SwiperSlide  key={thisTwo[0]?.id}>
+        // let thisTwo = cloned.splice(0,2);
+         const element =   ( <SwiperSlide  key={images[windex]?.id}>
            
             <div style={{ ...slideElement}} className="swiper-zoom-container"> 
                 <div  className="swiper-zoom-target slide">
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex].path}`} />
                             </div>
                         
                     </div>
-                    {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
+                    {(!isLast) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
-                                <NextImage alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
+                                <NextImage alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex+1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -344,20 +344,20 @@ export default function ImageElement({images, catalog}){
                
                      
         </SwiperSlide>);
-        const thumb =   ( <SwiperSlide  key={thisTwo[0]?.id}>
+        const thumb =   ( <SwiperSlide  key={images[windex]?.id}>
             <div className="image-holder" style={{ ...thumbsDimentions}} > 
                 <div  >
                     <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[0].path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex].path}`} />
                             </div>
                         
                     </div>
-                    {(thisTwo.length >= 2) && <div className="slideWrapper doublePage" >
+                    {(!isLast) && <div className="slideWrapper doublePage" >
                         {/* <div className="addFavoriteStar left "> favorite </div> */}
                             <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: (thumbsDimentions.height - 6) + "px"}}>
-                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${thisTwo[1]?.path}`} />
+                                <NextImage  alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex+1]?.path}`} />
                             </div>
                         
                     </div>}
@@ -369,9 +369,10 @@ export default function ImageElement({images, catalog}){
         </SwiperSlide>)
         thumbs.push(thumb);
         elements.push(element);
-        return recursiveFunction(i+1)
+        if(isLast) return {elements, thumbs};
+        return recursiveFunction(windex+2)
     }
-
+    console.log(currentIndex)
     return(
         <div>
             {/* <div style={{}}> */}
@@ -453,16 +454,17 @@ export default function ImageElement({images, catalog}){
                 
                         {elementToShow} 
                         {
-                showInterstitialAd && <AdsComponent seSshowInterstitialAd={seSshowInterstitialAd} /> 
-            }
-                        <div className="navigation-button navigation-button-prev" > 
+                            showInterstitialAd && <AdsComponent seSshowInterstitialAd={seSshowInterstitialAd} /> 
+                        }
+                        <div style={width <= 768 && {display: "none"}} className="navigation-button navigation-button-prev" > 
                             <span ref={navigationPrevRef} className="nav-prev"> </span> 
-                            <span onClick= { () => swiperRef.slideTo(0)} className="nav-first">  <FirstPage width={24} /> <span> {  currentIndex >= 3 ?  (currentIndex + currentIndex - 2 ) + "/" + ((indexes -1) * 2) :  (currentIndex) + "/" + ((indexes -1) * 2)} </span> </span> 
+                           { currentIndex != 1 &&  <span onClick= { () => swiperRef.slideTo(0)} className="nav-first">  <FirstPage width={24} /> <span> {  currentIndex >= 3 ?  (currentIndex + currentIndex - 2 ) + "/" + (images.length) :  (currentIndex) + "/" + images.length} </span> </span> }
                         </div>
-                        <div className="navigation-button navigation-button-next" >
+                        <div style={width <= 768 && {display: "none"}} className="navigation-button navigation-button-next" >
                             <span ref={navigationNextRef} className="nav-next"> </span> 
-                            <span onClick= { () => swiperRef.slideTo(indexes)} className="nav-last"> <LastPage width={24} /> <span> { currentIndex >= 3  ? ((currentIndex + currentIndex - 2 ) + 1) + "/" + ((indexes -1) * 2) :  (currentIndex +1) + " /" + ((indexes-1) * 2) } </span> </span> 
+                           { currentIndex <= images.length/2 && <span onClick= { () => swiperRef.slideTo(indexes)} className="nav-last"> <LastPage width={24} /> <span> { currentIndex >= 3  ? ((currentIndex + currentIndex - 2 ) + 1) + "/" + (images.length) :  (currentIndex +1) + " /" + images.length } </span> </span> }
                         </div>
+                        <div className="pageNumBadge" style={changed ? {opacity: 1} : {opacity: 0}} >  {currentIndex+ "/" +  images.length} </div>
                 </Swiper>
                 <div className="thumbs-container bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700" style={thumbsOpen? {visibility: "visible", opacity: 1} : {visibility: "hidden", opacity: 0}}>
                     <Swiper
