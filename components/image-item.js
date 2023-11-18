@@ -74,7 +74,7 @@ export default function ImageElement({images, catalog}){
     let cloned  =[...images];
     let thumbs = [];
 
-    const imageUrl = process.env.NEXT_PUBLIC_STORAGE_END_POINT + "/" + images[0].path;
+    const imageUrl = process.env.NEXT_PUBLIC_STORAGE_END_POINT +images[0].path;
     const slider = useRef(null);
     const navigationPrevRef = useRef(null)
       const navigationNextRef = useRef(null)
@@ -254,7 +254,7 @@ export default function ImageElement({images, catalog}){
 
     function recursiveFunction(windex){
         console.log(windex,images.length )
-        let isLast =  (images.length < windex+1) ;
+        let isLast =  (images.length <= windex+1) ;
         if( images.length % 2 && isLast) return {elements, thumbs};
         if(windex === 0){
             // let firstSlide =cloned.splice(0,1);
@@ -291,7 +291,7 @@ export default function ImageElement({images, catalog}){
                 
                     <div className="swiper-zoom-target slide">
                         
-                        <div className="slideWrapper singlePage" style={{width: slideElement.width/2 }} >
+                        <div className="slideWrapper singlePage" style={slideElement.width ? {width: slideElement.width/2 }: {}} >
                             {/* <div className="addFavoriteStar left "> favorite </div> */}
                                 <div style={{width: "100%", height: 0, display:"block", position: "relative", paddingBottom: slideElement.height + "px"}}>
                                     <NextImage   alt={`Page du ${catalog.name}`} width={600} height={600}  className="swiper-image"  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${images[windex]?.path}`} />
