@@ -40,7 +40,7 @@ export default function catalogItem ( props: any ) {
                 
                     <Image
                         alt="catalog"
-                        src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.thumbnail_path }`}
+                        src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.thumbnail_path }`}
                         width={186}
                         height={299}
                         className="catalog-image"

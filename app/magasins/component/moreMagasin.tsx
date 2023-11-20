@@ -66,7 +66,7 @@ export default function MAgasinsWithMore({initialShop, search}: {initialShop: Su
                                 <div> 
                                     <Image 
                                     alt={magasin.name}
-                                    src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
+                                    src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${magasin.icon }`}
                                     width={72}
                                     height={72}
                                     className="magasin-image"

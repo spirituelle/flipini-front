@@ -83,9 +83,9 @@ export default function ImageElement({images, catalog}){
 
     const handle = useFullScreenHandle();
 
-    const openThumbs = ( e) => {
-        setThumbsOpen(old => !old)
-    }
+    // const openThumbs = ( e) => {
+    //     setThumbsOpen(old => !old)
+    // }
     const handleSlideChange = (i) => {
         setCurrentIndex(i.activeIndex + 1);
         setChanged(true);
@@ -264,7 +264,7 @@ export default function ImageElement({images, catalog}){
                         {/* <h1> {catalog.name} </h1> */}
                         <div className="flex flex-col h-full items-center justify-center">
                             <div className="flex">
-                                <div> <NextImage width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-16 mr-3" alt="magasin Logo" /> </div>
+                                <div> <NextImage width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.magasin_icon}`} className="h-16 mr-3" alt="magasin Logo" /> </div>
                                 <div className="flex flex-col items-start justify-center ml-3"> 
                                     <h2> {`Catalogue ${catalog.subcategory_name}`} </h2> 
                                     <h3> {catalog.subtitle} </h3> 
@@ -394,7 +394,7 @@ export default function ImageElement({images, catalog}){
                 <div className="flex items-center justify-between catalog-top-nav">
                     <div className="flex items-center justify-start">
                     
-                        <NextImage width={32} height={32}  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${catalog.magasin_icon}`} className="h-8 mr-3" alt="magasin Logo" />
+                        <NextImage width={32} height={32}  src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${catalog.magasin_icon}`} className="h-8 mr-3" alt="magasin Logo" />
                         <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"> {catalog.subcategory_name} </span>
 
                     </div>
@@ -402,9 +402,9 @@ export default function ImageElement({images, catalog}){
                         <span className="mr-5 cursor-pointer catalog-actions" onClick={ () => fullscreenState ? handle.exit() : handle.enter()}>
                             { fullscreenState ? <ExitFullscreen width={20} /> :  <FullscreenIcon width={20} />}
                         </span>
-                        <span className="mr-5 cursor-pointer catalog-actions" onClick={openThumbs }>
+                        {/* <span className="mr-5 cursor-pointer catalog-actions" onClick={openThumbs }>
                             <Navoverview width={20} />
-                        </span>
+                        </span> */}
                         <span className="mr-5 cursor-pointer catalog-actions" onClick={handleZoom} >
                         {
                             swiperRef?.zoom?.scale > 2 ? 
@@ -418,9 +418,9 @@ export default function ImageElement({images, catalog}){
                 </div>
             </nav>
            <div className="swipers-container">
-               {thumbsOpen && <div onClick={openThumbs} className="backdrop">  </div>}
+               {/* {thumbsOpen && <div onClick={openThumbs} className="backdrop">  </div>} */}
                 <Swiper
-                modules={[Pagination, Zoom, Navigation, Thumbs, FreeMode]}
+                modules={[Pagination, Zoom, Navigation,  FreeMode]}
                 slidesPerView={1}
                 slidesPerGroup= {1}
                 onInit={(swiper) => {
@@ -441,7 +441,7 @@ export default function ImageElement({images, catalog}){
                 }}
                 // scrollbar={true}
                 // thumbs={{ swiper: thumbsSwiper }}
-                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                // thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 zoom={{enabled: true, maxRatio: 4, minRatio: 1}}
                 grabCursor={true}
                 style={{
@@ -467,7 +467,7 @@ export default function ImageElement({images, catalog}){
                         </div>
                         <div className="pageNumBadge" style={changed ? {opacity: 1} : {opacity: 0}} >  {currentIndex+ "/" +  images.length} </div>
                 </Swiper>
-                <div className="thumbs-container bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700" style={thumbsOpen? {visibility: "visible", opacity: 1} : {visibility: "hidden", opacity: 0}}>
+                {/* <div className="thumbs-container bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700" style={thumbsOpen? {visibility: "visible", opacity: 1} : {visibility: "hidden", opacity: 0}}>
                     <Swiper
                         onSwiper={setThumbsSwiper}
                         spaceBetween={10}
@@ -479,7 +479,7 @@ export default function ImageElement({images, catalog}){
                     >
                         {thumbsToShow}
                     </Swiper>
-                </div>
+                </div> */}
             </div>
           {/* </div>
           <div className="aside-catalog bg-gray-100 dark:bg-slate-800">  </div>

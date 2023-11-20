@@ -61,7 +61,7 @@ function Magasin({ category }: any) {
         <Link  className="flex-none py-6 px-3 first:pl-6 last:pr-6" href={`/categories/${category.slug}`}>
         <div className="flex flex-col items-center justify-center gap-3 p-3 rounded-3xl magasin-rounded">
             <span className="w-16 h-16 p-2">
-                <Image alt={category.name} width={64} height={64} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${category.icon}`} className=""  />
+                <Image alt={category.name} width={64} height={64} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${category.icon}`} className=""  />
             </span>
             <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {category.name} </strong>
         </div>

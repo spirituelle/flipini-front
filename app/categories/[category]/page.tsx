@@ -36,7 +36,7 @@ export async function generateMetadata(
             url:process.env.NEXT_PUBLIC_SITE_URL+ "/categories/" + params.category,
             siteName: "flipini",
             description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
-            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${category.category.icon}`],
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${category.category.icon}`],
         },
     }
   }

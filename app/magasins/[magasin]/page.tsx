@@ -39,7 +39,7 @@ export async function generateMetadata(
             url: process.env.NEXT_PUBLIC_SITE_URL +  "/magasins/" + params.magasin,
             siteName: "flipini",
             description: `${res.magasin.meta_description}` ,
-            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${res.magasin.icon}`],
+            images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${res.magasin.icon}`],
         },
     }
   }
@@ -86,7 +86,7 @@ export default async function MagasinPage({params}: any){
                     <div className="magasin-top">
                 
                         <div className="magasin-image mr-4">
-                            <Image width={90} height={90} className="" alt={"logo du magasin" + response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${response.magasin.icon}`} /> 
+                            <Image width={90} height={90} className="" alt={"logo du magasin" + response.magasin.name} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${response.magasin.icon}`} /> 
                         </div>
                         <div className="magasin-details">
                             
@@ -152,7 +152,7 @@ export default async function MagasinPage({params}: any){
                                                 <div> 
                                                     <Image 
                                                     alt={"logo du magasin" +magasin.name}
-                                                    src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
+                                                    src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${magasin.icon }`}
                                                     width={72}
                                                     height={72}
                                                     className="magasin-image"

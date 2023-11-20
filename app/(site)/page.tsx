@@ -49,7 +49,7 @@ export default async function Home() {
             return(
               <Link  className="flex-none py-6 px-3 first:pl-6 last:pr-6" key={index} href={`/magasins/${magasin.slug}`}>
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <Image alt={magasin.name} width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
+                    <Image alt={magasin.name} width={32} height={32} src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${magasin.icon}`} className="w-16 h-16 rounded-full magasin-rounded"  />
                     <strong className="text-slate-900 text-xs font-medium dark:text-slate-200"> {magasin.name} </strong>
                   </div>
               </Link>
@@ -89,7 +89,7 @@ export default async function Home() {
                                   <div> 
                                       <Image 
                                       alt={magasin.name}
-                                      src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}/${magasin.icon }`}
+                                      src={`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${magasin.icon }`}
                                       width={72}
                                       height={72}
                                       className="magasin-image"

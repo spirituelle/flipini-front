@@ -28,6 +28,7 @@ module.exports = {
         pathname: '/uploads/**',
       },
     ],
+    minimumCacheTTL: 604800,
   },
 sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
