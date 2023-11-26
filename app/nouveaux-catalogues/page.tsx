@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 async function getCatalogues(){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/newest-book?country_id=1&page=1&per_page=24`,{ next: { tags: ['home', 'catalogues'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/newest-book?country_id=${process.env.COUNTRY_ID}&page=1&per_page=24`,{ next: { tags: ['home', 'catalogues'] }});
     const data = await res.json();
     
     // return data;

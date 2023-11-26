@@ -10,7 +10,7 @@ type SiteMapType = {
     catalogues: BookDetailsModel[],
 }
 async function getSiteMap(){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/site-map`,{ cache: "no-cache"});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/site-map?country_id=${process.env.COUNTRY_ID}`,{ cache: "no-cache"});
     if(res.status === 200){
         const data = await res.json();
         return data as SiteMapType;

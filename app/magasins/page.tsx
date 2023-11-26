@@ -27,7 +27,7 @@ async function getMagasin( { page = 1,search}:{ page?: number, search?: string |
     //         );
     //          user= await userRes.json();
     //     }
-    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?country_id=1&page=${page}&per_page=24&search=${search}`,{ next: { tags: ['home', 'magasins'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?country_id=${process.env.COUNTRY_ID}&page=${page}&per_page=24&search=${search}`,{ next: { tags: ['home', 'magasins'] }});
     const data = await res.json();
     return data?.data as SubCategoryModel[];
 }

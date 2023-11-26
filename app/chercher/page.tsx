@@ -24,7 +24,7 @@ type Props = {
   
 
 async function getSearchResult(term: string | string[] | undefined){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?search_text=${term}&country_id=${1}`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?search_text=${term}&ccountry_id=${process.env.COUNTRY_ID}`, { cache: 'no-store' });
 
     const data = await res.json();
     console.log(data.data)

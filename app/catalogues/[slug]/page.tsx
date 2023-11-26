@@ -46,13 +46,13 @@ type Props = {
   
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=1`, {cache: "no-cache" });
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-list?all=all&country_id=${process.env.COUNTRY_ID}`, {cache: "no-cache" });
    const catalogues = await res.json() ;
     return catalogues;
 }
   
 async function getCatalogDetail(slug: string){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=1&slug=${slug}`,{ next: { tags: ['home', 'catalogue'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/book-detail?country_id=${process.env.COUNTRY_ID}&slug=${slug}`,{ next: { tags: ['home', 'catalogue'] }});
     if(res.status === 200){
         // return res;
         const data = await res.json();

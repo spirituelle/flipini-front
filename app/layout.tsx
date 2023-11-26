@@ -14,8 +14,9 @@ import OverlayMobileMenu from './../components/Overlay'
 // import { AuthWrapper } from './../hooks/auth.context'; 
 import Header from './../components/header'
 import GoogleAnalytics from './GoogleAnalytics.jsx';
+import {CategoryModel} from './../model/CategoryModel';
 
-
+// import {SiteConfigModel} from './../model/SiteConfigModel'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -28,79 +29,80 @@ export const metadata = {
 }
 
 
-// async function getSiteConfigs(){
-// //   let user = {} as UserModel;
-// //   if(api_token){
-// //     const userRes = await fetch(
-// //         `${process.env.BACKEND_URL}/api/user`, { headers: { Authorization: "Bearer " + api_token} }
-// //     );
-// //      user= await userRes.json();
-// // }
-//   const res = await fetch(`${process.env.BACKEND_URL}/api/site-config`,{next: { tags: ['menucategories'] } });
-//   if(res.status === 200){
-//       const data = await res.json();
-//       return data as SiteConfigModel;
-  
-//   }
-//   else{
-//      return {} as SiteConfigModel;
-//   }
-  
+async function getSiteConfigs(){
+//   let user = {} as UserModel;
+//   if(api_token){
+//     const userRes = await fetch(
+//         `${process.env.BACKEND_URL}/api/user`, { headers: { Authorization: "Bearer " + api_token} }
+//     );
+//      user= await userRes.json();
 // }
-const siteConfigs = [
-  {
-    slug: "supermarches",
-    name:"Supermarchés"
-  },
-  {
-    slug: "maison",
-    name:"Maison"
-  },
-  {
-    slug: "jouets",
-    name:"Jouets"
-  },
-  {
-    slug: "mode",
-    name:"Mode"
-  },
-  {
-    slug: "electromenager",
-    name:"Electroménager"
-  },
-  {
-    slug: "bricolage",
-    name:"Bricolage"
-  },
-  {
-    slug: "bio",
-    name:"Bio"
-  },
-  {
-    slug: "jardineries",
-    name:"Jardineries"
-  },
-  {
-    slug: "bazar",
-    name:"Bazar"
-  },
-  {
-    slug: "sport",
-    name:"Sport"
-  },
-  {
-    slug: "auto",
-    name:"Auto"
-  },
-  {
-    slug: "beaute",
-    name:"Beauté"
-  },
-  {
-    slug: "bijouteries",
-    name:"Bijouteries"
-  },
-]
+  const res = await fetch(`${process.env.BACKEND_URL}/api/site-config?country_id=${process.env.COUNTRY_ID}`,{next: { tags: ['menucategories'] } });
+
+  if(res.status === 200){
+      const data = await res.json();
+      return data as CategoryModel[];
+  
+  }
+  else{
+     return [] as CategoryModel[];
+  }
+  
+}
+// const siteConfigs1 = [
+//   {
+//     slug: "supermarches",
+//     name:"Supermarchés"
+//   },
+//   {
+//     slug: "maison",
+//     name:"Maison"
+//   },
+//   {
+//     slug: "jouets",
+//     name:"Jouets"
+//   },
+//   {
+//     slug: "mode",
+//     name:"Mode"
+//   },
+//   {
+//     slug: "electromenager",
+//     name:"Electroménager"
+//   },
+//   {
+//     slug: "bricolage",
+//     name:"Bricolage"
+//   },
+//   {
+//     slug: "bio",
+//     name:"Bio"
+//   },
+//   {
+//     slug: "jardineries",
+//     name:"Jardineries"
+//   },
+//   {
+//     slug: "bazar",
+//     name:"Bazar"
+//   },
+//   {
+//     slug: "sport",
+//     name:"Sport"
+//   },
+//   {
+//     slug: "auto",
+//     name:"Auto"
+//   },
+//   {
+//     slug: "beaute",
+//     name:"Beauté"
+//   },
+//   {
+//     slug: "bijouteries",
+//     name:"Bijouteries"
+//   },
+// ]
 
 export default async function RootLayout({
   children,
@@ -111,8 +113,7 @@ export default async function RootLayout({
 
   // const api_token = cookieStore.get('api_token')
 
-  // const siteConfigs = await getSiteConfigs()
-
+  const siteConfigs = await getSiteConfigs()
   return (
     <html suppressHydrationWarning={true} lang="fr">
       <head>

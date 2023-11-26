@@ -21,7 +21,7 @@ async function getMagasin( { page = 1,search}:{ page?: number, search?: string |
         //     const userRes = await axios.get('/api/user',  { headers: { Authorization: "Bearer " + api_token } })
         //     user= userRes.data;
         // }
-        const res = await axios.get(`/api/magasin-list?country_id=1&page=${page}&per_page=24&search=${search}`  )
+        const res = await axios.get(`/api/magasin-list?country_id=${process.env.NEXT_PUBLIC_COUNTRY_ID}&page=${page}&per_page=24&search=${search}`  )
         return { data: res.data.data as SubCategoryModel[], meta: res.data.meta as Meta};
    
 }

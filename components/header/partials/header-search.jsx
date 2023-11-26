@@ -31,7 +31,7 @@ function HeaderSearch () {
     useEffect( () => {
         if ( searchTerm.length > 2 ){
               
-            axios.get(`/api/book-list?page=${1}&search_text=${searchTerm}&country_id=${1}`)
+            axios.get(`/api/book-list?page=${1}&search_text=${searchTerm}&country_id=${process.env.NEXT_PUBLIC_COUNTRY_ID}`)
             .then(res => {
                 console.log(res.data.data)
                 setCatalogs(res.data.data)

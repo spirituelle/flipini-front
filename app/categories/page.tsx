@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 async function getCategories(){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/category-list`,{ next: { tags: ['home', 'categories'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/category-list?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: ['home', 'categories'] }});
     const data = await res.json();
     
     // return data;

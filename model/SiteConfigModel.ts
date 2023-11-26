@@ -4,7 +4,7 @@ import {CategoryModel} from './CategoryModel';
 import {UserModel} from './UserModel';
 
 export interface SiteConfigModel{
-    user: UserModel,
+    // user: UserModel,
     categories:CategoryModel[],
 
 

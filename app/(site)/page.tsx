@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     },
 }
 async function getDashboard(){
-  const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site`,{ next: { tags: ['home'] } });
+  const res = await fetch(`${process.env.BACKEND_URL}/api/accueil-site?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: ['home'] } });
   if(res.status === 200){
       const data = await res.json();
       return data as DashboardModel;
@@ -37,7 +37,6 @@ async function getDashboard(){
 export default async function Home() {
   const dashboard = await getDashboard();
   // if (dashboard == null) return( <> Error </>);
-
   return (
     // <Suspense fallback={<div> Loading ... </div>}>
     <div className="home-page">

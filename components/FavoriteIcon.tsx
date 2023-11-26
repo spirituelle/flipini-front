@@ -18,7 +18,7 @@ export default function FavoriteIcon({magasin}: {magasin: SubCategoryModel}) {
         if(api_token != null && api_token != undefined && api_token != ""){
             let data = {subcategory_id: magasin.subcategory_id }
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/add-remove-favorite-magasin`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/add-remove-favorite-magasin?country_id=${process.env.COUNTRY_ID}`,
                 { method: "POST", cache: "no-cache",body: JSON.stringify(data) , headers: { Authorization: "Bearer " + api_token, 'Content-type': 'application/json',} }
             );
             let saved = await res.json();
@@ -38,7 +38,7 @@ export default function FavoriteIcon({magasin}: {magasin: SubCategoryModel}) {
 
         let data = {subcategory_id: magasin.subcategory_id }
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/add-remove-favorite-magasin`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/add-remove-favorite-magasin?country_id=${process.env.COUNTRY_ID}`,
             { method: "POST", cache: "no-cache",body: JSON.stringify(data) , headers: { Authorization: "Bearer " + user.api_token, 'Content-type': 'application/json',} }
         );
         let saved = await res.json();

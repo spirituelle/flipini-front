@@ -13,8 +13,7 @@ export const metadata: Metadata = {
     // },
 }
 async function getCategory(type: string){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail?card=${type}`,{ next: { tags: ['home', 'catalogues'] }});
-
+    const res = await fetch(`${process.env.BACKEND_URL}/api/dashboard-detail?card=${type}&country_id=${process.env.COUNTRY_ID}`,{ next: { tags: ['home', 'catalogues'] }});
     const data = await res.json();
     // console.log(data)
     if(data)return data as CardModel;
@@ -24,6 +23,8 @@ async function getCategory(type: string){
 
 export default async function CategoryPage({params}: any){
     const card = await getCategory(params.type);
+    console.log(card)
+
     return(
         <div className="category category-page container">
              <Breadcrumb containerClassName=""  />
