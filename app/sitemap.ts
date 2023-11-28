@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
  import {CategoryModel} from './../model/CategoryModel';
  import {SubCategoryModel} from './../model/SubCategoryModel';
  import {BookDetailsModel} from './../model/BookDetailsModel';
-const URL = "https://monsieurechantillons.com/";
+const URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 type SiteMapType = {
     categories: CategoryModel[],

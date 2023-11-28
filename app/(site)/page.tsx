@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
   },
-  title:  "Flipini.fr : Catalogues en ligne, Promotions et Offres de la Semaine",
+  title:  `${process.env.SITE_NAME} : Catalogues en ligne, Promotions et Offres de la Semaine`,
   description:
-    "Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur Flipini.fr. ",
+    `Découvrez les catalogues en ligne, le catalogue de la semaine, ainsi que les meilleures offres et promotions sur  ${process.env.SITE_NAME}.`,
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
     },
@@ -110,9 +110,9 @@ export default async function Home() {
         </section>
         <section className="container mb-10">
           <div className="catalogs-card p-5">
-          <p>         Bienvenue sur Flipini.fr, votre destination privilégiée pour découvrir les catalogues en ligne les plus récents. Plongez dans le catalogue de la semaine, profitez des offres exceptionnelles et découvrez les promotions incontournables des plus grandes enseignes de France. Simplifiez vos achats et restez à la pointe des tendances grâce à Flipini.fr. </p>
-<h2><strong>Flipini.fr : Votre Compagnon de Shopping Multicatégorie en Ligne</strong></h2>
-Bienvenue sur Flipini.fr, la plateforme qui révolutionne votre expérience de shopping en ligne en rassemblant une multitude de catalogues, promotions et prospectus des enseignes les plus prisées de France.
+          <p>         Bienvenue sur {process.env.SITE_NAME}, votre destination privilégiée pour découvrir les catalogues en ligne les plus récents. Plongez dans le catalogue de la semaine, profitez des offres exceptionnelles et découvrez les promotions incontournables des plus grandes enseignes de {process.env.COUNTRY_NAME}. Simplifiez vos achats et restez à la pointe des tendances grâce à {process.env.SITE_NAME}. </p>
+<h2><strong> {process.env.SITE_NAME} : Votre Compagnon de Shopping Multicatégorie en Ligne</strong></h2>
+Bienvenue sur  {process.env.SITE_NAME}, la plateforme qui révolutionne votre expérience de shopping en ligne en rassemblant une multitude de catalogues, promotions et prospectus des enseignes les plus prisées de {process.env.COUNTRY_NAME}.
 <h3><strong>Supermarché : Vos Courses à Portée de Clic</strong></h3>
 Ne faites plus la queue à la caisse ! Découvrez toutes les offres et promotions de vos supermarchés préférés grâce à nos <Link className="text-primary" href="/categories/supermarches" target="_new">Catalogues Supermarchés</Link>. Que vous recherchiez des produits frais, des articles d&apos;épicerie ou des plats préparés, tout est là pour faciliter vos courses du quotidien.
 <h3><strong>Maison : Créez Votre Cocon</strong></h3>
@@ -140,9 +140,9 @@ Avec des enseignes comme Sephora, Yves Rocher, et bien d&apos;autres, nos <a cla
 <h3><strong>Bijouteries : Éclat &amp; Élégance</strong></h3>
 Découvrez une collection impressionnante de bijoux à travers nos <a className="text-primary" href="/categories/bijouteries" target="_new">Catalogues Bijouteries</a> et ajoutez une touche d&apos;éclat à chaque occasion.
 <h2><strong>Conclusion</strong></h2>
-Que vous recherchiez des produits du quotidien, des articles spécifiques ou des cadeaux, Flipini.fr est votre destination de choix pour un shopping en ligne complet et avantageux. Naviguez à travers nos différentes catégories et profitez des meilleures offres du moment. Bon shopping sur Flipini.fr !
+Que vous recherchiez des produits du quotidien, des articles spécifiques ou des cadeaux,  {process.env.SITE_NAME} est votre destination de choix pour un shopping en ligne complet et avantageux. Naviguez à travers nos différentes catégories et profitez des meilleures offres du moment. Bon shopping sur  {process.env.SITE_NAME} !
 
-<em>Flipini.fr est bien plus qu&apos;un simple site d&apos;achat en ligne. C&apos;est une destination où chaque catégorie vous offre un monde de découvertes. Alors, pourquoi attendre? Commencez votre voyage shopping dès maintenant!</em>
+<em> {process.env.SITE_NAME} est bien plus qu&apos;un simple site d&apos;achat en ligne. C&apos;est une destination où chaque catégorie vous offre un monde de découvertes. Alors, pourquoi attendre? Commencez votre voyage shopping dès maintenant!</em>
 </div>
         </section>
 
