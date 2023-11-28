@@ -29,7 +29,7 @@ function Footer () {
                                     <Image src="/images/app-icon.png" className="footer-logo" alt="Footer Logo" width={105} height={25} />
                                 </Link>
 
-                                <p>Flipini.fr est votre destination privilégiée pour le shopping en ligne. Parcourez nos catalogues en ligne mis à jour chaque semaine et découvrez les meilleures offres et promotions dans diverses catégories telles que Bricolage, Bio, Jardinerie, Bazar, Sport, Auto, Beauté, Bijouterie, Supermarché, Maison, et Jouets. Chaque catalogue est une invitation à découvrir une multitude de produits à des prix imbattables. Pour une expérience d&apos;achat optimisée, téléchargez l&apos;app mobile Flipini et emportez toutes ces offres dans votre poche. Rejoignez la communauté Flipini et profitez des bonnes affaires à portée de clic ! </p>
+                                <p>{process.env.SITE_NAME} est votre destination privilégiée pour le shopping en ligne. Parcourez nos catalogues en ligne mis à jour chaque semaine et découvrez les meilleures offres et promotions dans diverses catégories telles que Bricolage, Bio, Jardinerie, Bazar, Sport, Auto, Beauté, Bijouterie, Supermarché, Maison, et Jouets. Chaque catalogue est une invitation à découvrir une multitude de produits à des prix imbattables. Pour une expérience d&apos;achat optimisée, téléchargez l&apos;app mobile Flipini et emportez toutes ces offres dans votre poche. Rejoignez la communauté Flipini et profitez des bonnes affaires à portée de clic ! </p>
 
                             </div>
                         </div>
