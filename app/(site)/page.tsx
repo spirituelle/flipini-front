@@ -10,6 +10,8 @@ import CardSkeleton from './../../components/cardsSkeleton'
 import Cards from './../../components/Cards'
 import  Link  from 'next/link';
 import { Metadata } from 'next'
+import PostList from '../../components/postlist';
+import Container from '../../components/container';
 export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
@@ -69,17 +71,13 @@ export default async function Home() {
       </section>
       <section className="container mb-5 ">
         <div className="catalogs-card p-5">
-
-       
           <div className="heading heading-flex">
               <div className="heading-left">
                   <h2 className="title">Magasins recommandés</h2>
               </div>
-            
-              
           </div>
           <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 xl:gap-x-8">
-          <Suspense fallback={<div> Loading ... </div>}>
+            <Suspense fallback={<div> Loading ... </div>}>
               {
                   dashboard.top_magasin?.map((magasin, index) => {
                       return(
@@ -104,10 +102,37 @@ export default async function Home() {
                       
                   })
               }
-              </Suspense >
+            </Suspense >
+            </div>
           </div>
-        </div>
         </section>
+
+       { dashboard.blogs?.length && <section className="container mb-5 ">
+          <div className="catalogs-card p-5">
+            <div className="heading heading-flex">
+                <div className="heading-left">
+                    <h2 className="title">Les derniers articles de notre blog</h2>
+                </div>
+                <div className="heading-right">
+                    <Link href={ `/blog` } className="title-link">Voir tous <i className="icon-long-arrow-right"></i></Link>
+                </div>
+            </div>
+            <Container large={false} className="articles-list" alt={false} >
+              <div className="grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+                <Suspense fallback={<div> Loading ... </div>}>
+                  {
+                      dashboard.blogs?.map((blog, index) => {
+                          return(
+                            <PostList key={blog.id} post={blog} aspect="square" preloadImage={false} minimal={false}  fontSize="large" fontWeight="normal"  />
+                          )
+                          
+                      })
+                  }
+                </Suspense >
+              </div>
+            </Container>
+          </div>
+        </section>}
         <section className="container mb-10">
           <div className="catalogs-card p-5">
           <p>         Bienvenue sur {process.env.SITE_NAME}, votre destination privilégiée pour découvrir les catalogues en ligne les plus récents. Plongez dans le catalogue de la semaine, profitez des offres exceptionnelles et découvrez les promotions incontournables des plus grandes enseignes de {process.env.COUNTRY_NAME}. Simplifiez vos achats et restez à la pointe des tendances grâce à {process.env.SITE_NAME}. </p>

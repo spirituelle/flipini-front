@@ -47,9 +47,9 @@ type ObjectKey = keyof typeof contentText;
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/category-list?country_id=${process.env.COUNTRY_ID}`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/category-slug-list?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: [ 'categories'] }});
    const resJson = await res.json();
-   const categories = resJson.data as CategoryModel[];
+   const categories = resJson as CategoryModel[];
     return categories.map(cat=> ({
         category: cat.slug
     }));
