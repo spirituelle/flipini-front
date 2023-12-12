@@ -38,7 +38,6 @@ async function getDashboard(){
 
 export default async function Home() {
   const dashboard = await getDashboard();
-  console.log(dashboard)
   // if (dashboard == null) return( <> Error </>);
   return (
     // <Suspense fallback={<div> Loading ... </div>}>
