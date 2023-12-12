@@ -23,19 +23,19 @@ export async function generateMetadata(
     const category = await getCategory(params.category);
       
     return {
-        title:`Catalogues ${category.category.name} en ligne`,
-        generator: `Catalogues ${category.category.name} en ligne`,
+        title:`${category.category.meta_title}`,
+        generator: `${category.category.meta_title}`,
         applicationName: "Flipini",
-        description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+        description: `${category.category.meta_description}`,
         alternates: {
             canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/categories/${params.category}`,
         },
         openGraph: {
-            title: category.category.name,
+            title: category.category.meta_title,
             type: "website",
             url:process.env.NEXT_PUBLIC_SITE_URL+ "/categories/" + params.category,
             siteName: "flipini",
-            description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+            description: `${category.category.meta_description}`,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${category.category.icon}`],
         },
     }
@@ -95,8 +95,12 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
                 })}
             </section>
             <section className="categorie-description mb-10">
-                {/* {content[params.category]} */}
-                <Content category={params.category} />
+                {
+                    category.category.description &&
+                    <div className="mb-5 description" dangerouslySetInnerHTML={{__html: category.category.description}}>
+                        
+                    </div>
+                }
             </section>
         </div>
 
