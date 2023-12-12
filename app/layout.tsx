@@ -134,11 +134,14 @@ export default async function RootLayout({
        process.env.NODE_ENV === "production" && (
         <GoogleAnalytics />
        )
-     }
+      }
         {/* <AuthWrapper> */}
           <Providers>
             <Header  categories={siteConfigs}  />
+            <main>
             {children}
+            </main>
+           
             <Footer />
           <OverlayMobileMenu />
           <MobileMenu />

@@ -48,7 +48,7 @@ export async function generateMetadata(
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-list?country_id=${process.env.COUNTRY_ID}`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-slug-list?country_id=${process.env.COUNTRY_ID}`);
    const resJson = await res.json();
    const categories = resJson.data as SubCategoryModel[];
     return categories.map(mag=> ({

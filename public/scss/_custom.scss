@@ -562,6 +562,138 @@ h2{
     text-align: center;
 	bottom: 10%;
 }
+.articles-list{
+	// margin-top: 30px;
+	border: 0;
+    box-shadow: none;
+	box-sizing: border-box;
+    // float: left;
+    padding: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+	.blog-header {
+		margin: 0;
+		// background-color: $primary-color;
+		color: #fff;
+		// font-size: 23px;
+		margin-bottom: 12px;
+		// padding: 7px 15px;
+		// padding-bottom: 15px;
+		text-align: center;
+		text-transform: uppercase;
+		.subtitle {
+			// font-size: 24px;
+			padding: 7px 15px;
+			padding-bottom: 15px;
+			// font-weight: 400;
+			margin: 0;
+			position: relative;
+			text-transform: none;
+			line-height: 1;
+			&:before {
+				position: absolute;
+				content: " ";
+				background-color: $secondary-color;
+				height: 2px;
+				width: 100%;
+				right: 0;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+			}
+			.bg-primary {
+				background: $primary-color;
+				display: inline-block;
+				padding: 0 20px;
+				position: relative;
+			}
+		}
+	}
+}
+.articles-block{
+	border: 1px solid #ccc;
+    border-top: 0;
+    padding: 40px 40px 0;
+	.blog-post{
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		border: 1px solid #bbb;
+		border-radius: 0;
+		padding-top: 20px;
+		padding-bottom: 10px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		.featured-image {
+			float: left;
+			margin: 0 10px 10px 0;
+			width: 190px;
+			
+			a{
+				// text-align: center;
+				display: flex;
+				justify-content:center;
+
+				img {
+					max-height: 190px;
+					max-width: 190px;
+					vertical-align: middle;
+					border: 1px solid #bbb;
+					height: auto;
+					width: auto;
+				}
+			}
+				
+			
+		}
+		.article-content {
+			float: right;
+			width: -moz-calc(100% - 210px);
+			width: -webkit-calc(100% - 210px);
+			width: calc(100% - 210px);
+		}
+		// float: left;
+		
+	}
+}
+.blog-body{
+	display: block;
+	h2, h3 {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-weight: normal;
+	}
+	h2{
+		font-size: 26px;
+    	margin-bottom: 20px;
+	}
+	h3{
+		font-size: 22px;
+    	margin-bottom: 16px;
+	}
+	a{
+		color: $primary-color;
+	}
+}
+@media (max-width: 600px){
+	.articles-block .blog-post .article-content {
+    width: 100%;
+}
+ .articles-block .blog-post .featured-image {
+    width: 100%;
+    text-align: center;
+}
+.articles-list {
+    // padding: 10px;
+}
+.articles-block {
+    border: 0px;
+    border-top: 0;
+    padding: 0px 0px 0;
+}
+}
 .home-page {
 	.icon-boxes-container {
 		padding-top: .5rem;

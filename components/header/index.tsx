@@ -82,7 +82,7 @@ function Header ({categories}: {categories: Categories[]}) {
                                         </li>
                                         {categories?.map((categorie, index) => {
                                             return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
-                                                <Link prefetch={false} href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" > {categorie.name} </Link>   
+                                                <Link href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" > {categorie.name} </Link>   
                                                 </li>)
                                         }) }
                                     </ul>

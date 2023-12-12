@@ -23,19 +23,19 @@ export async function generateMetadata(
     const category = await getCategory(params.category);
       
     return {
-        title:`Catalogues ${category.category.name} en ligne`,
-        generator: `Catalogues ${category.category.name} en ligne`,
+        title:`${category.category.meta_title}`,
+        generator: `${category.category.meta_title}`,
         applicationName: "Flipini",
-        description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+        description: `${category.category.meta_description}`,
         alternates: {
             canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/categories/${params.category}`,
         },
         openGraph: {
-            title: category.category.name,
+            title: category.category.meta_title,
             type: "website",
             url:process.env.NEXT_PUBLIC_SITE_URL+ "/categories/" + params.category,
             siteName: "flipini",
-            description: `Feuilletez les catalogues ${category.category.name} et découvrez ainsi les promotions de la semaine.` ,
+            description: `${category.category.meta_description}`,
             images: [`${process.env.NEXT_PUBLIC_STORAGE_END_POINT}${category.category.icon}`],
         },
     }
@@ -47,9 +47,9 @@ type ObjectKey = keyof typeof contentText;
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/category-list?country_id=${process.env.COUNTRY_ID}`);
+    const res = await fetch(`${process.env.BACKEND_URL}/api/category-slug-list?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: [ 'categories'] }});
    const resJson = await res.json();
-   const categories = resJson.data as CategoryModel[];
+   const categories = resJson as CategoryModel[];
     return categories.map(cat=> ({
         category: cat.slug
     }));
@@ -95,8 +95,12 @@ export default async function CategoryPage({params}: {params: {category: ObjectK
                 })}
             </section>
             <section className="categorie-description mb-10">
-                {/* {content[params.category]} */}
-                <Content category={params.category} />
+                {
+                    category.category.description &&
+                    <div className="mb-5 description" dangerouslySetInnerHTML={{__html: category.category.description}}>
+                        
+                    </div>
+                }
             </section>
         </div>
 
