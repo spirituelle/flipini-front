@@ -38,7 +38,7 @@ export default function Error404() {
             <h1>Cette page n&apos;existe pas (encore).</h1>
             {/* <Link href="/" className="btn btn-outline-primary"><span>Retournez à l'accueil</span><i className="icon-long-arrow-right"></i></Link> */}
 
-            <a href="" className="btn btn-outline-primary">
+            <a href="/" className="btn btn-outline-primary">
 
                 <span>Retournez à l&apos;accueil</span>
 

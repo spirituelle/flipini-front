@@ -59,6 +59,7 @@ async function getCategory(category: string){
     const res = await fetch(`${process.env.BACKEND_URL}/api/sub-category-list?name=${category}&country_id=${process.env.COUNTRY_ID}`,{ next: { tags: ['home', 'categories'] }});
 
     const data = await res.json();
+    console.log(data)
     if(data)return data as CategoryPageModel;
     notFound()
     
