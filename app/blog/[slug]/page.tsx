@@ -64,7 +64,7 @@ export async function generateStaticParams() {
 
 async function getBlog(slug: string){
     const res = await fetch(
-        `${process.env.BACKEND_URL}/api/blog-post/${slug}?country_id=${process.env.COUNTRY_ID}`
+        `${process.env.BACKEND_URL}/api/blog-post/${slug}?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: [ 'blogs'] }}
     );
     if(res.status === 200){
         const data = await res.json();

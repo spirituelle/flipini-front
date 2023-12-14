@@ -48,10 +48,9 @@ export async function generateMetadata(
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-slug-list?country_id=${process.env.COUNTRY_ID}`, {cache: "no-cache" });
+    const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-slug-list?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: [ 'magasins'] }});
    const resJson = await res.json();
    const categories = resJson.data as SubCategoryModel[];
-   console.log(categories)
     return categories.map(mag=> ({
         magasin: mag.slug
     }));
@@ -63,7 +62,6 @@ async function getMagasin(magasin: string){
         `${process.env.BACKEND_URL}/api/magasin?country_id=${process.env.COUNTRY_ID}&magasin=${magasin}`
         ,{ next: { tags: ['home', 'magasins'] }}
     );
-    console.log(res.status)
     if(res.status === 200){
         const data = await res.json();
         return data as MagasinModel;

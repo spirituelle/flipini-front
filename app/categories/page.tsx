@@ -55,7 +55,6 @@ export default async function CategoriesPage(){
 }
 
 function Magasin({ category }: any) {
-    console.log(category.icon)
     return (
         
         <Link  className="flex-none py-6 px-3 first:pl-6 last:pr-6" href={`/categories/${category.slug}`}>

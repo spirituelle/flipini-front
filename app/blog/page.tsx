@@ -16,7 +16,7 @@ import Container from "./../../components/container"
 import { cx } from "./../../utils/all";
 import { redirect } from 'next/navigation'
 // import {  RedirectType } from 'next/redirect'
-
+export const dynamicParams = true;
 
 export const metadata: Metadata = {
   title:  "Flipini: l'appli pour consulter Catalogues et Promos de vos enseignes préférées.",
@@ -34,12 +34,12 @@ type Meta = {
     total:number
   }
 async function getBlogPosts( { page, limit, search}:{ page?: number, limit?: number, search?: string | undefined}){
-    const res = await fetch(`${process.env.BACKEND_URL}/api/blog-posts?country_id=${process.env.COUNTRY_ID}&page=${page}&per_page=24&search=${search}&per_page=${limit}`,{ next: { tags: [ 'blogposts'] }});
+    const res = await fetch(`${process.env.BACKEND_URL}/api/blog-posts?country_id=${process.env.COUNTRY_ID}&page=${page}&per_page=24&search=${search}&per_page=${limit}`,{ next: { tags: [ 'blogs'] }});
     const data = await res.json();
     return  { data: data.data as BlogModel[], meta: data.meta as Meta};
 }
 
-export default async function MagasinPage({
+export default async function BlogPage({
     searchParams
   }: {
     searchParams: { [key: string]: string | string[] | undefined }
