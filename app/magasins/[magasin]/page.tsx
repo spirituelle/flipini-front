@@ -62,7 +62,6 @@ async function getMagasin(magasin: string){
         `${process.env.BACKEND_URL}/api/magasin?country_id=${process.env.COUNTRY_ID}&magasin=${magasin}`
         ,{ next: { tags: ['home', 'magasins'] }}
     );
-
     if(res.status === 200){
         const data = await res.json();
         return data as MagasinModel;
