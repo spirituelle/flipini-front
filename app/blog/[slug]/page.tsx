@@ -54,7 +54,6 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/blog-posts/paths?country_id=${process.env.COUNTRY_ID}` ,{ next: { tags: [ 'blogs'] }});
    const resJson = await res.json();
-//    console.log(resJson)
    const blogPosts = resJson as BlogModel[];
     return blogPosts.map(blogpost=> ({
         slug: blogpost.slug

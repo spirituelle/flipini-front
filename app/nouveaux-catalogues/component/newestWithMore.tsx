@@ -26,7 +26,6 @@ async function getMagasin( { page = 1,search}:{ page?: number, search?: string |
         //     user= userRes.data;
         // }
         const res = await axios.get(`/api/newest-book?country_id=${process.env.NEXT_PUBLIC_COUNTRY_ID}&page=${page}&per_page=24&search=${search}`  )
-        console.log(res.data )
         return { data: res.data.data as BookDetailsModel[], meta: res.data.pagination as Meta};
    
 }

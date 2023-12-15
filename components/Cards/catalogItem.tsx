@@ -11,7 +11,6 @@ import fr from 'date-fns/locale/fr';
 export default function catalogItem ( props: any ) {
     // const router = useRouter();
     const { catalog } = props;
-    // console.log(catalog)
     if( !catalog || catalog == undefined) return( <> undefined</>)
     const calculateTime = () => {
         

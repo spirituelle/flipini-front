@@ -57,7 +57,6 @@ async function getCatalogDetail(slug: string){
         // return res;
         const data = await res.json();
         if(data.status === 404) return notFound();
-        // console.log(data);
         return data as BookDescriptionModel;
     }
     else{

@@ -253,7 +253,6 @@ export default function ImageElement({images, catalog}){
 
 
     function recursiveFunction(windex){
-        console.log(windex,images.length )
         let isLast =  (images.length <= windex+1) ;
         if( images.length % 2 && isLast) return {elements, thumbs};
         if(windex === 0){

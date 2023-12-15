@@ -38,9 +38,10 @@ async function getSiteConfigs(){
 //      user= await userRes.json();
 // }
   const res = await fetch(`${process.env.BACKEND_URL}/api/site-config?country_id=${process.env.COUNTRY_ID}`,{next: { tags: ['menucategories'] } });
-
   if(res.status === 200){
       const data = await res.json();
+      // console.log(data[0])
+
       return data as CategoryModel[];
   
   }

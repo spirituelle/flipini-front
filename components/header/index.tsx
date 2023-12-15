@@ -13,12 +13,13 @@ import MoonIcon from './../../assets/icons/moon.svg'
 import {  usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-type Categories = {
-    slug: string,
-    name:string
-}
+import { CategoryModel } from '../../model/CategoryModel';
+// type Categories = {
+//     slug: string,
+//     name:string
+// }
 
-function Header ({categories}: {categories: Categories[]}) {
+function Header ({categories}: {categories: CategoryModel[]}) {
     const pathname = usePathname()
     const [loaded, setLoaded] = useState(false);
     useEffect(() => setLoaded(true), []);
@@ -76,13 +77,42 @@ function Header ({categories}: {categories: Categories[]}) {
                         <div className="header-element " >
                             <div className="header-center">
                                 <nav className="main-nav">
-                                    <ul className="menu  flex overflow-x-scroll">
+                                    <ul className="menu flex-wrap">
                                         <li className={ "" }>
                                             <Link href="/" className="sf-with-ul" >Accueil</Link>           
                                         </li>
                                         {categories?.map((categorie, index) => {
+                                            console.log(categorie)
                                             return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
                                                 <Link href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" > {categorie.name} </Link>   
+                                                <div className="megamenu megamenu-md">
+                                                    <div className="flex flex-row menu-col">
+                                                        <div className="basis-1/3">
+                                                            {/* <div className="menu-col">
+                                                                <div className="row">
+                                                                    <div className="col-md-6"> */}
+                                                                        <div className="menu-title">Magasins </div>
+                                                                        <ul className="flex flex-row flex-wrap overflow-y-auto">
+                                                                            {categorie.subcategories?.map((magasin, index) => {
+                                                                                return( <li key={index} className={ ( pathname.indexOf( `/magasins/${magasin.slug}` ) > -1 ) ? "active" : '' }><Link href={`/magasins/${magasin.slug}`} scroll={ false }> {magasin.name} </Link></li>)
+                                                                            })
+                                                                            }
+                                                                        </ul>
+                                                                    </div>
+                                                                {/* </div>
+                                                            </div>
+                                                        </div> */}
+
+                                                        <div className="basis-1/3">
+                                                            <div className="banner banner-overlay">
+                                                                    
+                                                            </div>
+                                                        </div>
+                                                        <div className="basis-1/3">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 </li>)
                                         }) }
                                     </ul>
