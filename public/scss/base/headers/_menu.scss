@@ -79,7 +79,8 @@
 		&.megamenu-md {
 			left: -10rem;
 			right: auto;
-			width: 24rem;
+			width: 694px;
+			// max-height: calc(100vh - 200px);
 		}
 
 		> ul,
@@ -94,6 +95,7 @@
 			margin-top: 0;
 			padding: 0;
 			min-width: 0;
+			max-height: calc(100vh - 200px);
 		}
 
 		&:not(:hover) .btn {
@@ -135,10 +137,10 @@
 
 	li {
 		> a {
-			color: #999999;
-			font-weight: 300;
-			font-size: 1.3rem;
-			letter-spacing: 0;
+			// color: #999999;
+			// font-weight: 300;
+			// font-size: 1.3rem;
+			// letter-spacing: 0;
 			padding-top: .5rem;
 			padding-bottom: .5rem;
 			padding-left: 3rem;
@@ -227,7 +229,7 @@
 	.menu-col {
 		padding-left: 3rem;
 		padding-right: 3rem;
-		margin-top: 2.2rem;
+		margin-top: .8rem;
 		padding-bottom: 2rem;
 	}
 
