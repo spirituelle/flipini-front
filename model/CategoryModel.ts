@@ -13,4 +13,5 @@ export interface CategoryModel{
     icon: string,
     subcategories: SubCategoryModel[],
     catalogues: BookDetailsModel[],
+    catalogs: BookDetailsModel[],
 }

@@ -77,20 +77,17 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                         <div className="header-element " >
                             <div className="header-center">
                                 <nav className="main-nav">
-                                    <ul className="menu flex-wrap">
+                                    <ul className="menu flex-wrap overflow-x-auto">
                                         <li className={ "" }>
                                             <Link href="/" className="sf-with-ul" >Accueil</Link>           
                                         </li>
                                         {categories?.map((categorie, index) => {
-                                            console.log(categorie)
+                                            // console.log(categorie)
                                             return ( <li key={index} className={ ( pathname.indexOf(`/categories/${categorie.slug}` ) > -1 ) ? "active" : '' }>
                                                 <Link href={`/categories/${categorie.slug}`} className="sf-with-ul flex flex-col" > {categorie.name} </Link>   
-                                                <div className="megamenu megamenu-md">
+                                                {/* <div className="megamenu megamenu-md">
                                                     <div className="flex flex-row menu-col">
                                                         <div className="basis-1/3">
-                                                            {/* <div className="menu-col">
-                                                                <div className="row">
-                                                                    <div className="col-md-6"> */}
                                                                         <div className="menu-title">Magasins </div>
                                                                         <ul className="flex flex-row flex-wrap overflow-y-auto">
                                                                             {categorie.subcategories?.map((magasin, index) => {
@@ -99,10 +96,6 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                                                                             }
                                                                         </ul>
                                                                     </div>
-                                                                {/* </div>
-                                                            </div>
-                                                        </div> */}
-
                                                         <div className="basis-1/3">
                                                             <div className="banner banner-overlay">
                                                                     
@@ -112,7 +105,7 @@ function Header ({categories}: {categories: CategoryModel[]}) {
                                                             
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> */}
                                                 </li>)
                                         }) }
                                     </ul>

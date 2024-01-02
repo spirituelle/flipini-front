@@ -49,7 +49,7 @@ export async function generateMetadata(
   }
  
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/blog-posts/paths?country_id=${process.env.COUNTRY_ID}` ,{ next: { tags: [ 'blogs'] }});

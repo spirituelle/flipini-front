@@ -40,7 +40,7 @@ async function getSiteConfigs(){
   const res = await fetch(`${process.env.BACKEND_URL}/api/site-config?country_id=${process.env.COUNTRY_ID}`,{next: { tags: ['menucategories'] } });
   if(res.status === 200){
       const data = await res.json();
-      // console.log(data[0])
+      // console.log(data)
 
       return data as CategoryModel[];
   

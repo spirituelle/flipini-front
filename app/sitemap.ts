@@ -71,49 +71,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: URL + '/',
+      url: URL +"",
       lastModified: new Date(),
     //   changeFrequency: "daily",
     //   priority: 1,
     },
     {
-        url: URL + '/contact',
+        url: URL + 'contact',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: URL + '/contact',
+        url: URL + 'contact',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: URL + '/about',
+        url: URL + 'about',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: URL+ '/faq',
+        url: URL+ 'faq',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: URL + '/magasins',
+        url: URL + 'magasins',
         lastModified: new Date(),
         // changeFrequency: "never",
         // priority: 0.2,
     },
     {
-        url: URL + '/categories',
+        url: URL + 'categories',
         lastModified: new Date(),
         // changeFrequency: "daily",
         // priority: 0.2,
     },
     {
-        url: URL + '/nouveaux-catalogues',
+        url: URL + 'nouveaux-catalogues',
         lastModified: new Date(),
         // changeFrequency: "daily",
         // priority: 0.2,

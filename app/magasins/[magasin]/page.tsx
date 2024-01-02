@@ -14,6 +14,7 @@ import  Image  from 'next/image';
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import MultiplexAd from './../../../components/ads/multiplex.js'
+
 type Props = {
     params: { magasin: string }
     // searchParams: { [key: string]: string | string[] | undefined }
@@ -45,7 +46,7 @@ export async function generateMetadata(
   }
  
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/magasin-slug-list?country_id=${process.env.COUNTRY_ID}`,{ next: { tags: [ 'magasins'] }});
